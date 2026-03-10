@@ -7,11 +7,13 @@ body{
 .contenedor{
     display:flex;
     padding:40px;
+    max-width:1200px;
+    margin:auto;
 }
 
 .perfil img{
-    width:220px;
-    border-radius:3px;
+    width:230px;
+    border-radius:5px;
 }
 
 .info{
@@ -20,7 +22,7 @@ body{
 
 .info h1{
     color:#1a33ff;
-    font-size:45px;
+    font-size:48px;
     margin:0;
 }
 
@@ -29,16 +31,17 @@ body{
 }
 
 .info h3{
-    font-size:32px;
+    font-size:36px;
     margin-top:0;
 }
 
 .descripcion{
-    margin-top:-10px;
+    margin-top:5px;
 }
 
 .secciones{
     display:flex;
+    align-items:flex-start;
     margin-top:40px;
 }
 
@@ -46,29 +49,56 @@ body{
     width:300px;
 }
 
+.proyectos p{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
 .herramientas{
     width:300px;
 }
 
+.herramientas p{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
 .linea{
-    width:10px;
+    width:8px;
+    height:120px;
     background:#2d2f55;
-    margin:0 30px;
+    margin:0 40px;
 }
 
 footer{
     background:#2d2f55;
     color:white;
     padding:30px;
-    margin-top:50px;
+    margin-top:80px;
 }
 
 .footer-contenido{
     display:flex;
-    gap:60px;
+    gap:80px;
 }
 
 .copy{
     text-align:center;
     margin-top:20px;
+}
+.proyectos p,
+.herramientas p{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.proyectos img{
+width:35px;
+}
+
+.herramientas img{
+width:40px;
 }
