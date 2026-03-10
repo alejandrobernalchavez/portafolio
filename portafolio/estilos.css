@@ -1,0 +1,74 @@
+body{
+    margin:0;
+    font-family: Georgia, serif;
+    background:#f3f3f3;
+}
+
+.contenedor{
+    display:flex;
+    padding:40px;
+}
+
+.perfil img{
+    width:220px;
+    border-radius:3px;
+}
+
+.info{
+    margin-left:40px;
+}
+
+.info h1{
+    color:#1a33ff;
+    font-size:45px;
+    margin:0;
+}
+
+.info h2{
+    margin-bottom:0;
+}
+
+.info h3{
+    font-size:32px;
+    margin-top:0;
+}
+
+.descripcion{
+    margin-top:-10px;
+}
+
+.secciones{
+    display:flex;
+    margin-top:40px;
+}
+
+.proyectos{
+    width:300px;
+}
+
+.herramientas{
+    width:300px;
+}
+
+.linea{
+    width:10px;
+    background:#2d2f55;
+    margin:0 30px;
+}
+
+footer{
+    background:#2d2f55;
+    color:white;
+    padding:30px;
+    margin-top:50px;
+}
+
+.footer-contenido{
+    display:flex;
+    gap:60px;
+}
+
+.copy{
+    text-align:center;
+    margin-top:20px;
+}
