@@ -75,7 +75,22 @@
 
 <div>
 <h3>Redes sociales</h3>
-<p>LinkedIn | GitHub | Email</p>
+<div class="redes">
+
+<a href="#">
+<img src="img/linkedin.png" alt="LinkedIn">
+
+</a>
+
+<a href="#">
+<img src="img/github.png" alt="GitHub">
+</a>
+
+<a href="#">
+<img src="img/email.png" alt="Email">
+</a>
+
+</div>
 </div>
 
 </div>
