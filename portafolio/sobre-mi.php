@@ -41,9 +41,36 @@ Además de mi interés por la tecnología, valoro el aprendizaje continuo y el t
 
 <footer>
 
+<div class="footer-contenido">
+
+<div>
+<p>CV ingles</p>
+<p>CV español</p>
+</div>
+
+<div>
+<h3>Redes sociales</h3>
+
+<div class="redes">
+
+<a href="#">
+<img src="img/linkedin.jpg" alt="LinkedIn">
+</a>
+
+<a href="#">
+<img src="img/github.png" alt="GitHub">
+</a>
+
+<a href="#">
+<img src="img/email.png" alt="Email">
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
 
 </footer>
-
-</body>
-</html>
