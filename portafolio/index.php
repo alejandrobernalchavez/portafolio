@@ -78,7 +78,7 @@
 <div class="redes">
 
 <a href="#">
-<img src="img/linkedin.png" alt="LinkedIn">
+<img src="img/linkedin.jpg" alt="LinkedIn">
 
 </a>
 
