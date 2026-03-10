@@ -1,73 +1,33 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Portafolio QA Tester</title>
-<link rel="stylesheet" href="estilos.css">
-</head>
+<<div class="secciones">
 
-<body>
+    <div class="proyectos">
+        <h2>Proyectos de Testing:</h2>
 
-<div class="contenedor">
-
-    <div class="perfil">
-        <img src="img/perfil.jpg" alt="foto">
-    </div>
-
-    <div class="info">
-
-        <h2>Hola mi nombre es</h2>
-
-        <h1>CRISTOPHER BERNAL</h1>
-
-        <h3>y soy un qa tester</h3>
-
-        <p class="descripcion">
-        Apasionado por la calidad del software y la mejora continua.
+        <p>
+        <img src="img/github.png" width="35">
+        Periodico Digital Comunitario
         </p>
 
-        <div class="secciones">
+        <p>
+        <img src="img/github.png" width="35">
+        Donamiga
+        </p>
+    </div>
 
-            <div class="proyectos">
-                <h2>Proyectos de Testing:</h2>
+    <div class="linea"></div>
 
-                <p>🐙 Periodico Digital Comunitario</p>
-                <p>🐙 Donamiga</p>
-            </div>
+    <div class="herramientas">
+        <h2>Herramientas</h2>
 
-            <div class="linea"></div>
+        <p>
+        <img src="img/devops.png" width="40">
+        AZURE DEVOPS
+        </p>
 
-            <div class="herramientas">
-                <h2>Herramientas</h2>
-
-                <p>⚙ AZURE DEVOPS</p>
-                <p>📄 Microsoft Word</p>
-            </div>
-
-        </div>
-
+        <p>
+        <img src="img/word.jpg" width="40">
+        Microsoft Word
+        </p>
     </div>
 
 </div>
-
-<footer>
-
-<div class="footer-contenido">
-
-<div>
-<h3>Sobre mi</h3>
-</div>
-
-<div>
-<h3>Redes sociales</h3>
-<p>LinkedIn | GitHub | Email</p>
-</div>
-
-</div>
-
-<p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
-
-</footer>
-
-</body>
-</html>
