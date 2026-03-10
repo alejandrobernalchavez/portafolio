@@ -44,8 +44,9 @@ Además de mi interés por la tecnología, valoro el aprendizaje continuo y el t
 <div class="footer-contenido">
 
 <div>
-<p>CV ingles</p>
-<p>CV español</p>
+<a href="cv/cv-ingles.pdf" download>CV inglés</a>
+<br>
+<a href="cv/cv-espanol.pdf" download>CV español</a>
 </div>
 
 <div>
