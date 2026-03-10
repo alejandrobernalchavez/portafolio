@@ -53,17 +53,19 @@ Además de mi interés por la tecnología, valoro el aprendizaje continuo y el t
 
 <div class="redes">
 
-<a href="#">
+<a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
 <img src="img/linkedin.jpg" alt="LinkedIn">
 </a>
 
-<a href="#">
+<a href="https://github.com/alejandrobernalchavez" target="_blank">
 <img src="img/github.png" alt="GitHub">
 </a>
 
-<a href="#">
+<a href="mailto:alejogevara27@gmail.com">
 <img src="img/email.png" alt="Email">
 </a>
+
+</div>
 
 </div>
 
