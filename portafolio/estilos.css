@@ -25,28 +25,29 @@ border-radius:5px;
 .info{
 margin-left:40px;
 max-width:600px;
+text-align:center;
 }
 
-.info h1{
+.saludo{
+font-size:32px;
+margin-bottom:5px;
+}
+
+.nombre{
 color:#1a33ff;
-font-size:48px;
+font-size:50px;
 margin:0;
 }
 
-.info h2{
-margin-bottom:0;
-}
-
-.info h3{
-font-size:32px;
-margin-top:-10px;
+.profesion{
+font-size:34px;
+margin-top:5px;
 }
 
 .descripcion{
-margin-top:5px;
 font-size:16px;
+margin-top:10px;
 }
-
 /* SECCIONES */
 
 .secciones{
