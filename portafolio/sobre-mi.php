@@ -35,7 +35,7 @@ Además de mi interés por la tecnología, valoro el aprendizaje continuo y el t
 
 <br>
 
-<a class="boton-volver" href="index.php">← Volver al portafolio</a>
+<a class="boton-volver" href="index.php">← Volver al inicio</a>
 
 </div>
 
