@@ -12,21 +12,17 @@
 
 <div class="perfil">
 <img src="img/_LUI0053-2.jpeg" alt="foto">
-
+</div>
 
 <div class="info">
 
-<h2 class="saludo">Hola mi nombre es</h2>
-
-<h1 class="nombre">CRISTOPHER BERNAL</h1>
-
-<h3 class="profesion">y soy un qa tester</h3>
+<h2>Hola mi nombre es</h2>
+<h1>CRISTOPHER BERNAL</h1>
+<h3>y soy un QA Tester</h3>
 
 <p class="descripcion">
 Apasionado por la calidad del software y la mejora continua.
 </p>
-
-</div>
 
 <div class="secciones">
 
