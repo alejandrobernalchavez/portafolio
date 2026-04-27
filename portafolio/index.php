@@ -4,9 +4,22 @@
 <meta charset="UTF-8">
 <title>Portafolio QA Tester</title>
 <link rel="stylesheet" href="estilos.css">
+
+<!-- ICONOS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.php">Inicio</a>
+  <a href="sobre-mi.php">Sobre mí</a>
+  <a href="#proyectos">Proyectos</a>
+  <a href="#skills">Habilidades</a>
+  <a href="#contacto">Contacto</a>
+</nav>
 
 <div class="contenedor">
 
@@ -16,57 +29,60 @@
 
 <div class="info">
 
-<h2>Hola mi nombre es</h2>
+<h2>QA Tester enfocado en calidad de software</h2>
 <h1>CRISTOPHER BERNAL</h1>
-<h3>y soy un QA Tester</h3>
+<h3>Detecto errores antes de que lleguen al usuario final</h3>
 
 <p class="descripcion">
-Apasionado por la calidad del software y la mejora continua.
-</p>
-
-<div class="secciones">
-
-<div class="proyectos">
-
-<h2>Proyectos de Testing:</h2>
-
-<p>
-<img src="img/github.png">
-Periodico Digital Comunitario
-</p>
-
-<p>
-<img src="img/github.png">
-Donamiga
+Estudiante de Ingeniería en Sistemas apasionado por el aseguramiento de calidad, pruebas funcionales y mejora continua del software.
 </p>
 
 </div>
+</div>
 
-<div class="linea"></div>
+<!-- PROYECTOS -->
+<section id="proyectos">
 
-<div class="herramientas">
+<h2 style="text-align:center;">Proyectos</h2>
 
-<h2>Herramientas</h2>
+<div class="contenedor-cards">
 
-<p>
-<img src="img/devops.png">
-AZURE DEVOPS
-</p>
+<div class="card">
+  <h3>Periódico Digital Comunitario</h3>
+  <p>Aplicación web donde realicé pruebas funcionales, validación de contenido y verificación de navegación.</p>
+</div>
 
-<p>
-<img src="img/word.jpg">
-Microsoft Word
-</p>
-
+<div class="card">
+  <h3>Donamiga</h3>
+  <p>Plataforma de donaciones donde probé formularios, flujos de usuario y experiencia general.</p>
 </div>
 
 </div>
 
+</section>
+
+<!-- HABILIDADES -->
+<section id="skills">
+
+<h2 style="text-align:center;">Habilidades</h2>
+
+<div class="contenedor-cards">
+
+<div class="card">
+  <p><i class="fas fa-tools"></i> Azure DevOps</p>
+  <p><i class="fas fa-file-word"></i> Microsoft Word</p>
+</div>
+
+<div class="card">
+  <p><i class="fas fa-bug"></i> Testing Manual</p>
+  <p><i class="fas fa-check-circle"></i> Pruebas funcionales</p>
 </div>
 
 </div>
 
-<footer>
+</section>
+
+<footer id="contacto">
 
 <div class="footer-contenido">
 
@@ -91,8 +107,6 @@ Microsoft Word
 <a href="mailto:alejogevara27@gmail.com">
 <img src="img/email.png" alt="Email">
 </a>
-
-</div>
 
 </div>
 

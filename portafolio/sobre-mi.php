@@ -4,34 +4,69 @@
 <meta charset="UTF-8">
 <title>Sobre mí</title>
 <link rel="stylesheet" href="estilos.css">
+
+<!-- ICONOS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.php">Inicio</a>
+  <a href="sobre-mi.php">Sobre mí</a>
+  <a href="index.php#proyectos">Proyectos</a>
+  <a href="index.php#skills">Habilidades</a>
+  <a href="#contacto">Contacto</a>
+</nav>
 
 <div class="pagina-sobre-mi">
 
 <h1>Sobre mí</h1>
 
 <p>
-Soy QA Tester con interés en el desarrollo de software y la mejora continua de la calidad en aplicaciones. 
-Actualmente me enfoco en el testing de sistemas, identificando errores y asegurando que las aplicaciones funcionen correctamente antes de llegar a los usuarios.
+Soy estudiante de Ingeniería en Sistemas y QA Tester en formación, enfocado en garantizar la calidad del software mediante pruebas funcionales, análisis de errores y mejora continua.
 </p>
 
 <p>
-Me gusta analizar el comportamiento del software, documentar fallos y colaborar con los equipos de desarrollo para mejorar la estabilidad y el rendimiento de los productos.
+Me interesa comprender cómo funcionan las aplicaciones desde la perspectiva del usuario, identificando fallos y proponiendo soluciones que mejoren la experiencia y el rendimiento del sistema.
 </p>
 
 <p>
-También tengo conocimientos en desarrollo web y me interesa seguir creciendo dentro del área de tecnología, especialmente en el ciclo completo de desarrollo de software.
+He trabajado en proyectos académicos donde he realizado pruebas de software, validación de funcionalidades y documentación de errores, colaborando con equipos de desarrollo.
 </p>
 
 <p>
-Disfruto aprender nuevas herramientas, investigar soluciones técnicas y mantenerme en constante formación para mejorar mis habilidades profesionales.
+Además, cuento con conocimientos en desarrollo web, lo que me permite entender mejor el ciclo completo de desarrollo y aportar desde una visión más técnica.
 </p>
 
 <p>
-Además de mi interés por la tecnología, valoro el aprendizaje continuo y el trabajo en equipo, ya que considero que la colaboración y la comunicación son claves para construir productos de calidad y resolver problemas de manera eficiente.
+Me considero una persona analítica, detallista y comprometida con el aprendizaje constante, buscando siempre mejorar mis habilidades dentro del área de tecnología.
 </p>
+
+<!-- HABILIDADES -->
+<section>
+
+<h2>Habilidades</h2>
+
+<div class="contenedor-cards">
+
+<div class="card">
+  <p><i class="fas fa-bug"></i> Testing manual</p>
+  <p><i class="fas fa-check-circle"></i> Pruebas funcionales</p>
+  <p><i class="fas fa-file-alt"></i> Documentación de errores</p>
+</div>
+
+<div class="card">
+  <p><i class="fas fa-code"></i> HTML / CSS básico</p>
+  <p><i class="fas fa-database"></i> SQL básico</p>
+  <p><i class="fas fa-users"></i> Trabajo en equipo</p>
+</div>
+
+</div>
+
+</section>
 
 <br>
 
@@ -39,7 +74,7 @@ Además de mi interés por la tecnología, valoro el aprendizaje continuo y el t
 
 </div>
 
-<footer>
+<footer id="contacto">
 
 <div class="footer-contenido">
 
@@ -72,8 +107,9 @@ Además de mi interés por la tecnología, valoro el aprendizaje continuo y el t
 
 </div>
 
-</div>
-
 <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
 
 </footer>
+
+</body>
+</html>
