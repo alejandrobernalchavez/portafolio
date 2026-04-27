@@ -14,11 +14,11 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <a href="index.php">Inicio</a>
+  <a href="index.php" class="active">Inicio</a>
   <a href="sobre-mi.php">Sobre mí</a>
   <a href="proyectos.php">Proyectos</a>
   <a href="habilidades.php">Habilidades</a>
-  <a href="#contacto">Contacto</a>
+  <a href="contacto.php">Contacto</a>
 </nav>
 
 <!-- CONTENIDO PRINCIPAL -->
@@ -40,7 +40,7 @@
 Estudiante de Ingeniería en Sistemas apasionado por el aseguramiento de calidad, pruebas funcionales y mejora continua del software.
 </p>
 
-<!-- BOTONES (IMPORTANTE PARA UX) -->
+<!-- BOTONES -->
 <div style="margin-top:20px;">
 
 <a href="proyectos.php" class="boton-volver">
@@ -60,7 +60,7 @@ Descargar CV
 </div>
 
 <!-- FOOTER -->
-<footer id="contacto">
+<footer>
 
 <div class="footer-contenido">
 

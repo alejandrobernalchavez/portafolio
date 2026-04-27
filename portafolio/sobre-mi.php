@@ -15,10 +15,10 @@
 <!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.php">Inicio</a>
-  <a href="sobre-mi.php">Sobre mí</a>
+  <a href="sobre-mi.php" class="active">Sobre mí</a>
   <a href="proyectos.php">Proyectos</a>
   <a href="habilidades.php">Habilidades</a>
-  <a href="#contacto">Contacto</a>
+  <a href="contacto.php">Contacto</a>
 </nav>
 
 <div class="pagina-sobre-mi">
@@ -86,7 +86,7 @@ Descargar CV
 </div>
 
 <!-- FOOTER -->
-<footer id="contacto">
+<footer>
 
 <div class="footer-contenido">
 
