@@ -16,11 +16,12 @@
 <nav class="navbar">
   <a href="index.php">Inicio</a>
   <a href="sobre-mi.php">Sobre mí</a>
-  <a href="#proyectos">Proyectos</a>
-  <a href="#skills">Habilidades</a>
+  <a href="proyectos.php">Proyectos</a>
+  <a href="habilidades.php">Habilidades</a>
   <a href="#contacto">Contacto</a>
 </nav>
 
+<!-- CONTENIDO PRINCIPAL -->
 <div class="contenedor">
 
 <div class="perfil">
@@ -30,64 +31,41 @@
 <div class="info">
 
 <h2>QA Tester enfocado en calidad de software</h2>
+
 <h1>CRISTOPHER BERNAL</h1>
+
 <h3>Detecto errores antes de que lleguen al usuario final</h3>
 
 <p class="descripcion">
 Estudiante de Ingeniería en Sistemas apasionado por el aseguramiento de calidad, pruebas funcionales y mejora continua del software.
 </p>
 
+<!-- BOTONES (IMPORTANTE PARA UX) -->
+<div style="margin-top:20px;">
+
+<a href="proyectos.php" class="boton-volver">
+Ver proyectos
+</a>
+
+&nbsp;&nbsp;
+
+<a href="cv/cv-espanol.pdf" download class="boton-volver">
+Descargar CV
+</a>
+
 </div>
-</div>
 
-<!-- PROYECTOS -->
-<section id="proyectos">
-
-<h2 style="text-align:center;">Proyectos</h2>
-
-<div class="contenedor-cards">
-
-<div class="card">
-  <h3>Periódico Digital Comunitario</h3>
-  <p>Aplicación web donde realicé pruebas funcionales, validación de contenido y verificación de navegación.</p>
-</div>
-
-<div class="card">
-  <h3>Donamiga</h3>
-  <p>Plataforma de donaciones donde probé formularios, flujos de usuario y experiencia general.</p>
 </div>
 
 </div>
 
-</section>
-
-<!-- HABILIDADES -->
-<section id="skills">
-
-<h2 style="text-align:center;">Habilidades</h2>
-
-<div class="contenedor-cards">
-
-<div class="card">
-  <p><i class="fas fa-tools"></i> Azure DevOps</p>
-  <p><i class="fas fa-file-word"></i> Microsoft Word</p>
-</div>
-
-<div class="card">
-  <p><i class="fas fa-bug"></i> Testing Manual</p>
-  <p><i class="fas fa-check-circle"></i> Pruebas funcionales</p>
-</div>
-
-</div>
-
-</section>
-
+<!-- FOOTER -->
 <footer id="contacto">
 
 <div class="footer-contenido">
 
 <div>
-<a class="link-footer" href="sobre-mi.php">Sobre mí</a>
+<a href="sobre-mi.php">Sobre mí</a>
 </div>
 
 <div>

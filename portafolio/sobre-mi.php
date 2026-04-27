@@ -16,8 +16,8 @@
 <nav class="navbar">
   <a href="index.php">Inicio</a>
   <a href="sobre-mi.php">Sobre mí</a>
-  <a href="index.php#proyectos">Proyectos</a>
-  <a href="index.php#skills">Habilidades</a>
+  <a href="proyectos.php">Proyectos</a>
+  <a href="habilidades.php">Habilidades</a>
   <a href="#contacto">Contacto</a>
 </nav>
 
@@ -30,22 +30,22 @@ Soy estudiante de Ingeniería en Sistemas y QA Tester en formación, enfocado en
 </p>
 
 <p>
-Me interesa comprender cómo funcionan las aplicaciones desde la perspectiva del usuario, identificando fallos y proponiendo soluciones que mejoren la experiencia y el rendimiento del sistema.
+Me especializo en identificar fallos antes de que lleguen al usuario final, asegurando que las aplicaciones funcionen correctamente y cumplan con los estándares de calidad.
 </p>
 
 <p>
-He trabajado en proyectos académicos donde he realizado pruebas de software, validación de funcionalidades y documentación de errores, colaborando con equipos de desarrollo.
+He participado en proyectos académicos donde realicé pruebas de software, validación de funcionalidades y documentación de errores, colaborando con equipos de desarrollo.
 </p>
 
 <p>
-Además, cuento con conocimientos en desarrollo web, lo que me permite entender mejor el ciclo completo de desarrollo y aportar desde una visión más técnica.
+Además, cuento con conocimientos en desarrollo web, lo que me permite entender mejor el ciclo completo de desarrollo y aportar desde una visión técnica.
 </p>
 
 <p>
-Me considero una persona analítica, detallista y comprometida con el aprendizaje constante, buscando siempre mejorar mis habilidades dentro del área de tecnología.
+Me considero una persona analítica, detallista y comprometida con el aprendizaje constante dentro del área tecnológica.
 </p>
 
-<!-- HABILIDADES -->
+<!-- HABILIDADES VISUALES -->
 <section>
 
 <h2>Habilidades</h2>
@@ -59,21 +59,33 @@ Me considero una persona analítica, detallista y comprometida con el aprendizaj
 </div>
 
 <div class="card">
-  <p><i class="fas fa-code"></i> HTML / CSS básico</p>
+  <p><i class="fas fa-tools"></i> Azure DevOps</p>
   <p><i class="fas fa-database"></i> SQL básico</p>
-  <p><i class="fas fa-users"></i> Trabajo en equipo</p>
+  <p><i class="fas fa-code"></i> HTML / CSS</p>
 </div>
 
 </div>
 
 </section>
 
-<br>
+<!-- BOTONES -->
+<div style="text-align:center; margin-top:40px;">
 
-<a class="boton-volver" href="index.php">← Volver al inicio</a>
+<a href="proyectos.php" class="boton-volver">
+Ver proyectos
+</a>
+
+&nbsp;&nbsp;
+
+<a href="cv/cv-espanol.pdf" download class="boton-volver">
+Descargar CV
+</a>
 
 </div>
 
+</div>
+
+<!-- FOOTER -->
 <footer id="contacto">
 
 <div class="footer-contenido">
@@ -85,6 +97,7 @@ Me considero una persona analítica, detallista y comprometida con el aprendizaj
 </div>
 
 <div>
+
 <h3>Redes sociales</h3>
 
 <div class="redes">
