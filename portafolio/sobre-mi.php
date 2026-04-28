@@ -62,10 +62,10 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 
 <nav class="navbar">
     <div class="pestañas">
-        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo (strpos($pagina_actual, 'index') !== false) ? 'active' : ''; ?>">
+        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'index.php') ? 'active' : ''; ?>">
             <i class="fas fa-home"></i> <?php echo $t['inicio']; ?>
         </a>
-        <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo (strpos($pagina_actual, 'sobre-mi') !== false) ? 'active' : ''; ?>">
+        <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
             <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
         </a>
     </div>
@@ -78,44 +78,42 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     </div>
 </nav>
 
-<main>
-    <section class="contenedor-sobre-mi">
-        <h1><?php echo $t['h1']; ?></h1>
-        <p class="descripcion-larga"><?php echo $t['p1']; ?></p>
-        <p class="descripcion-larga"><?php echo $t['p2']; ?></p>
+<main class="contenedor-sobre-mi">
+    <h1><?php echo $t['h1']; ?></h1>
+    <p class="descripcion-larga"><?php echo $t['p1']; ?></p>
+    <p class="descripcion-larga"><?php echo $t['p2']; ?></p>
 
-        <div class="seccion-detalle">
-            <h2 class="subtitulo-seccion"><?php echo $t['formacion']; ?></h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <p class="texto-principal"><?php echo $t['ing']; ?></p>
-                    <p class="texto-secundario"><?php echo $t['uni_nombre']; ?> | <?php echo $t['uni_fecha']; ?></p>
-                </div>
-                <div class="timeline-item">
-                    <p class="texto-principal"><?php echo $t['bach']; ?></p>
-                    <p class="texto-secundario"><?php echo $t['bach_nombre']; ?> | <?php echo $t['bach_fecha']; ?></p>
-                </div>
-            </div>
+    <section class="seccion-detalle">
+        <h2 class="subtitulo-seccion"><?php echo $t['formacion']; ?></h2>
+        
+        <div class="timeline-item">
+            <p class="texto-principal"><?php echo $t['ing']; ?></p>
+            <p class="texto-secundario"><?php echo $t['uni_nombre']; ?> | <?php echo $t['uni_fecha']; ?></p>
         </div>
 
-        <div class="seccion-detalle">
-            <h2 class="subtitulo-seccion"><?php echo $t['habilidades']; ?></h2>
-            <div class="contenedor-cards">
-                <div class="card">🧩 Testing Manual</div>
-                <div class="card">✅ Pruebas Funcionales</div>
-                <div class="card">📄 Documentación de Errores</div>
-                <div class="card">🛠️ Azure DevOps</div>
-                <div class="card">🗄️ SQL Básico</div>
-                <div class="card">💻 HTML / CSS</div>
-            </div>
-        </div>
-
-        <div style="margin-top: 40px;">
-            <a href="<?php echo $t['cv_path']; ?>" download class="idiomas" style="display: inline-flex; text-decoration: none; padding: 12px 25px;">
-                <i class="fas fa-file-download" style="margin-right: 10px;"></i> <?php echo $t['btn_cv']; ?>
-            </a>
+        <div class="timeline-item">
+            <p class="texto-principal"><?php echo $t['bach']; ?></p>
+            <p class="texto-secundario"><?php echo $t['bach_nombre']; ?> | <?php echo $t['bach_fecha']; ?></p>
         </div>
     </section>
+
+    <section class="seccion-detalle">
+        <h2 class="subtitulo-seccion"><?php echo $t['habilidades']; ?></h2>
+        <div class="contenedor-cards">
+            <div class="card">🧩 Testing Manual</div>
+            <div class="card">✅ Pruebas Funcionales</div>
+            <div class="card">📄 Documentación de Errores</div>
+            <div class="card">🛠️ Azure DevOps</div>
+            <div class="card">🗄️ SQL Básico</div>
+            <div class="card">💻 HTML / CSS</div>
+        </div>
+    </section>
+
+    <div class="actions" style="margin-top: 40px;">
+        <a href="<?php echo $t['cv_path']; ?>" download class="btn-portafolio btn-blanco">
+            <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
+        </a>
+    </div>
 </main>
 
 <footer>

@@ -81,10 +81,10 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
         </p>
 
         <div class="actions">
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="idiomas" style="text-decoration: none; padding: 12px 25px; background: var(--color-acento); color: white; border: none;">
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="btn-portafolio btn-azul">
                 <i class="fas fa-search"></i> <?php echo $t['btn_conocer']; ?>
             </a>
-            <a href="<?php echo $t['cv_path']; ?>" download class="idiomas" style="text-decoration: none; padding: 12px 25px;">
+            <a href="<?php echo $t['cv_path']; ?>" download class="btn-portafolio btn-blanco">
                 <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
             </a>
         </div>
