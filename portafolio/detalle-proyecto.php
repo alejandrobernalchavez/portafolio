@@ -119,11 +119,11 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 <main class="contenedor-sobre-mi">
     
     <?php if ($p): ?>
-        <h1 id="titulo-dinamico" style="text-decoration: underline; margin-bottom: 30px;"><?php echo $p['titulo']; ?></h1>
+        <h1 id="titulo-dinamico" style="text-decoration: underline; margin-bottom: 30px; font-weight: bold; font-size: 2.5rem;"><?php echo $p['titulo']; ?></h1>
         
         <div id="visor-contenido">
             <div id="texto-descripcion">
-                <p class="descripcion-larga">
+                <p class="descripcion-larga" style="font-size: 1.2rem; color: #5f6368; line-height: 1.6; max-width: 800px; margin: 0 auto 40px;">
                     <?php echo $p['desc']; ?>
                 </p>
 
@@ -132,7 +132,8 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
                     
                     <div class="tech-lista-columnas">
                         <?php 
-                        $tech_string = $p['tech']['Tecnologías'] ?? $p['tech']['Technologies'];
+                        $tech_key = ($lang == 'es') ? 'Tecnologías' : 'Technologies';
+                        $tech_string = $p['tech'][$tech_key];
                         $lista_tech = explode(', ', $tech_string); 
                         foreach ($lista_tech as $item): 
                         ?>
@@ -144,8 +145,11 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 
                     <div class="tech-footer-row">
                         <div class="rol-destacado">
-                            <strong><?php echo $t['etiqueta_rol']; ?></strong> 
-                            <?php echo $p['tech']['Mi Rol'] ?? $p['tech']['My Role']; ?>
+                            <span style="color: #333; font-weight: bold;"><?php echo $t['etiqueta_rol']; ?></span> 
+                            <?php 
+                                $rol_key = ($lang == 'es') ? 'Mi Rol' : 'My Role';
+                                echo $p['tech'][$rol_key]; 
+                            ?>
                         </div>
                         
                         <?php if (isset($p['repo'])): ?>
@@ -157,7 +161,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
                 </div>
             </div>
 
-            <img id="imagen-galeria" src="" alt="Captura" class="img-proyecto-detalle" style="display: none;">
+            <img id="imagen-galeria" src="" alt="Captura de pantalla del proyecto" class="img-proyecto-detalle" style="display: none;">
         </div>
 
         <div class="navegacion-proyectos">
@@ -165,7 +169,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
                  <?php echo $t['atras']; ?>
             </button>
 
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" id="btn-volver-inicio" class="btn-inicio-central">
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" id="btn-volver-inicio" class="btn-inicio-central" style="display: none;">
                 <?php echo $t['inicio_btn']; ?>
             </a>
             
@@ -175,10 +179,10 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         </div>
 
     <?php else: ?>
-        <div class="error-container">
-            <i class="fas fa-exclamation-triangle"></i>
-            <p><?php echo $t['no_encontrado']; ?></p>
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-portafolio btn-azul"><?php echo $t['volver_proyectos']; ?></a>
+        <div class="error-container" style="text-align: center; padding: 100px 0;">
+            <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #f4b400; margin-bottom: 20px;"></i>
+            <p style="font-size: 1.5rem; color: #5f6368;"><?php echo $t['no_encontrado']; ?></p>
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-portafolio btn-azul" style="margin-top: 30px;"><?php echo $t['volver_proyectos']; ?></a>
         </div>
     <?php endif; ?>
 </main>
@@ -191,12 +195,14 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     const urlParams = new URLSearchParams(window.location.search);
     let proyectoActual = urlParams.get('proyecto');
 
+    // Mantenemos la normalización del ID para el script
     if (proyectoActual === 'periodico') { proyectoActual = 'comunicado'; }
 
     let paso = 0; 
     let totalImagenes = 0;
     let prefijo = '';
 
+    // Configuración de la galería según el proyecto
     if (proyectoActual === 'donamiga') { totalImagenes = 3; prefijo = 'd'; } 
     else if (proyectoActual === 'goodburger') { totalImagenes = 14; prefijo = 'g'; } 
     else if (proyectoActual === 'comunicado') { totalImagenes = 4; prefijo = 'c'; }
@@ -206,11 +212,21 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     const btnVolver = document.getElementById('btn-volver-inicio');
     const btnSiguiente = document.getElementById('btn-siguiente');
 
-    function navegarGaleria() { if (paso < totalImagenes) { paso++; actualizarVisor(); } }
+    function navegarGaleria() { 
+        if (paso < totalImagenes) { 
+            paso++; 
+            actualizarVisor(); 
+        } 
+    }
 
     function retrocederGaleria() {
-        if (paso > 0) { paso--; actualizarVisor(); } 
-        else { window.location.href = "proyectos.php?lang=<?php echo $lang; ?>"; }
+        if (paso > 0) { 
+            paso--; 
+            actualizarVisor(); 
+        } 
+        else { 
+            window.location.href = "proyectos.php?lang=<?php echo $lang; ?>"; 
+        }
     }
 
     function actualizarVisor() {
@@ -224,6 +240,8 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
             imagen.src = `img/${prefijo}${paso}.jpeg`;
             btnVolver.style.display = 'inline-block';
         }
+        
+        // Ocultar botón "Siguiente" si llegamos al final de la galería
         btnSiguiente.style.visibility = (paso === totalImagenes) ? 'hidden' : 'visible';
     }
 </script>
