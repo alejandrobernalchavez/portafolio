@@ -4,7 +4,7 @@
 :root {
     --color-chrome-bg: #dee1e6;     
     --color-chrome-active: #ffffff; 
-    --color-acento: #1a73e8;        /* Azul Google */
+    --color-acento: #1a73e8;        
     --color-texto-suave: #5f6368;
     --fuente-titulos: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   2. NAVBAR
+   2. NAVBAR (Corrección de Idiomas)
 ========================= */
 .navbar {
     display: flex;
@@ -36,14 +36,13 @@ body {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #bdc1c6;
-    flex-wrap: wrap; 
-    gap: 15px;
+    height: 60px; /* Altura fija para alineación perfecta */
 }
 
 .pestañas {
     display: flex;
     align-items: flex-end; 
-    gap: 4px;
+    height: 100%;
 }
 
 .navbar a {
@@ -57,8 +56,6 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    white-space: nowrap; 
-    border: 1px solid transparent;
 }
 
 .navbar a.active {
@@ -67,11 +64,36 @@ body {
     border: 1px solid #bdc1c6;
     border-bottom: 1px solid var(--color-chrome-active);
     margin-bottom: -1px;
-    z-index: 2;
+}
+
+/* --- FIX DE IDIOMAS --- */
+.idiomas {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid #dadce0;
+    font-size: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.idiomas a {
+    padding: 0 !important; /* Quita el padding de los links de la nav */
+    color: var(--color-acento);
+    font-weight: bold;
+    border: none !important;
+    background: none !important;
+}
+
+.idiomas a.lang-active {
+    color: #5f6368;
+    pointer-events: none;
 }
 
 /* =========================
-   3. CONTENEDOR PRINCIPAL E INFO
+   3. CONTENEDOR PRINCIPAL
 ========================= */
 main {
     flex: 1; 
@@ -82,9 +104,8 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 60px 5%; /* Más espacio vertical */
-    gap: 60px; /* Más espacio entre foto y texto */
-    flex-wrap: wrap; 
+    padding: 80px 5%; /* Más aire arriba y abajo */
+    gap: 80px; 
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -92,87 +113,32 @@ main {
 .perfil img {
     width: 280px; 
     height: auto;
-    object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: block;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-.info {
-    flex: 1;
-    min-width: 300px; 
-    max-width: 700px;
-}
-
-/* --- SEPARACIÓN Y COLOR AZUL --- */
 .info h1 {
-    font-family: var(--fuente-titulos);
-    color: var(--color-acento); /* Nombre en AZUL */
-    font-size: clamp(32px, 5vw, 48px);
-    margin-bottom: 25px; /* Más espacio bajo el nombre */
-    letter-spacing: 1px;
-}
-
-.info h2 {
-    margin-bottom: 15px;
-    color: #202124;
-}
-
-.info h3 {
-    margin-bottom: 20px;
+    color: var(--color-acento);
+    font-size: 42px;
+    margin-bottom: 25px;
 }
 
 .descripcion {
-    font-size: 1.15rem;
-    color: var(--color-texto-suave);
-    line-height: 1.8; /* Texto más separado entre líneas */
-    margin-bottom: 40px; /* Mucho más espacio antes de los botones */
-}
-
-.actions {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* =========================
-   4. FORMACIÓN Y HABILIDADES
-========================= */
-.seccion-detalle {
-    margin-top: 50px;
-}
-
-.subtitulo-seccion {
-    font-family: var(--fuente-titulos);
-    color: #202124;
-    border-bottom: 2px solid var(--color-acento);
-    display: inline-block;
-    margin-bottom: 25px;
+    line-height: 1.8;
+    margin-bottom: 40px;
 }
 
 /* =========================
    5. FOOTER
 ========================= */
 footer {
-    width: 100%;
     padding: 50px 0;
     background-color: #202124;
     color: white;
-    margin-top: 60px;
-}
-
-.footer-contenido {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .redes a img {
     width: 30px;
-    height: 30px;
     filter: invert(1);
 }
 
@@ -180,22 +146,6 @@ footer {
    6. RESPONSIVIDAD
 ========================= */
 @media (max-width: 768px) {
-    .contenedor {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 5%;
-    }
-    
-    .perfil img {
-        width: 240px;
-        margin: 0 auto;
-    }
-
-    .info h1 {
-        margin-bottom: 20px;
-    }
-
-    .actions {
-        justify-content: center;
-    }
+    .navbar { height: auto; padding: 10px 5%; }
+    .contenedor { flex-direction: column; text-align: center; }
 }
