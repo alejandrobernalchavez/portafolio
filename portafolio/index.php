@@ -2,7 +2,7 @@
 // 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// 2. Diccionario de textos (Asegurando consistencia con el diseño responsivo)
+// 2. Diccionario de textos
 $textos = [
     'es' => [
         'titulo_pestana' => 'Cristopher Bernal | QA Tester',
@@ -35,6 +35,9 @@ $textos = [
 ];
 
 $t = $textos[$lang];
+
+// 3. Identificar página actual para la pestaña activa
+$pagina_actual = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang; ?>">
@@ -42,9 +45,7 @@ $t = $textos[$lang];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $t['titulo_pestana']; ?></title>
-    
     <link rel="stylesheet" href="estilos.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -52,10 +53,10 @@ $t = $textos[$lang];
 
 <nav class="navbar">
     <div class="pestañas">
-        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
+        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'index.php' || $pagina_actual == '') ? 'active' : ''; ?>">
             <i class="fas fa-home"></i> <?php echo $t['inicio']; ?>
         </a>
-        <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'sobre-mi.php') ? 'active' : ''; ?>">
+        <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
             <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
         </a>
     </div>

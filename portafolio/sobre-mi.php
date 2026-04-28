@@ -1,8 +1,8 @@
 <?php
-// Lógica de detección de idioma
+// 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// Diccionario de textos para Sobre Mí
+// 2. Diccionario de textos
 $textos = [
     'es' => [
         'titulo_pestana' => 'Sobre mí | Cristopher Bernal',
@@ -49,6 +49,9 @@ $textos = [
 ];
 
 $t = $textos[$lang];
+
+// 3. Identificar página actual para la pestaña activa
+$pagina_actual = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang; ?>">
@@ -64,10 +67,10 @@ $t = $textos[$lang];
 
 <nav class="navbar">
     <div class="pestañas">
-        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
+        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'index.php') ? 'active' : ''; ?>">
             <i class="fas fa-home"></i> <?php echo $t['inicio']; ?>
         </a>
-        <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'sobre-mi.php') ? 'active' : ''; ?>">
+        <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
             <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
         </a>
     </div>
@@ -80,7 +83,7 @@ $t = $textos[$lang];
     </div>
 </nav>
 
-<div class="contenedor">
+<main class="contenedor">
     <div class="info">
         <h1><?php echo $t['h1']; ?></h1>
         <p class="descripcion"><?php echo $t['p1']; ?></p>
@@ -104,14 +107,14 @@ $t = $textos[$lang];
             <h2 class="subtitulo-seccion"><?php echo $t['habilidades']; ?></h2>
             <div class="contenedor-cards">
                 <div class="card">
-                    <p><i class="fas fa-bug"></i> <?php echo $t['test_manual']; ?></p>
-                    <p><i class="fas fa-check-circle"></i> <?php echo $t['funcionales']; ?></p>
-                    <p><i class="fas fa-file-alt"></i> <?php echo $t['doc']; ?></p>
+                    <p><i class="fas fa-bug" style="color:var(--color-acento)"></i> <?php echo $t['test_manual']; ?></p>
+                    <p><i class="fas fa-check-circle" style="color:var(--color-acento)"></i> <?php echo $t['funcionales']; ?></p>
+                    <p><i class="fas fa-file-alt" style="color:var(--color-acento)"></i> <?php echo $t['doc']; ?></p>
                 </div>
                 <div class="card">
-                    <p><i class="fas fa-tools"></i> Azure DevOps</p>
-                    <p><i class="fas fa-database"></i> SQL Básico</p>
-                    <p><i class="fas fa-code"></i> HTML / CSS</p>
+                    <p><i class="fas fa-tools" style="color:var(--color-acento)"></i> Azure DevOps</p>
+                    <p><i class="fas fa-database" style="color:var(--color-acento)"></i> SQL Básico</p>
+                    <p><i class="fas fa-code" style="color:var(--color-acento)"></i> HTML / CSS</p>
                 </div>
             </div>
         </section>
@@ -122,7 +125,7 @@ $t = $textos[$lang];
             </a>
         </div>
     </div>
-</div>
+</main>
 
 <footer>
     <div class="footer-contenido">
