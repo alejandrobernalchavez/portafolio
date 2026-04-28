@@ -1,58 +1,112 @@
+<?php
+// Lógica de detección de idioma
+$lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+
+// Diccionario de textos para Sobre Mí
+$textos = [
+    'es' => [
+        'titulo_pestana' => 'Sobre mí | Cristopher Bernal',
+        'inicio' => 'Inicio',
+        'sobre' => 'Sobre mí',
+        'h1' => 'Sobre mí',
+        'p1' => 'Soy estudiante de <strong>Ingeniería en Sistemas</strong> y QA Tester apasionado por la excelencia técnica. Mi enfoque va más allá de encontrar fallos; busco optimizar la experiencia del usuario final garantizando que cada línea de código cumpla con los más altos estándares de calidad y funcionalidad.',
+        'p2' => 'Me especializo en el ciclo de vida de pruebas, desde la detección temprana de errores hasta la mejora continua. Mi formación técnica me permite colaborar estrechamente con equipos de desarrollo, aportando una visión analítica y detallista en cada proyecto.',
+        'formacion' => 'Formación Académica',
+        'ing' => 'Ingeniería en Sistemas',
+        'uni_fecha' => 'Universidad | 2022 - a la fecha',
+        'bach' => 'Bachillerato General',
+        'bach_fecha' => 'Institución Educativa | 2019 - 2021',
+        'habilidades' => 'Habilidades de Especialización',
+        'test_manual' => 'Testing Manual',
+        'funcionales' => 'Pruebas Funcionales',
+        'doc' => 'Documentación de Errores',
+        'btn_cv' => 'Descargar CV',
+        'cv_path' => 'cv/cv-espanol.pdf',
+        'footer_doc' => 'Documentación',
+        'footer_redes' => 'Redes sociales'
+    ],
+    'en' => [
+        'titulo_pestana' => 'About Me | Cristopher Bernal',
+        'inicio' => 'Home',
+        'sobre' => 'About me',
+        'h1' => 'About Me',
+        'p1' => 'I am a <strong>Systems Engineering</strong> student and a QA Tester passionate about technical excellence. My focus goes beyond finding bugs; I aim to optimize the end-user experience by ensuring every line of code meets the highest standards of quality and functionality.',
+        'p2' => 'I specialize in the testing lifecycle, from early bug detection to continuous improvement. My technical background allows me to collaborate closely with development teams, providing an analytical and detailed perspective to every project.',
+        'formacion' => 'Academic Background',
+        'ing' => 'Systems Engineering',
+        'uni_fecha' => 'University | 2022 - Present',
+        'bach' => 'High School Diploma',
+        'bach_fecha' => 'Educational Institution | 2019 - 2021',
+        'habilidades' => 'Specialized Skills',
+        'test_manual' => 'Manual Testing',
+        'funcionales' => 'Functional Testing',
+        'doc' => 'Bug Documentation',
+        'btn_cv' => 'Download CV',
+        'cv_path' => 'cv/cv-ingles.pdf',
+        'footer_doc' => 'Documentation',
+        'footer_redes' => 'Social Media'
+    ]
+];
+
+$t = $textos[$lang];
+?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<?php echo $lang; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre mí | Cristopher Bernal</title>
+    <title><?php echo $t['titulo_pestana']; ?></title>
     <link rel="stylesheet" href="estilos.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
 <nav class="navbar">
-    <a href="index.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
-        <i class="fas fa-home"></i> Inicio
-    </a>
-    <a href="sobre-mi.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'sobre-mi.php') ? 'active' : ''; ?>">
-        <i class="fas fa-user"></i> Sobre mí
-    </a>
+    <div class="pestañas">
+        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
+            <i class="fas fa-home"></i> <?php echo $t['inicio']; ?>
+        </a>
+        <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'sobre-mi.php') ? 'active' : ''; ?>">
+            <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
+        </a>
+    </div>
+
+    <div class="idiomas">
+        <a href="?lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
+        <span>|</span>
+        <a href="?lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
+    </div>
 </nav>
 
 <div class="pagina-sobre-mi">
 
-    <h1>Sobre mí</h1>
+    <h1><?php echo $t['h1']; ?></h1>
 
-    <p>
-        Soy estudiante de <strong>Ingeniería en Sistemas</strong> y QA Tester apasionado por la excelencia técnica. Mi enfoque va más allá de encontrar fallos; busco optimizar la experiencia del usuario final garantizando que cada línea de código cumpla con los más altos estándares de calidad y funcionalidad.
-    </p>
-
-    <p>
-        Me especializo en el ciclo de vida de pruebas, desde la detección temprana de errores hasta la mejora continua. Mi formación técnica me permite colaborar estrechamente con equipos de desarrollo, aportando una visión analítica y detallista en cada proyecto.
-    </p>
+    <p><?php echo $t['p1']; ?></p>
+    <p><?php echo $t['p2']; ?></p>
 
     <section style="text-align: left; margin-top: 40px;">
-        <h2 style="font-family: var(--fuente-titulos); color: #1a73e8;">Formación Académica</h2>
+        <h2 style="font-family: var(--fuente-titulos); color: #1a73e8;"><?php echo $t['formacion']; ?></h2>
         
         <div style="border-left: 3px solid #1a73e8; padding-left: 20px; margin-bottom: 20px;">
-            <p style="margin: 0; font-weight: bold; font-size: 1.1rem;">Ingeniería en Sistemas</p>
-            <p style="margin: 0; color: #666;">Universidad | 2022 - a la fecha</p>
+            <p style="margin: 0; font-weight: bold; font-size: 1.1rem;"><?php echo $t['ing']; ?></p>
+            <p style="margin: 0; color: #666;"><?php echo $t['uni_fecha']; ?></p>
         </div>
 
         <div style="border-left: 3px solid #dadce0; padding-left: 20px;">
-            <p style="margin: 0; font-weight: bold; font-size: 1.1rem;">Bachillerato General</p>
-            <p style="margin: 0; color: #666;">Institución Educativa | 2019 - 2021</p>
+            <p style="margin: 0; font-weight: bold; font-size: 1.1rem;"><?php echo $t['bach']; ?></p>
+            <p style="margin: 0; color: #666;"><?php echo $t['bach_fecha']; ?></p>
         </div>
     </section>
 
     <section>
-        <h2 style="font-family: var(--fuente-titulos); color: #1a73e8; margin-top: 40px;">Habilidades de Especialización</h2>
+        <h2 style="font-family: var(--fuente-titulos); color: #1a73e8; margin-top: 40px;"><?php echo $t['habilidades']; ?></h2>
         <div class="contenedor-cards">
             <div class="card">
-                <p><i class="fas fa-bug" style="color: #1a73e8;"></i> Testing Manual</p>
-                <p><i class="fas fa-check-circle" style="color: #1a73e8;"></i> Pruebas Funcionales</p>
-                <p><i class="fas fa-file-alt" style="color: #1a73e8;"></i> Documentación de Errores</p>
+                <p><i class="fas fa-bug" style="color: #1a73e8;"></i> <?php echo $t['test_manual']; ?></p>
+                <p><i class="fas fa-check-circle" style="color: #1a73e8;"></i> <?php echo $t['funcionales']; ?></p>
+                <p><i class="fas fa-file-alt" style="color: #1a73e8;"></i> <?php echo $t['doc']; ?></p>
             </div>
             <div class="card">
                 <p><i class="fas fa-tools" style="color: #1a73e8;"></i> Azure DevOps</p>
@@ -63,8 +117,8 @@
     </section>
 
     <div class="acciones" style="justify-content: center; margin-top: 50px;">
-        <a href="cv/cv-espanol.pdf" download class="btn btn-secundario">
-            <i class="fas fa-file-download"></i> Descargar CV
+        <a href="<?php echo $t['cv_path']; ?>" download class="btn btn-secundario">
+            <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
         </a>
     </div>
 
@@ -73,13 +127,13 @@
 <footer>
     <div class="footer-contenido">
         <div>
-            <h3 style="font-family: var(--fuente-titulos);">Documentación</h3>
+            <h3 style="font-family: var(--fuente-titulos);"><?php echo $t['footer_doc']; ?></h3>
             <a href="cv/cv-ingles.pdf" download style="color: inherit; text-decoration: none; opacity: 0.8;">CV Inglés</a><br>
             <a href="cv/cv-espanol.pdf" download style="color: inherit; text-decoration: none; opacity: 0.8;">CV Español</a>
         </div>
 
         <div>
-            <h3 style="font-family: var(--fuente-titulos);">Redes sociales</h3>
+            <h3><?php echo $t['footer_redes']; ?></h3>
             <div class="redes">
                 <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
                     <img src="img/linkedin.jpg" alt="LinkedIn">

@@ -1,23 +1,68 @@
+<?php
+// Lógica de detección de idioma
+$lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+
+// Diccionario de textos
+$textos = [
+    'es' => [
+        'titulo' => 'Cristopher Bernal | QA Tester',
+        'inicio' => 'Inicio',
+        'sobre' => 'Sobre mí',
+        'h1' => 'CRISTOPHER BERNAL',
+        'h2' => 'QA Tester enfocado en calidad de software',
+        'h3' => 'Detecto errores antes de que lleguen al usuario final',
+        'desc' => 'Estudiante de <strong>Ingeniería en Sistemas</strong> apasionado por el aseguramiento de calidad, pruebas funcionales y mejora continua del software.',
+        'btn_conocer' => 'Conocer más',
+        'btn_cv' => 'Descargar CV',
+        'cv_path' => 'cv/cv-espanol.pdf',
+        'explorar' => 'Explorar',
+        'redes' => 'Redes sociales'
+    ],
+    'en' => [
+        'titulo' => 'Cristopher Bernal | QA Tester',
+        'inicio' => 'Home',
+        'sobre' => 'About me',
+        'h1' => 'CRISTOPHER BERNAL',
+        'h2' => 'QA Tester focused on software quality',
+        'h3' => 'I detect bugs before they reach the end user',
+        'desc' => '<strong>Systems Engineering</strong> student passionate about quality assurance, functional testing, and continuous improvement of software.',
+        'btn_conocer' => 'Learn more',
+        'btn_cv' => 'Download CV',
+        'cv_path' => 'cv/cv-ingles.pdf',
+        'explorar' => 'Explore',
+        'redes' => 'Social Media'
+    ]
+];
+
+$t = $textos[$lang];
+?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<?php echo $lang; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristopher Bernal | QA Tester</title>
+    <title><?php echo $t['titulo']; ?></title>
     <link rel="stylesheet" href="estilos.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
 
 <nav class="navbar">
-    <a href="index.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
-        <i class="fas fa-home"></i> Inicio
-    </a>
-    <a href="sobre-mi.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'sobre-mi.php') ? 'active' : ''; ?>">
-        <i class="fas fa-user"></i> Sobre mí
-    </a>
+    <div class="pestañas">
+        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
+            <i class="fas fa-home"></i> <?php echo $t['inicio']; ?>
+        </a>
+        <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'sobre-mi.php') ? 'active' : ''; ?>">
+            <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
+        </a>
+    </div>
+
+    <div class="idiomas">
+        <a href="?lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
+        <span>|</span>
+        <a href="?lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
+    </div>
 </nav>
 
 <main class="contenedor">
@@ -27,20 +72,20 @@
     </div>
 
     <div class="info">
-        <h1>CRISTOPHER BERNAL</h1>
-        <h2>QA Tester enfocado en calidad de software</h2>
-        <h3>Detecto errores antes de que lleguen al usuario final</h3>
+        <h1><?php echo $t['h1']; ?></h1>
+        <h2><?php echo $t['h2']; ?></h2>
+        <h3><?php echo $t['h3']; ?></h3>
 
         <p class="descripcion">
-            Estudiante de <strong>Ingeniería en Sistemas</strong> apasionado por el aseguramiento de calidad, pruebas funcionales y mejora continua del software.
+            <?php echo $t['desc']; ?>
         </p>
 
-        <div class="acciones">
-            <a href="sobre-mi.php" class="btn btn-primario">
-                <i class="fas fa-search"></i> Conocer más
+        <div class="actions">
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="btn btn-primario">
+                <i class="fas fa-search"></i> <?php echo $t['btn_conocer']; ?>
             </a>
-            <a href="cv/cv-espanol.pdf" download class="btn btn-secundario">
-                <i class="fas fa-file-download"></i> Descargar CV
+            <a href="<?php echo $t['cv_path']; ?>" download class="btn btn-secundario">
+                <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
             </a>
         </div>
     </div>
@@ -50,12 +95,12 @@
 <footer>
     <div class="footer-contenido">
         <div>
-            <h3>Explorar</h3>
-            <a href="sobre-mi.php" style="color: inherit; text-decoration: none; opacity: 0.8;">Sobre mí</a>
+            <h3><?php echo $t['explorar']; ?></h3>
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8;"><?php echo $t['sobre']; ?></a>
         </div>
 
         <div>
-            <h3>Redes sociales</h3>
+            <h3><?php echo $t['redes']; ?></h3>
             <div class="redes">
                 <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
                     <img src="img/linkedin.jpg" alt="LinkedIn">
