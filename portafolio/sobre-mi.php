@@ -12,11 +12,12 @@
 <body>
 
 <nav class="navbar">
-    <a href="index.php">Inicio</a>
-    <a href="sobre-mi.php" class="active">Sobre mí</a>
-    <a href="proyectos.php">Proyectos</a>
-    <a href="habilidades.php">Habilidades</a>
-    <a href="contacto.php">Contacto</a>
+    <a href="index.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
+        <i class="fas fa-home"></i> Inicio
+    </a>
+    <a href="sobre-mi.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'sobre-mi.php') ? 'active' : ''; ?>">
+        <i class="fas fa-user"></i> Sobre mí
+    </a>
 </nav>
 
 <div class="pagina-sobre-mi">
@@ -32,37 +33,36 @@
     </p>
 
     <section style="text-align: left; margin-top: 40px;">
-        <h2 style="font-family: var(--fuente-titulos); color: var(--color-acento);">Formación Académica</h2>
-        <div style="border-left: 3px solid var(--color-acento); padding-left: 20px; margin-bottom: 20px;">
+        <h2 style="font-family: var(--fuente-titulos); color: #1a73e8;">Formación Académica</h2>
+        
+        <div style="border-left: 3px solid #1a73e8; padding-left: 20px; margin-bottom: 20px;">
             <p style="margin: 0; font-weight: bold; font-size: 1.1rem;">Ingeniería en Sistemas</p>
             <p style="margin: 0; color: #666;">Universidad | 2022 - a la fecha</p>
         </div>
-        <div style="border-left: 3px solid #ccc; padding-left: 20px;">
-            <p style="margin: 0; font-weight: bold; font-size: 1.1rem;">Bachillerato General / Técnico</p>
-            <p style="margin: 0; color: #666;">Institución Educativa | Año de inicio - Año de fin</p>
+
+        <div style="border-left: 3px solid #dadce0; padding-left: 20px;">
+            <p style="margin: 0; font-weight: bold; font-size: 1.1rem;">Bachillerato General</p>
+            <p style="margin: 0; color: #666;">Institución Educativa | 2019 - 2021</p>
         </div>
     </section>
 
     <section>
-        <h2 style="font-family: var(--fuente-titulos); color: var(--color-acento);">Habilidades de Especialización</h2>
+        <h2 style="font-family: var(--fuente-titulos); color: #1a73e8; margin-top: 40px;">Habilidades de Especialización</h2>
         <div class="contenedor-cards">
             <div class="card">
-                <p><i class="fas fa-bug" style="color: var(--color-acento);"></i> Testing Manual</p>
-                <p><i class="fas fa-check-circle" style="color: var(--color-acento);"></i> Pruebas Funcionales</p>
-                <p><i class="fas fa-file-alt" style="color: var(--color-acento);"></i> Documentación de Errores</p>
+                <p><i class="fas fa-bug" style="color: #1a73e8;"></i> Testing Manual</p>
+                <p><i class="fas fa-check-circle" style="color: #1a73e8;"></i> Pruebas Funcionales</p>
+                <p><i class="fas fa-file-alt" style="color: #1a73e8;"></i> Documentación de Errores</p>
             </div>
             <div class="card">
-                <p><i class="fas fa-tools" style="color: var(--color-acento);"></i> Azure DevOps</p>
-                <p><i class="fas fa-database" style="color: var(--color-acento);"></i> SQL Básico</p>
-                <p><i class="fas fa-code" style="color: var(--color-acento);"></i> HTML / CSS</p>
+                <p><i class="fas fa-tools" style="color: #1a73e8;"></i> Azure DevOps</p>
+                <p><i class="fas fa-database" style="color: #1a73e8;"></i> SQL Básico</p>
+                <p><i class="fas fa-code" style="color: #1a73e8;"></i> HTML / CSS</p>
             </div>
         </div>
     </section>
 
     <div class="acciones" style="justify-content: center; margin-top: 50px;">
-        <a href="proyectos.php" class="btn btn-primario">
-            <i class="fas fa-briefcase"></i> Ver proyectos
-        </a>
         <a href="cv/cv-espanol.pdf" download class="btn btn-secundario">
             <i class="fas fa-file-download"></i> Descargar CV
         </a>
@@ -74,8 +74,8 @@
     <div class="footer-contenido">
         <div>
             <h3 style="font-family: var(--fuente-titulos);">Documentación</h3>
-            <a href="cv/cv-ingles.pdf" download style="color: white; text-decoration: none; opacity: 0.8;">CV Inglés</a><br>
-            <a href="cv/cv-espanol.pdf" download style="color: white; text-decoration: none; opacity: 0.8;">CV Español</a>
+            <a href="cv/cv-ingles.pdf" download style="color: inherit; text-decoration: none; opacity: 0.8;">CV Inglés</a><br>
+            <a href="cv/cv-espanol.pdf" download style="color: inherit; text-decoration: none; opacity: 0.8;">CV Español</a>
         </div>
 
         <div>

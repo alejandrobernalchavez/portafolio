@@ -12,11 +12,12 @@
 <body>
 
 <nav class="navbar">
-    <a href="index.php" class="active">Inicio</a>
-    <a href="sobre-mi.php">Sobre mí</a>
-    <a href="proyectos.php">Proyectos</a>
-    <a href="habilidades.php">Habilidades</a>
-    <a href="contacto.php">Contacto</a>
+    <a href="index.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>">
+        <i class="fas fa-home"></i> Inicio
+    </a>
+    <a href="sobre-mi.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'sobre-mi.php') ? 'active' : ''; ?>">
+        <i class="fas fa-user"></i> Sobre mí
+    </a>
 </nav>
 
 <main class="contenedor">
@@ -35,8 +36,8 @@
         </p>
 
         <div class="acciones">
-            <a href="proyectos.php" class="btn btn-primario">
-                <i class="fas fa-briefcase"></i> Ver proyectos
+            <a href="sobre-mi.php" class="btn btn-primario">
+                <i class="fas fa-search"></i> Conocer más
             </a>
             <a href="cv/cv-espanol.pdf" download class="btn btn-secundario">
                 <i class="fas fa-file-download"></i> Descargar CV
@@ -49,12 +50,12 @@
 <footer>
     <div class="footer-contenido">
         <div>
-            <h3 style="font-family: var(--fuente-titulos);">Explorar</h3>
-            <a href="sobre-mi.php" style="color: white; text-decoration: none; opacity: 0.8;">Sobre mí</a>
+            <h3>Explorar</h3>
+            <a href="sobre-mi.php" style="color: inherit; text-decoration: none; opacity: 0.8;">Sobre mí</a>
         </div>
 
         <div>
-            <h3 style="font-family: var(--fuente-titulos);">Redes sociales</h3>
+            <h3>Redes sociales</h3>
             <div class="redes">
                 <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
                     <img src="img/linkedin.jpg" alt="LinkedIn">
