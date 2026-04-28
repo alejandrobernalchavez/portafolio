@@ -240,7 +240,7 @@ main {
 }
 
 /* =========================
-    7. NUEVA TARJETA TÉCNICA (Diseño Detallado)
+    7. TARJETA TÉCNICA DETALLADA ("Así sí")
 ========================= */
 .tech-card-modern {
     border: 3px solid var(--color-borde-negro);
@@ -255,36 +255,41 @@ main {
 .tech-titulo-central {
     text-align: center;
     color: #3498db;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     margin-top: 0;
     margin-bottom: 30px;
     text-decoration: underline;
     font-family: var(--fuente-titulos);
+    font-weight: bold;
 }
 
+/* Distribución en dos columnas para los puntos */
 .tech-lista-columnas {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    padding: 0 30px;
-    margin-bottom: 35px;
+    gap: 15px 40px;
+    padding: 0 40px;
+    margin-bottom: 40px;
 }
 
 .tech-bullet-item {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
     color: #333;
+    font-weight: 500;
 }
 
+/* Estilo del punto negro */
 .bullet {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     line-height: 0;
-    color: #1a2a3a;
+    color: #000;
 }
 
+/* Fila inferior: Rol y Botón alineados en los extremos */
 .tech-footer-row {
     display: flex;
     justify-content: space-between;
@@ -294,18 +299,18 @@ main {
 }
 
 .rol-destacado {
-    font-size: 1.4rem;
-    color: #3498db;
+    font-size: 1.6rem;
+    color: #1a73e8;
     font-weight: bold;
 }
 
 .btn-github-modern {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     background-color: #24292e;
     color: white !important;
-    padding: 12px 20px;
+    padding: 12px 22px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
@@ -313,7 +318,9 @@ main {
     transition: background 0.3s ease;
 }
 
-.btn-github-modern:hover { background-color: #444; }
+.btn-github-modern:hover { 
+    background-color: #444; 
+}
 
 /* =========================
     8. LOGO Y MULTIMEDIA
@@ -412,8 +419,8 @@ footer {
 ========================= */
 @media (max-width: 768px) {
     .contenedor { flex-direction: column; text-align: center; }
-    .tech-lista-columnas { grid-template-columns: 1fr; padding: 0; }
+    .tech-lista-columnas { grid-template-columns: 1fr; padding: 0 10px; }
     .tech-footer-row { flex-direction: column; gap: 20px; }
-    .logo-container { position: static; margin-bottom: 20px; }
+    .logo-container { position: static; margin-bottom: 20px; text-align: center; }
     .navegacion-proyectos { flex-direction: column; gap: 20px; }
 }
