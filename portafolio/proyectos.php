@@ -9,6 +9,7 @@ $textos = [
         'proyectos' => 'Proyectos',
         'h1' => 'Mis Proyectos',
         'desc' => 'Una selección de los trabajos más relevantes en los que he participado, aplicando metodologías de desarrollo y aseguramiento de calidad.',
+        'ver_detalle' => 'Ver detalles del proyecto',
         'explorar' => 'Explorar',
         'redes' => 'Redes sociales'
     ],
@@ -19,6 +20,7 @@ $textos = [
         'proyectos' => 'Projects',
         'h1' => 'My Projects',
         'desc' => 'A selection of the most relevant works I have participated in, applying development and quality assurance methodologies.',
+        'ver_detalle' => 'View project details',
         'explorar' => 'Explore',
         'redes' => 'Social Media'
     ]
@@ -35,6 +37,14 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     <title><?php echo $t['titulo_pestana']; ?></title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilo para que toda la tarjeta sea clickable */
+        .proyecto-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -68,27 +78,37 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     <p class="descripcion-larga"><?php echo $t['desc']; ?></p>
 
     <section class="seccion-detalle">
-        <div class="timeline-item">
-            <p class="texto-principal">🍔 Goodburger</p>
-            <p class="texto-secundario">
-                Aplicación web para un restaurante de hamburguesas. 
-                <strong>Rol:</strong> Programador Frontend (2024).
-            </p>
-        </div>
+        
+        <a href="detalle-proyecto.php?proyecto=goodburger&lang=<?php echo $lang; ?>" class="proyecto-link">
+            <div class="timeline-item">
+                <p class="texto-principal"><strong>🍔 Goodburger</strong></p>
+                <p class="texto-secundario">
+                    Aplicación web para un restaurante de hamburguesas. 
+                    <br><em><?php echo $t['ver_detalle']; ?>...</em>
+                </p>
+            </div>
+        </a>
 
-        <div class="timeline-item">
-            <p class="texto-principal">📰 Periódico Digital</p>
-            <p class="texto-secundario">
-                Plataforma de noticias digital enfocada en la gestión de contenidos y legibilidad.
-            </p>
-        </div>
+        <a href="detalle-proyecto.php?proyecto=periodico&lang=<?php echo $lang; ?>" class="proyecto-link">
+            <div class="timeline-item">
+                <p class="texto-principal"><strong>📰 Periódico Digital</strong></p>
+                <p class="texto-secundario">
+                    Plataforma de noticias digital enfocada en la gestión de contenidos.
+                    <br><em><?php echo $t['ver_detalle']; ?>...</em>
+                </p>
+            </div>
+        </a>
 
-        <div class="timeline-item">
-            <p class="texto-principal">🤝 Donamiga</p>
-            <p class="texto-secundario">
-                Proyecto social enfocado en la gestión de donaciones y ayuda comunitaria.
-            </p>
-        </div>
+        <a href="detalle-proyecto.php?proyecto=donamiga&lang=<?php echo $lang; ?>" class="proyecto-link">
+            <div class="timeline-item">
+                <p class="texto-principal"><strong>🤝 Donamiga</strong></p>
+                <p class="texto-secundario">
+                    Proyecto social enfocado en la gestión de donaciones y ayuda comunitaria.
+                    <br><em><?php echo $t['ver_detalle']; ?>...</em>
+                </p>
+            </div>
+        </a>
+
     </section>
 </main>
 

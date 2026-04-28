@@ -192,7 +192,6 @@ main {
     display: inline-block;
 }
 
-/* Cards de Habilidades */
 .contenedor-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -208,7 +207,6 @@ main {
     transition: all 0.2s ease;
 }
 
-/* Elementos de la Línea de Tiempo (Formación y Proyectos) */
 .timeline-item {
     margin-bottom: 30px;
     padding: 20px;
@@ -255,7 +253,40 @@ main {
 }
 
 /* =========================
-    7. FOOTER
+    7. BOTONES DE NAVEGACIÓN (FLECHAS)
+========================= */
+.btn-navegacion-flecha {
+    background-color: #5b9bd5; /* Azul claro según imagen */
+    color: white !important;
+    padding: 12px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+/* Simulación de punta de flecha para el botón ATRAS */
+.atras-flecha {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+}
+
+/* Simulación de punta de flecha para el botón SIGUIENTE */
+.siguiente-flecha {
+    clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+}
+
+.btn-navegacion-flecha:hover {
+    background-color: #41719c;
+    transform: scale(1.05);
+}
+
+/* =========================
+    8. FOOTER
 ========================= */
 footer {
     width: 100%;
@@ -275,24 +306,10 @@ footer {
     margin: 0 auto;
 }
 
-.footer-col h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.redes {
-    display: flex;
-    gap: 15px;
-}
-
 .redes a img {
     width: 30px;
     filter: invert(1);
     transition: opacity 0.2s;
-}
-
-.redes a:hover img {
-    opacity: 0.7;
 }
 
 .copy {
@@ -305,7 +322,7 @@ footer {
 }
 
 /* =========================
-    8. RESPONSIVIDAD
+    9. RESPONSIVIDAD
 ========================= */
 @media (max-width: 768px) {
     .contenedor { 
@@ -317,13 +334,6 @@ footer {
     .actions { 
         justify-content: center; 
         flex-direction: column; 
-        gap: 15px; 
-    }
-    
-    .footer-contenido { 
-        flex-direction: column; 
-        text-align: center; 
-        align-items: center; 
     }
     
     .logo-container { 
@@ -331,9 +341,5 @@ footer {
         display: flex;
         justify-content: center; 
         padding: 20px 0; 
-    }
-
-    .info h1 {
-        font-size: 32px;
     }
 }
