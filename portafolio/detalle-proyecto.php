@@ -72,11 +72,11 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
              <?php echo $t['atras']; ?>
         </a>
 
-        <a href="proyectos.php?lang=<?php echo $lang; ?>" id="btn-volver-inicio" class="btn-inicio-central">
+        <a href="proyectos.php?lang=<?php echo $lang; ?>" id="btn-volver-inicio" class="btn-inicio-central" style="display: none;">
             <?php echo $t['inicio']; ?>
         </a>
         
-        <button onclick="navegarGaleria()" class="btn-navegacion-flecha siguiente-flecha" style="border:none; cursor:pointer;">
+        <button onclick="navegarGaleria()" id="btn-siguiente" class="btn-navegacion-flecha siguiente-flecha" style="border:none; cursor:pointer;">
             <?php echo $t['siguiente']; ?>
         </button>
     </div>
@@ -89,23 +89,27 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     const texto = document.getElementById('texto-descripcion');
     const imagen = document.getElementById('imagen-galeria');
     const btnVolver = document.getElementById('btn-volver-inicio');
+    const btnSiguiente = document.getElementById('btn-siguiente');
 
     function navegarGaleria() {
-        paso++;
+        if (paso < totalImagenes) {
+            paso++;
 
-        if (paso === 1) {
-            // Ocultar texto y mostrar la primera imagen (g1.jpeg)
-            if(texto) texto.style.display = 'none';
-            imagen.style.display = 'block';
-            imagen.src = `img/g${paso}.jpeg`; // Cambiado a .jpeg
-            
-            // Aparece el botón de en medio
-            btnVolver.style.display = 'inline-block';
-        } else if (paso <= totalImagenes) {
-            // Ir cambiando de g2 a g14 con extensión .jpeg
+            if (paso === 1) {
+                // Primera transición: Quitar texto, poner imagen y mostrar botón de inicio
+                if(texto) texto.style.display = 'none';
+                imagen.style.display = 'block';
+                btnVolver.style.display = 'inline-block';
+            }
+
+            // Cambiar la imagen actual
             imagen.src = `img/g${paso}.jpeg`;
-        } else {
-            alert("Has visto todas las capturas.");
+
+            // Lógica para ocultar el botón siguiente al llegar al final
+            if (paso === totalImagenes) {
+                btnSiguiente.style.visibility = 'hidden'; 
+                // Usamos visibility hidden para que el espacio se mantenga y los otros botones no se muevan
+            }
         }
     }
 </script>
