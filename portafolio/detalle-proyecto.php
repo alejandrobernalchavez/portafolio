@@ -6,16 +6,17 @@ $proyecto_id = isset($_GET['proyecto']) ? $_GET['proyecto'] : '';
 $detalles = [
     'es' => [
         'atras' => 'ATRAS',
-        'siguiente' => 'SIGUIENTE',
+        'siguiente' => 'siguiente',
+        'inicio' => 'Volver a inicio',
         'goodburger' => [
             'titulo' => 'Goodburger:',
             'desc' => 'Es una aplicación web para un restaurante de hamburguesas; también fue una actividad del 2024 en el cual desempeñé el rol de programador frontend.'
         ],
-        // Puedes agregar más proyectos aquí
     ],
     'en' => [
         'atras' => 'BACK',
-        'siguiente' => 'NEXT',
+        'siguiente' => 'next',
+        'inicio' => 'Back to home',
         'goodburger' => [
             'titulo' => 'Goodburger:',
             'desc' => 'It is a web application for a hamburger restaurant; it was also a 2024 activity in which I played the role of frontend programmer.'
@@ -53,24 +54,61 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 <main class="contenedor-sobre-mi" style="text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 70vh;">
     
     <?php if ($p): ?>
-        <h1 style="text-decoration: underline; margin-bottom: 20px;"><?php echo $p['titulo']; ?></h1>
-        <p class="descripcion-larga" style="font-size: 1.8rem; line-height: 1.4;">
-            <?php echo $p['desc']; ?>
-        </p>
+        <h1 id="titulo-dinamico" style="text-decoration: underline; margin-bottom: 20px;"><?php echo $p['titulo']; ?></h1>
+        
+        <div id="visor-contenido">
+            <p id="texto-descripcion" class="descripcion-larga" style="font-size: 1.8rem; line-height: 1.4;">
+                <?php echo $p['desc']; ?>
+            </p>
+            <img id="imagen-galeria" src="" alt="Captura" class="img-proyecto-detalle" style="display: none;">
+        </div>
     <?php else: ?>
         <p>Proyecto no encontrado.</p>
     <?php endif; ?>
 
     <div style="display: flex; justify-content: space-between; margin-top: 50px; align-items: center;">
-        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-navegacion-flecha">
-            <i class="fas fa-arrow-left"></i> <?php echo $t['atras']; ?>
+        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-navegacion-flecha atras-flecha">
+             <?php echo $t['atras']; ?>
+        </a>
+
+        <a href="proyectos.php?lang=<?php echo $lang; ?>" id="btn-volver-inicio" class="btn-inicio-central">
+            <?php echo $t['inicio']; ?>
         </a>
         
-        <a href="#" class="btn-navegacion-flecha">
-            <?php echo $t['siguiente']; ?> <i class="fas fa-arrow-right"></i>
-        </a>
+        <button onclick="navegarGaleria()" class="btn-navegacion-flecha siguiente-flecha" style="border:none; cursor:pointer;">
+            <?php echo $t['siguiente']; ?>
+        </button>
     </div>
 </main>
+
+<script>
+    let paso = 0; // 0 es texto, 1-14 son imágenes
+    const totalImagenes = 14;
+    
+    const texto = document.getElementById('texto-descripcion');
+    const imagen = document.getElementById('imagen-galeria');
+    const btnVolver = document.getElementById('btn-volver-inicio');
+
+    function navegarGaleria() {
+        paso++;
+
+        if (paso === 1) {
+            // Ocultar texto y mostrar la primera imagen (g1.png)
+            if(texto) texto.style.display = 'none';
+            imagen.style.display = 'inline-block';
+            imagen.src = `img/g${paso}.png`;
+            
+            // Aparece el botón de en medio
+            btnVolver.style.display = 'inline-block';
+        } else if (paso <= totalImagenes) {
+            // Ir cambiando de g2 a g14
+            imagen.src = `img/g${paso}.png`;
+        } else {
+            // Opcional: Reiniciar o avisar que terminó
+            alert("Fin de las capturas.");
+        }
+    }
+</script>
 
 </body>
 </html>

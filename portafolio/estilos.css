@@ -7,6 +7,7 @@
     --color-acento: #1a73e8;        
     --color-texto-suave: #5f6368;
     --fuente-titulos: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-flechas: #5b9bd5; /* Azul específico de navegación */
 }
 
 * {
@@ -181,6 +182,7 @@ main {
     max-width: 900px;
     margin: 0 auto;
     padding: 60px 5%;
+    text-align: center;
 }
 
 .subtitulo-seccion {
@@ -253,10 +255,10 @@ main {
 }
 
 /* =========================
-    7. BOTONES DE NAVEGACIÓN (FLECHAS)
+    7. NAVEGACIÓN DE PROYECTOS (FUNCIONALIDAD NUEVA)
 ========================= */
 .btn-navegacion-flecha {
-    background-color: #5b9bd5; /* Azul claro según imagen */
+    background-color: var(--color-flechas);
     color: white !important;
     padding: 12px 35px;
     text-decoration: none;
@@ -265,24 +267,45 @@ main {
     display: inline-flex;
     align-items: center;
     gap: 15px;
-    position: relative;
     transition: all 0.2s ease;
-    border-radius: 4px;
+    border: none;
+    cursor: pointer;
 }
 
-/* Simulación de punta de flecha para el botón ATRAS */
+/* Formas de flecha */
 .atras-flecha {
     clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
 }
 
-/* Simulación de punta de flecha para el botón SIGUIENTE */
 .siguiente-flecha {
     clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
 }
 
-.btn-navegacion-flecha:hover {
+/* Botón central dinámico */
+.btn-inicio-central {
+    background-color: var(--color-flechas);
+    color: white !important;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid #2e75b6;
+    display: none; /* Se activa mediante JS */
+    transition: all 0.3s ease;
+}
+
+.btn-navegacion-flecha:hover, .btn-inicio-central:hover {
     background-color: #41719c;
     transform: scale(1.05);
+}
+
+.img-proyecto-detalle {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border: 2px solid #000;
+    margin-bottom: 30px;
+    border-radius: 5px;
 }
 
 /* =========================
