@@ -23,7 +23,7 @@ $textos = [
         'btn_cv' => 'Descargar CV',
         'cv_path' => 'cv/cv-espanol.pdf',
         'footer_doc' => 'Documentación',
-        'footer_redes' => 'Redes sociales'
+        'footer_redes' => 'Social Media'
     ],
     'en' => [
         'titulo_pestana' => 'About Me | Cristopher Bernal',
@@ -73,6 +73,7 @@ $t = $textos[$lang];
     </div>
 
     <div class="idiomas">
+        <i class="fas fa-language" style="margin-right: 5px; color: #5f6368;"></i>
         <a href="?lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
         <span>|</span>
         <a href="?lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
@@ -80,9 +81,7 @@ $t = $textos[$lang];
 </nav>
 
 <div class="pagina-sobre-mi">
-
     <h1><?php echo $t['h1']; ?></h1>
-
     <p><?php echo $t['p1']; ?></p>
     <p><?php echo $t['p2']; ?></p>
 
@@ -121,7 +120,6 @@ $t = $textos[$lang];
             <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
         </a>
     </div>
-
 </div>
 
 <footer>

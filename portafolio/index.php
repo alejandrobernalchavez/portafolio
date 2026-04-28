@@ -2,7 +2,7 @@
 // Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// Diccionario de textos
+// Diccionario de textos (Asegurando que todo lo del "cuadrado rojo" y footer esté aquí)
 $textos = [
     'es' => [
         'titulo' => 'Cristopher Bernal | QA Tester',
@@ -59,6 +59,7 @@ $t = $textos[$lang];
     </div>
 
     <div class="idiomas">
+        <i class="fas fa-language" style="margin-right: 5px; color: #5f6368;"></i>
         <a href="?lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
         <span>|</span>
         <a href="?lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
@@ -66,7 +67,6 @@ $t = $textos[$lang];
 </nav>
 
 <main class="contenedor">
-
     <div class="perfil">
         <img src="img/_LUI0053-2.jpeg" alt="Cristopher Bernal - QA Tester">
     </div>
@@ -89,7 +89,6 @@ $t = $textos[$lang];
             </a>
         </div>
     </div>
-
 </main>
 
 <footer>

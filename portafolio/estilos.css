@@ -1,18 +1,19 @@
-/* ... (Todo tu código anterior se mantiene igual hasta la Navbar) ... */
-
+/* =========================
+   NAVBAR DISTRIBUIDA (ESQUINA A ESQUINA)
+========================= */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Separa pestañas de idiomas */
+    justify-content: space-between; /* Empuja el selector a la derecha */
     align-items: flex-end;
-    gap: 4px;
     padding: 8px 30px 0 30px;
     background-color: var(--color-chrome-bg);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid #bdc1c6; /* Línea sutil estilo navegador */
 }
 
-/* Contenedor para las pestañas de la izquierda */
+/* Contenedor de pestañas (Izquierda) */
 .pestañas {
     display: flex;
     gap: 4px;
@@ -24,44 +25,93 @@
     font-family: var(--fuente-titulos);
     font-weight: 500;
     font-size: 13px;
-    padding: 8px 25px;
+    padding: 10px 25px;
     border-radius: 8px 8px 0 0;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background-color: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
 }
 
 .navbar a.active {
     background-color: var(--color-chrome-active);
     color: var(--color-acento);
-    box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
+    border: 1px solid #bdc1c6;
+    border-bottom: 2px solid var(--color-chrome-active); /* Tapa la línea del navbar */
+    margin-bottom: -1px; /* Ajuste para que encaje perfecto */
+    z-index: 2;
 }
 
-/* NUEVO: Selector de Idiomas en la derecha */
+/* NUEVO: SELECTOR DE IDIOMAS (Derecha - Estilo Google) */
 .idiomas {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding-bottom: 12px;
-    font-family: var(--fuente-titulos);
-    font-size: 12px;
-    font-weight: bold;
+    gap: 5px;
+    margin-bottom: 10px; /* Eleva el selector para que no toque la línea */
+    background: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #dadce0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Estilo para el icono de mundo/lenguaje */
+.idiomas i {
+    color: #5f6368;
+    font-size: 14px;
+    margin-right: 5px;
 }
 
 .idiomas a {
-    padding: 2px 6px;
+    padding: 2px 4px;
     border-radius: 4px;
-    color: #5f6368;
+    color: #1a73e8; /* Azul para el que no está seleccionado */
     background: none;
     text-transform: uppercase;
+    font-size: 11px;
+    font-weight: bold;
+    border: none;
 }
 
+/* El idioma que ya está puesto se ve gris y sin clic */
 .idiomas a.lang-active {
-    color: var(--color-acento);
-    background: rgba(26, 115, 232, 0.1);
+    color: #5f6368;
+    pointer-events: none;
+    font-weight: normal;
 }
 
-.idiomas span { color: #ccc; }
+.idiomas span { 
+    color: #dadce0; 
+    font-size: 12px;
+}
 
-/* ... (El resto de tus estilos: contenedor, perfil, info, footer, etc.) ... */
+/* =========================
+   RECUADRO DE INFORMACIÓN (EL "CUADRADO ROJO")
+========================= */
+.info h1 {
+    font-family: var(--fuente-titulos);
+    color: #1a73e8;
+    font-size: 42px;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.info h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    color: #202124;
+    font-weight: 600;
+    margin: 0;
+}
+
+.info h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.6rem;
+    color: #3c4043;
+    margin-top: 5px;
+    font-weight: 700;
+}
+
+/* ... (El resto de tus estilos: contenedor, perfil, botones y footer) ... */
