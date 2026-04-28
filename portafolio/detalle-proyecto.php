@@ -12,6 +12,10 @@ $detalles = [
             'titulo' => 'Goodburger:',
             'desc' => 'Es una aplicación web para un restaurante de hamburguesas; también fue una actividad del 2024 en el cual desempeñé el rol de programador frontend.'
         ],
+        'donamiga' => [
+            'titulo' => 'Donamiga:',
+            'desc' => 'Descripción detallada del proyecto Donamiga. Esta aplicación fue desarrollada para gestionar procesos específicos del cliente.'
+        ],
     ],
     'en' => [
         'atras' => 'BACK',
@@ -20,6 +24,10 @@ $detalles = [
         'goodburger' => [
             'titulo' => 'Goodburger:',
             'desc' => 'It is a web application for a hamburger restaurant; it was also a 2024 activity in which I played the role of frontend programmer.'
+        ],
+        'donamiga' => [
+            'titulo' => 'Donamiga:',
+            'desc' => 'Detailed description of the Donamiga project. This application was developed to manage specific client processes.'
         ]
     ]
 ];
@@ -83,8 +91,19 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 </main>
 
 <script>
-    let paso = 0; // 0 es texto, 1-14 son imágenes
-    const totalImagenes = 14;
+    // Configuración dinámica por proyecto
+    const urlParams = new URLSearchParams(window.location.search);
+    const proyectoActual = urlParams.get('proyecto');
+
+    let paso = 0; 
+    let totalImagenes = 14; // Por defecto Goodburger
+    let prefijo = 'g';      // Por defecto Goodburger
+
+    // Ajuste para Donamiga
+    if (proyectoActual === 'donamiga') {
+        totalImagenes = 3;
+        prefijo = 'd';
+    }
     
     const texto = document.getElementById('texto-descripcion');
     const imagen = document.getElementById('imagen-galeria');
@@ -103,22 +122,20 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
             paso--;
             actualizarVisor();
         } else {
-            // Si está en el texto (paso 0), vuelve a la lista de proyectos
             window.location.href = "proyectos.php?lang=<?php echo $lang; ?>";
         }
     }
 
     function actualizarVisor() {
         if (paso === 0) {
-            // Mostrar texto, ocultar imagen y botón central
             if(texto) texto.style.display = 'block';
             imagen.style.display = 'none';
             btnVolver.style.display = 'none';
         } else {
-            // Mostrar imagen, ocultar texto y mostrar botón central
             if(texto) texto.style.display = 'none';
             imagen.style.display = 'block';
-            imagen.src = `img/g${paso}.jpeg`;
+            // Carga dinámica usando el prefijo detectado (.jpeg)
+            imagen.src = `img/${prefijo}${paso}.jpeg`;
             btnVolver.style.display = 'inline-block';
         }
 
