@@ -60,13 +60,14 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
             <p id="texto-descripcion" class="descripcion-larga" style="font-size: 1.8rem; line-height: 1.4;">
                 <?php echo $p['desc']; ?>
             </p>
-            <img id="imagen-galeria" src="" alt="Captura" class="img-proyecto-detalle" style="display: none;">
+            <img id="imagen-galeria" src="" alt="Captura" class="img-proyecto-detalle" style="display: none; max-width: 100%; height: auto; border: 2px solid #000; margin: 0 auto;">
         </div>
     <?php else: ?>
         <p>Proyecto no encontrado.</p>
     <?php endif; ?>
 
-    <div style="display: flex; justify-content: space-between; margin-top: 50px; align-items: center;">
+    <div style="display: flex; justify-content: space-between; margin-top: 50px; align-items: center; width: 100%; max-width: 900px; margin-left: auto; margin-right: auto;">
+        
         <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-navegacion-flecha atras-flecha">
              <?php echo $t['atras']; ?>
         </a>
@@ -93,19 +94,18 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         paso++;
 
         if (paso === 1) {
-            // Ocultar texto y mostrar la primera imagen (g1.png)
+            // Ocultar texto y mostrar la primera imagen (g1.jpeg)
             if(texto) texto.style.display = 'none';
-            imagen.style.display = 'inline-block';
-            imagen.src = `img/g${paso}.png`;
+            imagen.style.display = 'block';
+            imagen.src = `img/g${paso}.jpeg`; // Cambiado a .jpeg
             
             // Aparece el botón de en medio
             btnVolver.style.display = 'inline-block';
         } else if (paso <= totalImagenes) {
-            // Ir cambiando de g2 a g14
-            imagen.src = `img/g${paso}.png`;
+            // Ir cambiando de g2 a g14 con extensión .jpeg
+            imagen.src = `img/g${paso}.jpeg`;
         } else {
-            // Opcional: Reiniciar o avisar que terminó
-            alert("Fin de las capturas.");
+            alert("Has visto todas las capturas.");
         }
     }
 </script>

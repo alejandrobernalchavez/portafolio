@@ -255,33 +255,33 @@ main {
 }
 
 /* =========================
-    7. NAVEGACIÓN DE PROYECTOS (FUNCIONALIDAD NUEVA)
+    7. NAVEGACIÓN DE PROYECTOS (BOTONES DINÁMICOS)
 ========================= */
 .btn-navegacion-flecha {
     background-color: var(--color-flechas);
     color: white !important;
-    padding: 12px 35px;
+    padding: 12px 40px;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
     display: inline-flex;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
     transition: all 0.2s ease;
     border: none;
     cursor: pointer;
 }
 
-/* Formas de flecha */
+/* Formas de flecha para navegación */
 .atras-flecha {
-    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 20% 100%, 0% 50%);
 }
 
 .siguiente-flecha {
-    clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 80% 0%, 100% 50%, 80% 100%, 0% 100%);
 }
 
-/* Botón central dinámico */
+/* Botón central dinámico (aparece tras el primer clic) */
 .btn-inicio-central {
     background-color: var(--color-flechas);
     color: white !important;
@@ -290,7 +290,7 @@ main {
     font-weight: bold;
     font-size: 18px;
     border: 2px solid #2e75b6;
-    display: none; /* Se activa mediante JS */
+    display: none; /* Se activa mediante JS en detalle-proyecto.php */
     transition: all 0.3s ease;
 }
 
@@ -306,6 +306,9 @@ main {
     border: 2px solid #000;
     margin-bottom: 30px;
     border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* =========================
@@ -364,5 +367,9 @@ footer {
         display: flex;
         justify-content: center; 
         padding: 20px 0; 
+    }
+    
+    .btn-inicio-central {
+        margin: 10px 0;
     }
 }
