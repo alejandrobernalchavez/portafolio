@@ -9,8 +9,13 @@ $detalles = [
         'siguiente' => 'siguiente',
         'inicio' => 'Volver a inicio',
         'goodburger' => [
-            'titulo' => 'Goodburger:',
-            'desc' => 'Es una aplicación web para un restaurante de hamburguesas; también fue una actividad del 2024 en el cual desempeñé el rol de programador frontend.'
+            'titulo' => 'GoodBurger:',
+            'desc' => 'GoodBurger es una página web orientada al sector de comida rápida, diseñada para presentar de forma atractiva e intuitiva la oferta de un restaurante. La plataforma permite a los usuarios explorar el menú, conocer los productos disponibles y acceder a información relevante como promociones y datos de contacto. Su enfoque está centrado en brindar una experiencia visual agradable y fácil de usar, facilitando la navegación y mejorando la interacción del cliente con el negocio. GoodBurger busca fortalecer la presencia digital del restaurante, ofreciendo un medio moderno y accesible para atraer y fidelizar clientes.',
+            'repo' => 'https://github.com/GersonDanielGuerrero/Progra-III-2024',
+            'tech' => [
+                'Mi Rol' => 'QA Tester',
+                'Tecnologías' => 'Python, JS, Vue, Node, Bootstrap, HTML, CSS, MySQL'
+            ]
         ],
         'donamiga' => [
             'titulo' => 'DonAmiga:',
@@ -28,17 +33,22 @@ $detalles = [
         'siguiente' => 'next',
         'inicio' => 'Back to home',
         'goodburger' => [
-            'titulo' => 'Goodburger:',
-            'desc' => 'It is a web application for a hamburger restaurant; it was also a 2024 activity in which I played the role of frontend programmer.'
+            'titulo' => 'GoodBurger:',
+            'desc' => 'GoodBurger is a fast-food web platform designed to present a restaurant\'s menu in an attractive and intuitive way. It provides a modern digital presence to attract and retain customers through a seamless user experience. In this project, I served as a QA Tester.',
+            'repo' => 'https://github.com/GersonDanielGuerrero/Progra-III-2024',
+            'tech' => [
+                'My Role' => 'QA Tester',
+                'Technologies' => 'Python, JS, Vue, Node, Bootstrap, HTML, CSS, MySQL'
+            ]
         ],
         'donamiga' => [
             'titulo' => 'DonAmiga:',
-            'desc' => 'DonAmiga is a digital donation platform designed to connect people with social causes in a transparent, secure, and accessible way. In this project, I played the role of QA Tester, ensuring quality and correct operation across all modules.',
+            'desc' => 'Digital donation platform using blockchain technology. I played the role of QA Tester, ensuring quality and correct operation across all modules.',
             'repo' => 'https://github.com/GersonDanielGuerrero/Donamiga',
             'tech' => [
                 'My Role' => 'QA Tester',
                 'Technologies' => 'Javascript, HTML, PHP, CSS, Vue',
-                'Blockchain' => 'Traceability and registration'
+                'Blockchain' => 'Blockchain traceability'
             ]
         ]
     ]
