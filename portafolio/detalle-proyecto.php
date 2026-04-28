@@ -2,6 +2,11 @@
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 $proyecto_id = isset($_GET['proyecto']) ? $_GET['proyecto'] : '';
 
+// NORMALIZACIÓN: Si el ID es 'periodico', lo tratamos internamente como 'comunicado'
+if ($proyecto_id === 'periodico') {
+    $proyecto_id = 'comunicado';
+}
+
 // Diccionario de contenidos de proyectos
 $detalles = [
     'es' => [
@@ -10,7 +15,7 @@ $detalles = [
         'inicio' => 'Volver a inicio',
         'goodburger' => [
             'titulo' => 'GoodBurger:',
-            'desc' => 'GoodBurger es una página web orientada al sector de comida rápida, diseñada para presentar de forma atractiva e intuitiva la oferta de un restaurante. La plataforma permite a los usuarios explorar el menú, conocer los productos disponibles y acceder a información relevante como promociones y datos de contacto. Su enfoque está centrado en brindar una experiencia visual agradable y fácil de usar, facilitando la navegación y mejorando la interacción del cliente con el negocio.',
+            'desc' => 'GoodBurger es una página web orientada al sector de comida rápida, diseñada para presentar de forma atractiva e intuitiva la oferta de un restaurante. La plataforma permite a los usuarios explorar el menú, conocer los productos disponibles y acceder a información relevante como promociones y datos de contacto.',
             'repo' => 'https://github.com/GersonDanielGuerrero/Progra-III-2024',
             'tech' => [
                 'Mi Rol' => 'QA Tester',
@@ -19,17 +24,16 @@ $detalles = [
         ],
         'donamiga' => [
             'titulo' => 'DonAmiga:',
-            'desc' => 'DonAmiga es una plataforma digital de donaciones diseñada para conectar a personas con causas sociales de forma transparente, segura y accesible. A través del uso de tecnología blockchain, permite crear, gestionar y dar seguimiento a campañas solidarias, garantizando la trazabilidad de cada aporte realizado. En este proyecto, desempeñé el rol de QA Tester, asegurando la calidad y el correcto funcionamiento de cada módulo.',
+            'desc' => 'DonAmiga es una plataforma digital de donaciones diseñada para conectar a personas con causas sociales de forma transparente, segura y accesible. A través del uso de tecnología blockchain, garantiza la trazabilidad de cada aporte realizado.',
             'repo' => 'https://github.com/GersonDanielGuerrero/Donamiga',
             'tech' => [
                 'Mi Rol' => 'QA Tester',
-                'Tecnologías' => 'Javascript, HTML, PHP, CSS, Vue',
-                'Blockchain' => 'Registro y trazabilidad de donaciones'
+                'Tecnologías' => 'Javascript, HTML, PHP, CSS, Vue'
             ]
         ],
         'comunicado' => [
             'titulo' => 'Periódico Digital:',
-            'desc' => 'Periódico Digital es una plataforma web informativa diseñada para la publicación y difusión de noticias de manera rápida, organizada y accesible. Permite a los usuarios consultar contenidos actualizados en distintas categorías como actualidad, tecnología, deportes y cultura, ofreciendo una experiencia de lectura clara y estructurada. El sistema facilita la gestión de artículos, así como la organización por secciones, adaptándose a las necesidades del entorno digital.',
+            'desc' => 'Periódico Digital es una plataforma web informativa diseñada para la publicación y difusión de noticias de manera rápida, organizada y accesible. El sistema facilita la gestión de artículos, así como la organización por secciones, adaptándose a las necesidades del entorno digital.',
             'repo' => 'https://github.com/JosueInge/Enginer-Team',
             'tech' => [
                 'Mi Rol' => 'QA Tester',
@@ -45,28 +49,19 @@ $detalles = [
             'titulo' => 'GoodBurger:',
             'desc' => 'A fast-food web platform designed to present a restaurant\'s menu in an attractive and intuitive way. I served as a QA Tester for this project.',
             'repo' => 'https://github.com/GersonDanielGuerrero/Progra-III-2024',
-            'tech' => [
-                'My Role' => 'QA Tester',
-                'Technologies' => 'Python, JS, Vue, Node, Bootstrap, HTML, CSS, MySQL'
-            ]
+            'tech' => [ 'My Role' => 'QA Tester', 'Technologies' => 'Python, JS, Vue, Node, Bootstrap, HTML, CSS, MySQL' ]
         ],
         'donamiga' => [
             'titulo' => 'DonAmiga:',
-            'desc' => 'Digital donation platform with blockchain technology for secure social impact. I ensured software quality as a QA Tester.',
+            'desc' => 'Digital donation platform with blockchain technology. I ensured software quality as a QA Tester.',
             'repo' => 'https://github.com/GersonDanielGuerrero/Donamiga',
-            'tech' => [
-                'My Role' => 'QA Tester',
-                'Technologies' => 'Javascript, HTML, PHP, CSS, Vue'
-            ]
+            'tech' => [ 'My Role' => 'QA Tester', 'Technologies' => 'Javascript, HTML, PHP, CSS, Vue' ]
         ],
         'comunicado' => [
             'titulo' => 'Digital Newspaper:',
-            'desc' => 'An informative web platform for fast and organized news publishing. It features article management and section organization. I served as the QA Tester.',
+            'desc' => 'An informative web platform for news publishing. I served as the QA Tester.',
             'repo' => 'https://github.com/JosueInge/Enginer-Team',
-            'tech' => [
-                'My Role' => 'QA Tester',
-                'Technologies' => 'Bootstrap, Javascript, HTML, PHP, CSS'
-            ]
+            'tech' => [ 'My Role' => 'QA Tester', 'Technologies' => 'Bootstrap, Javascript, HTML, PHP, CSS' ]
         ]
     ]
 ];
@@ -131,7 +126,9 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
             <img id="imagen-galeria" src="" alt="Captura" class="img-proyecto-detalle" style="display: none; max-width: 100%; height: auto; border: 2px solid #000; margin: 0 auto;">
         </div>
     <?php else: ?>
-        <p>Proyecto no encontrado.</p>
+        <div style="padding: 50px;">
+            <p style="font-size: 1.5rem;">Proyecto no encontrado.</p>
+        </div>
     <?php endif; ?>
 
     <div style="display: flex; justify-content: space-between; margin-top: 50px; align-items: center; width: 100%; max-width: 900px; margin-left: auto; margin-right: auto;">
@@ -151,13 +148,17 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const proyectoActual = urlParams.get('proyecto');
+    let proyectoActual = urlParams.get('proyecto');
+
+    // Sincronizamos JavaScript con la normalización de PHP
+    if (proyectoActual === 'periodico') {
+        proyectoActual = 'comunicado';
+    }
 
     let paso = 0; 
     let totalImagenes = 0;
     let prefijo = '';
 
-    // Configuración dinámica de imágenes
     if (proyectoActual === 'donamiga') {
         totalImagenes = 3;
         prefijo = 'd';
@@ -166,7 +167,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         prefijo = 'g';
     } else if (proyectoActual === 'comunicado') {
         totalImagenes = 4;
-        prefijo = 'c';
+        prefijo = 'c'; // Esto buscará img/c1.jpeg, c2.jpeg, etc.
     }
     
     const texto = document.getElementById('texto-descripcion');
