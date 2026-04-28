@@ -1,210 +1,57 @@
 /* =========================
-   VARIABLES Y BASE
+   SOBRE MÍ (Formación y Skills)
 ========================= */
-:root {
-    --color-chrome-bg: #dee1e6;     /* Gris de pestañas de Chrome */
-    --color-chrome-active: #ffffff; /* Blanco para la pestaña activa */
-    --color-acento: #1a73e8;        /* Azul Google */
-    --fuente-titulos: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.seccion-detalle {
+    margin-top: 40px;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: var(--color-chrome-active);
-}
-
-/* =========================
-   NAVBAR (Solución a Pestañas Transparentes)
-========================= */
-.navbar {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 0 5%; 
-    background-color: var(--color-chrome-bg); /* Ahora tiene fondo sólido */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #bdc1c6;
-    flex-wrap: wrap; 
-    gap: 15px;
-}
-
-.pestañas {
-    display: flex;
-    align-items: flex-end; 
-    gap: 4px;
-}
-
-.navbar a {
-    color: #5f6368;
-    text-decoration: none;
+.subtitulo-seccion {
     font-family: var(--fuente-titulos);
-    font-weight: 500;
-    font-size: 13px;
-    padding: 12px 20px;
-    border-radius: 8px 8px 0 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    white-space: nowrap; 
-    border: 1px solid transparent;
+    color: #202124;
+    border-bottom: 2px solid var(--color-acento);
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
-/* Pestaña activa: Blanco sólido */
-.navbar a.active {
-    background-color: var(--color-chrome-active);
-    color: var(--color-acento);
-    border: 1px solid #bdc1c6;
-    border-bottom: 1px solid var(--color-chrome-active);
-    margin-bottom: -1px;
-    z-index: 2;
+/* Timeline Académica */
+.timeline-item {
+    margin-bottom: 25px;
+    padding-left: 15px;
+    border-left: 3px solid var(--color-acento);
 }
 
-.idiomas {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid #dadce0;
-    font-size: 12px;
-}
-
-.idiomas a {
-    padding: 0;
-    color: var(--color-acento);
-    font-weight: bold;
-}
-
-.idiomas a.lang-active {
-    color: #5f6368;
-    pointer-events: none;
-}
-
-/* =========================
-   CONTENEDOR (Solución a Foto Gigante)
-========================= */
-.contenedor {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 5%;
-    gap: 50px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.perfil img {
-    width: 280px; /* Tamaño controlado */
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: block;
-}
-
-.info {
-    flex: 1;
-    min-width: 300px; 
-    max-width: 700px;
-}
-
-.info h1 {
-    font-family: var(--fuente-titulos);
-    color: var(--color-acento);
-    font-size: clamp(28px, 5vw, 42px);
-    margin-bottom: 10px;
-}
-
-.descripcion {
+.texto-principal {
     font-size: 1.1rem;
+    margin: 0;
+    color: #202124;
+}
+
+.texto-secundario {
+    font-size: 0.95rem;
     color: #5f6368;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    margin: 5px 0 0 0;
 }
 
-/* BOTONES */
-.actions {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+/* Tarjetas de Habilidades */
+.contenedor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.btn {
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
+.card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #dadce0;
+}
+
+.card p {
+    margin: 10px 0;
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: var(--fuente-titulos);
-}
-
-.btn-primario { background: var(--color-acento); color: white; }
-.btn-secundario { border: 1px solid #dadce0; color: #3c4043; }
-
-/* =========================
-   FOOTER (Solución a Visibilidad e Iconos)
-========================= */
-footer {
-    width: 100%;
-    padding: 50px 0;
-    background-color: #202124;
-    color: white;
-    margin-top: 50px;
-}
-
-.footer-contenido {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-contenido h3 {
-    font-family: var(--fuente-titulos);
-    margin-bottom: 15px;
-}
-
-.redes {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-/* Iconos blancos para que se vean sobre el fondo oscuro */
-.redes a img {
-    width: 30px;
-    height: 30px;
-    filter: invert(1); /* Convierte iconos negros en blancos */
-}
-
-.copy {
-    text-align: center;
-    font-size: 14px;
-    opacity: 0.6;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #3c4043;
-}
-
-/* =========================
-   MEDIA QUERY
-========================= */
-@media (max-width: 768px) {
-    .contenedor {
-        text-align: center;
-        flex-direction: column;
-    }
-    .actions {
-        justify-content: center;
-    }
+    font-size: 0.95rem;
+    color: #3c4043;
 }

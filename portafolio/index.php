@@ -2,7 +2,7 @@
 // 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// 2. Diccionario de textos
+// 2. Diccionario de textos (ACTUALIZADO con datos de la UGB)
 $textos = [
     'es' => [
         'titulo_pestana' => 'Cristopher Bernal | QA Tester',
@@ -11,7 +11,7 @@ $textos = [
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester enfocado en calidad de software',
         'h3' => 'Detecto errores antes de que lleguen al usuario final',
-        'desc' => 'Estudiante de <strong>Ingeniería en Sistemas</strong> apasionado por el aseguramiento de calidad, pruebas funcionales y mejora continua del software.',
+        'desc' => 'Estudiante de 4° año de <strong>Ingeniería en Sistemas Computacionales</strong> en la UGB. Apasionado por el aseguramiento de calidad, pruebas funcionales y la mejora continua del software.',
         'btn_conocer' => 'Conocer más',
         'btn_cv' => 'Descargar CV',
         'cv_path' => 'cv/cv-espanol.pdf',
@@ -25,7 +25,7 @@ $textos = [
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester focused on software quality',
         'h3' => 'I detect bugs before they reach the end user',
-        'desc' => '<strong>Systems Engineering</strong> student passionate about quality assurance, functional testing, and continuous improvement of software.',
+        'desc' => '4th-year <strong>Computer Systems Engineering</strong> student at UGB. Passionate about quality assurance, functional testing, and continuous software improvement.',
         'btn_conocer' => 'Learn more',
         'btn_cv' => 'Download CV',
         'cv_path' => 'cv/cv-ingles.pdf',

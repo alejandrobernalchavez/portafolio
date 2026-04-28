@@ -2,20 +2,22 @@
 // 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// 2. Diccionario de textos
+// 2. Diccionario de textos (ACTUALIZADO con datos institucionales)
 $textos = [
     'es' => [
         'titulo_pestana' => 'Sobre mí | Cristopher Bernal',
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'h1' => 'Sobre mí',
-        'p1' => 'Soy estudiante de <strong>Ingeniería en Sistemas</strong> y QA Tester apasionado por la excelencia técnica. Mi enfoque va más allá de encontrar fallos; busco optimizar la experiencia del usuario final garantizando que cada línea de código cumpla con los más altos estándares de calidad y funcionalidad.',
+        'p1' => 'Soy estudiante de <strong>Ingeniería en Sistemas Computacionales</strong> y QA Tester apasionado por la excelencia técnica. Mi enfoque va más allá de encontrar fallos; busco optimizar la experiencia del usuario final garantizando que cada línea de código cumpla con los más altos estándares de calidad y funcionalidad.',
         'p2' => 'Me especializo en el ciclo de vida de pruebas, desde la detección temprana de errores hasta la mejora continua. Mi formación técnica me permite colaborar estrechamente con equipos de desarrollo, aportando una visión analítica y detallista en cada proyecto.',
         'formacion' => 'Formación Académica',
-        'ing' => 'Ingeniería en Sistemas',
-        'uni_fecha' => 'Universidad | 2022 - a la fecha',
-        'bach' => 'Bachillerato General',
-        'bach_fecha' => 'Institución Educativa | 2019 - 2021',
+        'ing' => 'Ingeniería en Sistemas Computacionales',
+        'uni_nombre' => 'Universidad Gerardo Barrios (UGB)',
+        'uni_fecha' => '2023 - a la fecha (4° año, VII Ciclo)',
+        'bach' => 'Bachillerato Técnico Vocacional en Contaduría',
+        'bach_nombre' => 'Instituto Nacional de Jiquilisco (INJ)',
+        'bach_fecha' => '2020 - 2022',
         'habilidades' => 'Habilidades de Especialización',
         'test_manual' => 'Testing Manual',
         'funcionales' => 'Pruebas Funcionales',
@@ -30,13 +32,15 @@ $textos = [
         'inicio' => 'Home',
         'sobre' => 'About me',
         'h1' => 'About Me',
-        'p1' => 'I am a <strong>Systems Engineering</strong> student and a QA Tester passionate about technical excellence. My focus goes beyond finding bugs; I aim to optimize the end-user experience by ensuring every line of code meets the highest standards of quality and functionality.',
+        'p1' => 'I am a <strong>Computer Systems Engineering</strong> student and a QA Tester passionate about technical excellence. My focus goes beyond finding bugs; I aim to optimize the end-user experience by ensuring every line of code meets the highest standards of quality and functionality.',
         'p2' => 'I specialize in the testing lifecycle, from early bug detection to continuous improvement. My technical background allows me to collaborate closely with development teams, providing an analytical and detailed perspective to every project.',
         'formacion' => 'Academic Background',
-        'ing' => 'Systems Engineering',
-        'uni_fecha' => 'University | 2022 - Present',
-        'bach' => 'High School Diploma',
-        'bach_fecha' => 'Educational Institution | 2019 - 2021',
+        'ing' => 'Computer Systems Engineering',
+        'uni_nombre' => 'Gerardo Barrios University (UGB)',
+        'uni_fecha' => '2023 - Present (4th Year, 7th Semester)',
+        'bach' => 'Technical High School Diploma in Accounting',
+        'bach_nombre' => 'Instituto Nacional de Jiquilisco (INJ)',
+        'bach_fecha' => '2020 - 2022',
         'habilidades' => 'Specialized Skills',
         'test_manual' => 'Manual Testing',
         'funcionales' => 'Functional Testing',
@@ -94,12 +98,12 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
             
             <div class="timeline-item">
                 <p class="texto-principal"><strong><?php echo $t['ing']; ?></strong></p>
-                <p class="texto-secundario"><?php echo $t['uni_fecha']; ?></p>
+                <p class="texto-secundario"><?php echo $t['uni_nombre']; ?> | <?php echo $t['uni_fecha']; ?></p>
             </div>
 
             <div class="timeline-item alt">
                 <p class="texto-principal"><strong><?php echo $t['bach']; ?></strong></p>
-                <p class="texto-secundario"><?php echo $t['bach_fecha']; ?></p>
+                <p class="texto-secundario"><?php echo $t['bach_nombre']; ?> | <?php echo $t['bach_fecha']; ?></p>
             </div>
         </section>
 
