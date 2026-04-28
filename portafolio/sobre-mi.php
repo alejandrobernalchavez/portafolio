@@ -8,6 +8,7 @@ $textos = [
         'titulo_pestana' => 'Sobre mí | Cristopher Bernal',
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
+        'proyectos' => 'Proyectos', // Nueva traducción
         'h1' => 'Sobre mí',
         'p1' => 'Soy estudiante de <strong>Ingeniería en Sistemas Computacionales</strong> y QA Tester apasionado por la excelencia técnica. Mi enfoque va más allá de encontrar fallos; busco optimizar la experiencia del usuario final garantizando que cada línea de código cumpla con los más altos estándares de calidad y funcionalidad.',
         'p2' => 'Me especializo en el ciclo de vida de pruebas, desde la detección temprana de errores hasta la mejora continua. Mi formación técnica me permite colaborar estrechamente con equipos de desarrollo, aportando una visión analítica y detallista en cada proyecto.',
@@ -28,6 +29,7 @@ $textos = [
         'titulo_pestana' => 'About Me | Cristopher Bernal',
         'inicio' => 'Home',
         'sobre' => 'About me',
+        'proyectos' => 'Projects', // New translation
         'h1' => 'About Me',
         'p1' => 'I am a <strong>Computer Systems Engineering</strong> student and a QA Tester passionate about technical excellence. My focus goes beyond finding bugs; I aim to optimize the end-user experience by ensuring every line of code meets the highest standards of quality and functionality.',
         'p2' => 'I specialize in the testing lifecycle, from early bug detection to continuous improvement. My technical background allows me to collaborate closely with development teams, providing an analytical and detailed perspective to every project.',
@@ -67,6 +69,9 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
         </a>
         <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
             <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
+        </a>
+        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php') ? 'active' : ''; ?>">
+            <i class="fas fa-code"></i> <?php echo $t['proyectos']; ?>
         </a>
     </div>
 

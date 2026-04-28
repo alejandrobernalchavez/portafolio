@@ -8,6 +8,7 @@ $textos = [
         'titulo_pestana' => 'Cristopher Bernal | QA Tester',
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
+        'proyectos' => 'Proyectos', // Agregado para consistencia
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester enfocado en calidad de software',
         'h3' => 'Detecto errores antes de que lleguen al usuario final',
@@ -22,6 +23,7 @@ $textos = [
         'titulo_pestana' => 'Cristopher Bernal | QA Tester',
         'inicio' => 'Home',
         'sobre' => 'About me',
+        'proyectos' => 'Projects', // Agregado para consistencia
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester focused on software quality',
         'h3' => 'I detect bugs before they reach the end user',
@@ -55,6 +57,9 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
         </a>
         <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
             <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
+        </a>
+        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php') ? 'active' : ''; ?>">
+            <i class="fas fa-code"></i> <?php echo $t['proyectos']; ?>
         </a>
     </div>
 
@@ -99,8 +104,11 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     <div class="footer-contenido">
         <div class="footer-col">
             <h3><?php echo $t['explorar']; ?></h3>
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8; display: block;">
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['sobre']; ?>
+            </a>
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8; display: block;">
+                <?php echo $t['proyectos']; ?>
             </a>
         </div>
 
