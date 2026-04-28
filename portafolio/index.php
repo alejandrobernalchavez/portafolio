@@ -2,7 +2,7 @@
 // 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// 2. Diccionario de textos (ACTUALIZADO con datos de la UGB)
+// 2. Diccionario de textos optimizado
 $textos = [
     'es' => [
         'titulo_pestana' => 'Cristopher Bernal | QA Tester',
@@ -35,8 +35,6 @@ $textos = [
 ];
 
 $t = $textos[$lang];
-
-// 3. Identificar página actual para la pestaña activa
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
@@ -48,7 +46,6 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
 
 <nav class="navbar">
@@ -77,17 +74,17 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     <div class="info">
         <h1><?php echo $t['h1']; ?></h1>
         <h2><?php echo $t['h2']; ?></h2>
-        <h3><?php echo $t['h3']; ?></h3>
+        <h3 style="color: var(--color-texto-suave); margin-bottom: 20px;"><?php echo $t['h3']; ?></h3>
 
         <p class="descripcion">
             <?php echo $t['desc']; ?>
         </p>
 
         <div class="actions">
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="btn btn-primario">
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="idiomas" style="text-decoration: none; padding: 12px 25px; background: var(--color-acento); color: white; border: none;">
                 <i class="fas fa-search"></i> <?php echo $t['btn_conocer']; ?>
             </a>
-            <a href="<?php echo $t['cv_path']; ?>" download class="btn btn-secundario">
+            <a href="<?php echo $t['cv_path']; ?>" download class="idiomas" style="text-decoration: none; padding: 12px 25px;">
                 <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
             </a>
         </div>
@@ -96,14 +93,14 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 
 <footer>
     <div class="footer-contenido">
-        <div>
+        <div class="footer-col">
             <h3><?php echo $t['explorar']; ?></h3>
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8;">
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8; display: block;">
                 <?php echo $t['sobre']; ?>
             </a>
         </div>
 
-        <div>
+        <div class="footer-col">
             <h3><?php echo $t['redes']; ?></h3>
             <div class="redes">
                 <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
@@ -118,7 +115,6 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
             </div>
         </div>
     </div>
-
     <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
 </footer>
 

@@ -86,7 +86,7 @@ body {
 }
 
 /* =========================
-   3. CONTENEDOR PRINCIPAL
+   3. CONTENEDOR PRINCIPAL (INICIO)
 ========================= */
 main {
     flex: 1; 
@@ -122,7 +122,85 @@ main {
 }
 
 /* =========================
-   5. FOOTER (Arreglo de Distribución)
+   4. SECCIÓN SOBRE MÍ (NUEVO)
+========================= */
+.contenedor-sobre-mi {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 5%;
+}
+
+.contenedor-sobre-mi h1 {
+    color: var(--color-acento);
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.descripcion-larga {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-texto-suave);
+    margin-bottom: 40px;
+}
+
+.seccion-detalle {
+    margin-bottom: 50px;
+}
+
+.subtitulo-seccion {
+    font-size: 1.6rem;
+    color: #202124;
+    margin-bottom: 25px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--color-acento);
+    display: inline-block;
+}
+
+.timeline-item {
+    margin-bottom: 25px;
+    padding-left: 20px;
+    border-left: 4px solid #e8eaed;
+    transition: border-color 0.3s;
+}
+
+.timeline-item:hover {
+    border-left-color: var(--color-acento);
+}
+
+.texto-principal {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #202124;
+}
+
+.texto-secundario {
+    color: var(--color-texto-suave);
+    margin-top: 4px;
+}
+
+.contenedor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #dadce0;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    background: white;
+}
+
+/* =========================
+   5. FOOTER
 ========================= */
 footer {
     width: 100%;
@@ -134,7 +212,7 @@ footer {
 
 .footer-contenido {
     display: flex;
-    justify-content: space-around; /* Distribuye las columnas por toda la pantalla */
+    justify-content: space-around; 
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 40px;
@@ -181,4 +259,5 @@ footer {
     .navbar { height: auto; padding: 10px 5%; }
     .contenedor { flex-direction: column; text-align: center; }
     .footer-contenido { flex-direction: column; text-align: center; align-items: center; }
+    .contenedor-sobre-mi h1 { font-size: 2.2rem; }
 }
