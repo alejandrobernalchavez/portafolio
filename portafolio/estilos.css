@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   2. NAVBAR (Corrección de Idiomas)
+   2. NAVBAR
 ========================= */
 .navbar {
     display: flex;
@@ -36,7 +36,7 @@ body {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #bdc1c6;
-    height: 60px; /* Altura fija para alineación perfecta */
+    height: 60px;
 }
 
 .pestañas {
@@ -66,7 +66,6 @@ body {
     margin-bottom: -1px;
 }
 
-/* --- FIX DE IDIOMAS --- */
 .idiomas {
     display: flex;
     align-items: center;
@@ -80,16 +79,10 @@ body {
 }
 
 .idiomas a {
-    padding: 0 !important; /* Quita el padding de los links de la nav */
+    padding: 0 !important;
     color: var(--color-acento);
     font-weight: bold;
-    border: none !important;
-    background: none !important;
-}
-
-.idiomas a.lang-active {
-    color: #5f6368;
-    pointer-events: none;
+    text-decoration: none;
 }
 
 /* =========================
@@ -104,7 +97,7 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 80px 5%; /* Más aire arriba y abajo */
+    padding: 80px 5%;
     gap: 80px; 
     max-width: 1200px;
     margin: 0 auto;
@@ -129,17 +122,56 @@ main {
 }
 
 /* =========================
-   5. FOOTER
+   5. FOOTER (Arreglo de Distribución)
 ========================= */
 footer {
-    padding: 50px 0;
+    width: 100%;
+    padding: 60px 0 30px; 
     background-color: #202124;
     color: white;
+    margin-top: 80px;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-around; /* Distribuye las columnas por toda la pantalla */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.footer-col h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.redes {
+    display: flex;
+    gap: 20px;
 }
 
 .redes a img {
     width: 30px;
     filter: invert(1);
+    transition: transform 0.3s;
+}
+
+.redes a img:hover {
+    transform: scale(1.1);
+}
+
+.copy {
+    text-align: center;
+    width: 100%;
+    font-size: 13px;
+    opacity: 0.5;
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid #3c4043;
 }
 
 /* =========================
@@ -148,4 +180,5 @@ footer {
 @media (max-width: 768px) {
     .navbar { height: auto; padding: 10px 5%; }
     .contenedor { flex-direction: column; text-align: center; }
+    .footer-contenido { flex-direction: column; text-align: center; align-items: center; }
 }
