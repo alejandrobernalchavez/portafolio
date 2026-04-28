@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   2. NAVBAR
+   2. NAVBAR E INDICADOR DE IDIOMA
 ========================= */
 .navbar {
     display: flex;
@@ -69,24 +69,76 @@ body {
 .idiomas {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 5px;
     background: white;
-    padding: 6px 16px;
+    padding: 4px 8px;
     border-radius: 20px;
     border: 1px solid #dadce0;
     font-size: 12px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .idiomas a {
-    padding: 0 !important;
-    color: var(--color-acento);
-    font-weight: bold;
+    padding: 5px 10px !important;
+    color: var(--color-texto-suave);
     text-decoration: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+/* DISTINTIVO DE IDIOMA ACTIVO */
+.idiomas a.lang-active {
+    background-color: var(--color-acento);
+    color: white !important;
+    font-weight: bold;
 }
 
 /* =========================
-   3. CONTENEDOR PRINCIPAL (INICIO)
+   3. BOTONES Y ACCIONES (SEPARACIÓN)
+========================= */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5cm; /* Separación exacta solicitada */
+    margin-top: 30px;
+}
+
+/* Estilo base para que no se arruine el diseño de los botones */
+.btn-portafolio {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.btn-azul {
+    background-color: var(--color-acento);
+    color: white !important;
+}
+
+.btn-azul:hover {
+    background-color: #1557b0;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+}
+
+.btn-blanco {
+    background-color: white;
+    color: var(--color-acento) !important;
+    border: 1px solid #dadce0;
+}
+
+.btn-blanco:hover {
+    border-color: var(--color-acento);
+    background-color: #f8f9fa;
+}
+
+/* =========================
+   4. CONTENEDOR PRINCIPAL
 ========================= */
 main {
     flex: 1; 
@@ -113,38 +165,22 @@ main {
 .info h1 {
     color: var(--color-acento);
     font-size: 42px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
-.descripcion {
+.descripcion, .descripcion-larga {
     line-height: 1.8;
-    margin-bottom: 40px;
+    color: var(--color-texto-suave);
+    margin-bottom: 30px;
 }
 
 /* =========================
-   4. SECCIÓN SOBRE MÍ (NUEVO)
+   5. SECCIÓN SOBRE MÍ
 ========================= */
 .contenedor-sobre-mi {
     max-width: 900px;
     margin: 0 auto;
     padding: 60px 5%;
-}
-
-.contenedor-sobre-mi h1 {
-    color: var(--color-acento);
-    font-size: 3rem;
-    margin-bottom: 30px;
-}
-
-.descripcion-larga {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--color-texto-suave);
-    margin-bottom: 40px;
-}
-
-.seccion-detalle {
-    margin-bottom: 50px;
 }
 
 .subtitulo-seccion {
@@ -154,28 +190,6 @@ main {
     padding-bottom: 8px;
     border-bottom: 3px solid var(--color-acento);
     display: inline-block;
-}
-
-.timeline-item {
-    margin-bottom: 25px;
-    padding-left: 20px;
-    border-left: 4px solid #e8eaed;
-    transition: border-color 0.3s;
-}
-
-.timeline-item:hover {
-    border-left-color: var(--color-acento);
-}
-
-.texto-principal {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #202124;
-}
-
-.texto-secundario {
-    color: var(--color-texto-suave);
-    margin-top: 4px;
 }
 
 .contenedor-cards {
@@ -193,14 +207,8 @@ main {
     transition: all 0.2s ease;
 }
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    background: white;
-}
-
 /* =========================
-   5. FOOTER
+   6. FOOTER
 ========================= */
 footer {
     width: 100%;
@@ -218,47 +226,27 @@ footer {
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 5%;
-}
-
-.footer-col h3 {
-    font-family: var(--fuente-titulos);
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-.redes {
-    display: flex;
-    gap: 20px;
 }
 
 .redes a img {
     width: 30px;
     filter: invert(1);
-    transition: transform 0.3s;
-}
-
-.redes a img:hover {
-    transform: scale(1.1);
 }
 
 .copy {
     text-align: center;
-    width: 100%;
     font-size: 13px;
     opacity: 0.5;
     margin-top: 50px;
     padding-top: 25px;
     border-top: 1px solid #3c4043;
 }
- 
 
 /* =========================
-   6. RESPONSIVIDAD
+   7. RESPONSIVIDAD
 ========================= */
 @media (max-width: 768px) {
-    .navbar { height: auto; padding: 10px 5%; }
     .contenedor { flex-direction: column; text-align: center; }
+    .actions { justify-content: center; flex-direction: column; gap: 15px; }
     .footer-contenido { flex-direction: column; text-align: center; align-items: center; }
-    .contenedor-sobre-mi h1 { font-size: 2.2rem; }
 }

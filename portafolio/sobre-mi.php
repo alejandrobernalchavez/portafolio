@@ -109,7 +109,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
         </div>
     </section>
 
-    <div class="actions" style="margin-top: 40px;">
+    <div class="actions">
         <a href="<?php echo $t['cv_path']; ?>" download class="btn-portafolio btn-blanco">
             <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
         </a>
