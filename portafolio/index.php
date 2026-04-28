@@ -1,11 +1,11 @@
 <?php
-// Lógica de detección de idioma
+// 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// Diccionario de textos (Asegurando que todo lo del "cuadrado rojo" y footer esté aquí)
+// 2. Diccionario de textos (Asegurando consistencia con el diseño responsivo)
 $textos = [
     'es' => [
-        'titulo' => 'Cristopher Bernal | QA Tester',
+        'titulo_pestana' => 'Cristopher Bernal | QA Tester',
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'h1' => 'CRISTOPHER BERNAL',
@@ -19,7 +19,7 @@ $textos = [
         'redes' => 'Redes sociales'
     ],
     'en' => [
-        'titulo' => 'Cristopher Bernal | QA Tester',
+        'titulo_pestana' => 'Cristopher Bernal | QA Tester',
         'inicio' => 'Home',
         'sobre' => 'About me',
         'h1' => 'CRISTOPHER BERNAL',
@@ -41,8 +41,10 @@ $t = $textos[$lang];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $t['titulo']; ?></title>
+    <title><?php echo $t['titulo_pestana']; ?></title>
+    
     <link rel="stylesheet" href="estilos.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
@@ -59,7 +61,7 @@ $t = $textos[$lang];
     </div>
 
     <div class="idiomas">
-        <i class="fas fa-language" style="margin-right: 5px; color: #5f6368;"></i>
+        <i class="fas fa-language"></i>
         <a href="?lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
         <span>|</span>
         <a href="?lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
@@ -95,7 +97,9 @@ $t = $textos[$lang];
     <div class="footer-contenido">
         <div>
             <h3><?php echo $t['explorar']; ?></h3>
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8;"><?php echo $t['sobre']; ?></a>
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8;">
+                <?php echo $t['sobre']; ?>
+            </a>
         </div>
 
         <div>

@@ -23,7 +23,7 @@ $textos = [
         'btn_cv' => 'Descargar CV',
         'cv_path' => 'cv/cv-espanol.pdf',
         'footer_doc' => 'Documentación',
-        'footer_redes' => 'Social Media'
+        'footer_redes' => 'Redes sociales'
     ],
     'en' => [
         'titulo_pestana' => 'About Me | Cristopher Bernal',
@@ -73,59 +73,61 @@ $t = $textos[$lang];
     </div>
 
     <div class="idiomas">
-        <i class="fas fa-language" style="margin-right: 5px; color: #5f6368;"></i>
+        <i class="fas fa-language"></i>
         <a href="?lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
         <span>|</span>
         <a href="?lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
     </div>
 </nav>
 
-<div class="pagina-sobre-mi">
-    <h1><?php echo $t['h1']; ?></h1>
-    <p><?php echo $t['p1']; ?></p>
-    <p><?php echo $t['p2']; ?></p>
+<div class="contenedor">
+    <div class="info">
+        <h1><?php echo $t['h1']; ?></h1>
+        <p class="descripcion"><?php echo $t['p1']; ?></p>
+        <p class="descripcion"><?php echo $t['p2']; ?></p>
 
-    <section style="text-align: left; margin-top: 40px;">
-        <h2 style="font-family: var(--fuente-titulos); color: #1a73e8;"><?php echo $t['formacion']; ?></h2>
-        
-        <div style="border-left: 3px solid #1a73e8; padding-left: 20px; margin-bottom: 20px;">
-            <p style="margin: 0; font-weight: bold; font-size: 1.1rem;"><?php echo $t['ing']; ?></p>
-            <p style="margin: 0; color: #666;"><?php echo $t['uni_fecha']; ?></p>
-        </div>
-
-        <div style="border-left: 3px solid #dadce0; padding-left: 20px;">
-            <p style="margin: 0; font-weight: bold; font-size: 1.1rem;"><?php echo $t['bach']; ?></p>
-            <p style="margin: 0; color: #666;"><?php echo $t['bach_fecha']; ?></p>
-        </div>
-    </section>
-
-    <section>
-        <h2 style="font-family: var(--fuente-titulos); color: #1a73e8; margin-top: 40px;"><?php echo $t['habilidades']; ?></h2>
-        <div class="contenedor-cards">
-            <div class="card">
-                <p><i class="fas fa-bug" style="color: #1a73e8;"></i> <?php echo $t['test_manual']; ?></p>
-                <p><i class="fas fa-check-circle" style="color: #1a73e8;"></i> <?php echo $t['funcionales']; ?></p>
-                <p><i class="fas fa-file-alt" style="color: #1a73e8;"></i> <?php echo $t['doc']; ?></p>
+        <section class="seccion-detalle">
+            <h2 class="subtitulo-seccion"><?php echo $t['formacion']; ?></h2>
+            
+            <div class="timeline-item">
+                <p class="texto-principal"><strong><?php echo $t['ing']; ?></strong></p>
+                <p class="texto-secundario"><?php echo $t['uni_fecha']; ?></p>
             </div>
-            <div class="card">
-                <p><i class="fas fa-tools" style="color: #1a73e8;"></i> Azure DevOps</p>
-                <p><i class="fas fa-database" style="color: #1a73e8;"></i> SQL Básico</p>
-                <p><i class="fas fa-code" style="color: #1a73e8;"></i> HTML / CSS</p>
-            </div>
-        </div>
-    </section>
 
-    <div class="acciones" style="justify-content: center; margin-top: 50px;">
-        <a href="<?php echo $t['cv_path']; ?>" download class="btn btn-secundario">
-            <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
-        </a>
+            <div class="timeline-item alt">
+                <p class="texto-principal"><strong><?php echo $t['bach']; ?></strong></p>
+                <p class="texto-secundario"><?php echo $t['bach_fecha']; ?></p>
+            </div>
+        </section>
+
+        <section class="seccion-detalle">
+            <h2 class="subtitulo-seccion"><?php echo $t['habilidades']; ?></h2>
+            <div class="contenedor-cards">
+                <div class="card">
+                    <p><i class="fas fa-bug"></i> <?php echo $t['test_manual']; ?></p>
+                    <p><i class="fas fa-check-circle"></i> <?php echo $t['funcionales']; ?></p>
+                    <p><i class="fas fa-file-alt"></i> <?php echo $t['doc']; ?></p>
+                </div>
+                <div class="card">
+                    <p><i class="fas fa-tools"></i> Azure DevOps</p>
+                    <p><i class="fas fa-database"></i> SQL Básico</p>
+                    <p><i class="fas fa-code"></i> HTML / CSS</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="actions" style="margin-top: 40px;">
+            <a href="<?php echo $t['cv_path']; ?>" download class="btn btn-secundario">
+                <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
+            </a>
+        </div>
     </div>
 </div>
 
 <footer>
     <div class="footer-contenido">
         <div>
-            <h3 style="font-family: var(--fuente-titulos);"><?php echo $t['footer_doc']; ?></h3>
+            <h3><?php echo $t['footer_doc']; ?></h3>
             <a href="cv/cv-ingles.pdf" download style="color: inherit; text-decoration: none; opacity: 0.8;">CV Inglés</a><br>
             <a href="cv/cv-espanol.pdf" download style="color: inherit; text-decoration: none; opacity: 0.8;">CV Español</a>
         </div>

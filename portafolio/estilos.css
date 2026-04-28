@@ -1,23 +1,30 @@
 /* =========================
-   NAVBAR DISTRIBUIDA (ESQUINA A ESQUINA)
+   NAVBAR RESPONSIVA (Chrome Style)
 ========================= */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Empuja el selector a la derecha */
-    align-items: flex-end;
-    padding: 8px 30px 0 30px;
+    justify-content: space-between; 
+    align-items: center; /* Cambiado a center para evitar desalineaciones en móviles */
+    padding: 8px 5%; /* Usamos % para que respire en pantallas anchas */
     background-color: var(--color-chrome-bg);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #bdc1c6; /* Línea sutil estilo navegador */
+    border-bottom: 1px solid #bdc1c6;
+    flex-wrap: wrap; /* PERMITE que el idioma baje si el menú es muy largo */
+    gap: 15px;
 }
 
-/* Contenedor de pestañas (Izquierda) */
+/* Contenedor de pestañas */
 .pestañas {
     display: flex;
+    align-items: flex-end; /* Mantiene la estética de pestaña pegada al borde */
     gap: 4px;
+    overflow-x: auto; /* Permite scroll horizontal si hay muchas pestañas en móvil */
+    scrollbar-width: none; /* Oculta scrollbar en Firefox */
 }
+
+.pestañas::-webkit-scrollbar { display: none; } /* Oculta scrollbar en Chrome */
 
 .navbar a {
     color: #5f6368;
@@ -25,93 +32,110 @@
     font-family: var(--fuente-titulos);
     font-weight: 500;
     font-size: 13px;
-    padding: 10px 25px;
+    padding: 10px 20px;
     border-radius: 8px 8px 0 0;
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: transparent;
+    white-space: nowrap; /* EVITA que el texto de la pestaña se parta en dos */
     border: 1px solid transparent;
-    border-bottom: none;
 }
 
 .navbar a.active {
     background-color: var(--color-chrome-active);
     color: var(--color-acento);
     border: 1px solid #bdc1c6;
-    border-bottom: 2px solid var(--color-chrome-active); /* Tapa la línea del navbar */
-    margin-bottom: -1px; /* Ajuste para que encaje perfecto */
+    border-bottom: 1px solid var(--color-chrome-active);
+    margin-bottom: -1px;
     z-index: 2;
 }
 
-/* NUEVO: SELECTOR DE IDIOMAS (Derecha - Estilo Google) */
+/* SELECTOR DE IDIOMAS */
 .idiomas {
     display: flex;
     align-items: center;
     gap: 5px;
-    margin-bottom: 10px; /* Eleva el selector para que no toque la línea */
     background: white;
     padding: 4px 12px;
     border-radius: 20px;
     border: 1px solid #dadce0;
     box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-}
-
-/* Estilo para el icono de mundo/lenguaje */
-.idiomas i {
-    color: #5f6368;
-    font-size: 14px;
-    margin-right: 5px;
-}
-
-.idiomas a {
-    padding: 2px 4px;
-    border-radius: 4px;
-    color: #1a73e8; /* Azul para el que no está seleccionado */
-    background: none;
-    text-transform: uppercase;
-    font-size: 11px;
-    font-weight: bold;
-    border: none;
-}
-
-/* El idioma que ya está puesto se ve gris y sin clic */
-.idiomas a.lang-active {
-    color: #5f6368;
-    pointer-events: none;
-    font-weight: normal;
-}
-
-.idiomas span { 
-    color: #dadce0; 
-    font-size: 12px;
+    flex-shrink: 0; /* Evita que el selector se aplaste */
 }
 
 /* =========================
-   RECUADRO DE INFORMACIÓN (EL "CUADRADO ROJO")
+   CONTENEDOR PRINCIPAL (RECUADRO ROJO)
 ========================= */
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 5%;
+    gap: 30px;
+    flex-wrap: wrap; /* SI NO CABE, LA INFO BAJA DEBAJO DE LA FOTO */
+}
+
+.info {
+    flex: 1;
+    min-width: 300px; /* Evita que el texto se vea como una columna flaca */
+    max-width: 700px;
+}
+
+/* Nombre fluido para que no se salga en móviles */
 .info h1 {
     font-family: var(--fuente-titulos);
     color: #1a73e8;
-    font-size: 42px;
+    font-size: clamp(28px, 5vw, 42px); /* Tamaño dinámico */
     margin-bottom: 10px;
     letter-spacing: -0.5px;
+    word-wrap: break-word;
 }
 
 .info h2 {
     font-family: var(--fuente-titulos);
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     color: #202124;
     font-weight: 600;
-    margin: 0;
 }
 
 .info h3 {
     font-family: var(--fuente-titulos);
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
     color: #3c4043;
-    margin-top: 5px;
     font-weight: 700;
 }
 
-/* ... (El resto de tus estilos: contenedor, perfil, botones y footer) ... */
+/* =========================
+   FOOTER RESPONSIVO
+========================= */
+footer {
+    width: 100%;
+    padding: 40px 5%;
+    background-color: #202124;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Los bloques de redes y explorar se acomodan solos */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* MEDIA QUERY PARA MÓVILES */
+@media (max-width: 600px) {
+    .navbar {
+        justify-content: center; /* Centra todo en celulares */
+    }
+    .contenedor {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .info {
+        min-width: 100%;
+    }
+}
