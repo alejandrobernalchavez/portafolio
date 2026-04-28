@@ -14,13 +14,12 @@ $detalles = [
         ],
         'donamiga' => [
             'titulo' => 'DonAmiga:',
-            'desc' => 'DonAmiga es una plataforma digital de donaciones diseñada para conectar a personas con causas sociales de forma transparente, segura y accesible. A través del uso de tecnología blockchain, permite crear, gestionar y dar seguimiento a campañas solidarias, garantizando la trazabilidad de cada aporte realizado. Su enfoque centrado en el usuario facilita la exploración de campañas, el monitoreo del progreso y la interacción entre donantes, promoviendo confianza y compromiso. DonAmiga busca impulsar el impacto social mediante una experiencia moderna, confiable y orientada a la colaboración.',
+            'desc' => 'DonAmiga es una plataforma digital de donaciones diseñada para conectar a personas con causas sociales de forma transparente, segura y accesible. A través del uso de tecnología blockchain, permite crear, gestionar y dar seguimiento a campañas solidarias, garantizando la trazabilidad de cada aporte realizado. En este proyecto, desempeñé el rol de QA Tester, asegurando la calidad y el correcto funcionamiento de cada módulo para promover una experiencia moderna y confiable.',
             'repo' => 'https://github.com/GersonDanielGuerrero/Donamiga',
             'tech' => [
-                'Frontend' => 'Vue.js, HTML, CSS, JavaScript',
-                'Backend' => 'Django (API REST), Fetch API',
-                'Base de Datos' => 'SQL Server',
-                'Blockchain' => 'Blockchain (registro y trazabilidad)'
+                'Mi Rol' => 'QA Tester',
+                'Tecnologías' => 'Javascript, HTML, PHP, CSS, Vue',
+                'Blockchain' => 'Registro y trazabilidad de donaciones'
             ]
         ],
     ],
@@ -34,13 +33,12 @@ $detalles = [
         ],
         'donamiga' => [
             'titulo' => 'DonAmiga:',
-            'desc' => 'DonAmiga is a digital donation platform designed to connect people with social causes in a transparent, secure, and accessible way. Through the use of blockchain technology, it allows creating, managing, and tracking solidarity campaigns, guaranteeing the traceability of each contribution made.',
+            'desc' => 'DonAmiga is a digital donation platform designed to connect people with social causes in a transparent, secure, and accessible way. In this project, I played the role of QA Tester, ensuring quality and correct operation across all modules.',
             'repo' => 'https://github.com/GersonDanielGuerrero/Donamiga',
             'tech' => [
-                'Frontend' => 'Vue.js, HTML, CSS, JavaScript',
-                'Backend' => 'Django (API REST), Fetch API',
-                'Database' => 'SQL Server',
-                'Blockchain' => 'Blockchain (registration and traceability)'
+                'My Role' => 'QA Tester',
+                'Technologies' => 'Javascript, HTML, PHP, CSS, Vue',
+                'Blockchain' => 'Traceability and registration'
             ]
         ]
     ]
@@ -59,7 +57,6 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Estilos específicos para la ficha técnica y GitHub */
         .tech-container {
             background: #f8f9fa;
             border: 1px solid #dadce0;
