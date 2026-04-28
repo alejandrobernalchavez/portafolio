@@ -14,12 +14,13 @@ $detalles = [
         'siguiente' => 'SIGUIENTE',
         'inicio_btn' => 'Volver a proyectos',
         'ver_repo' => 'Ver Código en GitHub',
-        // Textos para la Navbar
         'nav_inicio' => 'Inicio',
         'nav_sobre' => 'Sobre mí',
         'nav_proyectos' => 'Proyectos',
         'no_encontrado' => 'Proyecto no encontrado.',
         'volver_proyectos' => 'Volver a Proyectos',
+        'etiqueta_tech' => 'Tecnologías',
+        'etiqueta_rol' => 'Rol:',
         'goodburger' => [
             'titulo' => 'GoodBurger',
             'desc' => 'GoodBurger es una página web orientada al sector de comida rápida, diseñada para presentar de forma atractiva e intuitiva la oferta de un restaurante. La plataforma permite a los usuarios explorar el menú, conocer los productos disponibles y acceder a información relevante como promociones y datos de contacto.',
@@ -53,12 +54,13 @@ $detalles = [
         'siguiente' => 'NEXT',
         'inicio_btn' => 'Back to projects',
         'ver_repo' => 'View Code on GitHub',
-        // Textos para la Navbar
         'nav_inicio' => 'Home',
         'nav_sobre' => 'About me',
         'nav_proyectos' => 'Projects',
         'no_encontrado' => 'Project not found.',
         'volver_proyectos' => 'Back to Projects',
+        'etiqueta_tech' => 'Technologies',
+        'etiqueta_rol' => 'Role:',
         'goodburger' => [
             'titulo' => 'GoodBurger',
             'desc' => 'A fast-food web platform designed to present a restaurant\'s menu in an attractive and intuitive way. I served as a QA Tester for this project.',
@@ -114,40 +116,51 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     <img src="img/logoportafolio.png" alt="Logo" class="logo-inicio">
 </div>
 
-<main class="contenedor-sobre-mi" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center;">
+<main class="contenedor-sobre-mi">
     
     <?php if ($p): ?>
         <h1 id="titulo-dinamico" style="text-decoration: underline; margin-bottom: 30px;"><?php echo $p['titulo']; ?></h1>
         
-        <div id="visor-contenido" style="flex-grow: 1;">
+        <div id="visor-contenido">
             <div id="texto-descripcion">
-                <p class="descripcion-larga" style="font-size: 1.2rem; line-height: 1.6; max-width: 800px; margin: 0 auto 30px;">
+                <p class="descripcion-larga">
                     <?php echo $p['desc']; ?>
                 </p>
 
-                <?php if (isset($p['tech'])): ?>
-                <div class="tech-container">
-                    <div class="tech-grid">
-                        <?php foreach ($p['tech'] as $categoria => $info): ?>
-                            <div class="tech-item">
-                                <h4><?php echo $categoria; ?></h4>
-                                <p><?php echo $info; ?></p>
+                <div class="tech-card-modern">
+                    <h3 class="tech-titulo-central"><?php echo $t['etiqueta_tech']; ?></h3>
+                    
+                    <div class="tech-lista-columnas">
+                        <?php 
+                        $tech_string = $p['tech']['Tecnologías'] ?? $p['tech']['Technologies'];
+                        $lista_tech = explode(', ', $tech_string); 
+                        foreach ($lista_tech as $item): 
+                        ?>
+                            <div class="tech-bullet-item">
+                                <span class="bullet">•</span> <?php echo $item; ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <?php if (isset($p['repo'])): ?>
-                        <a href="<?php echo $p['repo']; ?>" target="_blank" class="btn-github">
-                            <i class="fab fa-github"></i> <?php echo $t['ver_repo']; ?>
-                        </a>
-                    <?php endif; ?>
+
+                    <div class="tech-footer-row">
+                        <div class="rol-destacado">
+                            <strong><?php echo $t['etiqueta_rol']; ?></strong> 
+                            <?php echo $p['tech']['Mi Rol'] ?? $p['tech']['My Role']; ?>
+                        </div>
+                        
+                        <?php if (isset($p['repo'])): ?>
+                            <a href="<?php echo $p['repo']; ?>" target="_blank" class="btn-github-modern">
+                                <i class="fab fa-github"></i> <?php echo $t['ver_repo']; ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
                 </div>
-                <?php endif; ?>
             </div>
 
-            <img id="imagen-galeria" src="" alt="Captura" class="img-proyecto-detalle" style="display: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <img id="imagen-galeria" src="" alt="Captura" class="img-proyecto-detalle" style="display: none;">
         </div>
 
-        <div style="display: flex; justify-content: space-between; margin-top: 40px; align-items: center; width: 100%; max-width: 900px; margin-left: auto; margin-right: auto; padding-bottom: 40px;">
+        <div class="navegacion-proyectos">
             <button onclick="retrocederGaleria()" id="btn-atras" class="btn-navegacion-flecha atras-flecha">
                  <?php echo $t['atras']; ?>
             </button>
@@ -162,61 +175,42 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         </div>
 
     <?php else: ?>
-        <div style="padding: 100px 0; text-align: center;">
-            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ccc; margin-bottom: 20px;"></i>
-            <p style="font-size: 1.5rem; color: #666;"><?php echo $t['no_encontrado']; ?></p>
-            <br>
+        <div class="error-container">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p><?php echo $t['no_encontrado']; ?></p>
             <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-portafolio btn-azul"><?php echo $t['volver_proyectos']; ?></a>
         </div>
     <?php endif; ?>
 </main>
 
 <footer>
-    <p class="copy" style="border: none; margin-top: 0;">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
+    <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
 </footer>
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     let proyectoActual = urlParams.get('proyecto');
 
-    if (proyectoActual === 'periodico') {
-        proyectoActual = 'comunicado';
-    }
+    if (proyectoActual === 'periodico') { proyectoActual = 'comunicado'; }
 
     let paso = 0; 
     let totalImagenes = 0;
     let prefijo = '';
 
-    if (proyectoActual === 'donamiga') {
-        totalImagenes = 3;
-        prefijo = 'd';
-    } else if (proyectoActual === 'goodburger') {
-        totalImagenes = 14;
-        prefijo = 'g';
-    } else if (proyectoActual === 'comunicado') {
-        totalImagenes = 4;
-        prefijo = 'c';
-    }
+    if (proyectoActual === 'donamiga') { totalImagenes = 3; prefijo = 'd'; } 
+    else if (proyectoActual === 'goodburger') { totalImagenes = 14; prefijo = 'g'; } 
+    else if (proyectoActual === 'comunicado') { totalImagenes = 4; prefijo = 'c'; }
     
     const texto = document.getElementById('texto-descripcion');
     const imagen = document.getElementById('imagen-galeria');
     const btnVolver = document.getElementById('btn-volver-inicio');
     const btnSiguiente = document.getElementById('btn-siguiente');
 
-    function navegarGaleria() {
-        if (paso < totalImagenes) {
-            paso++;
-            actualizarVisor();
-        }
-    }
+    function navegarGaleria() { if (paso < totalImagenes) { paso++; actualizarVisor(); } }
 
     function retrocederGaleria() {
-        if (paso > 0) {
-            paso--;
-            actualizarVisor();
-        } else {
-            window.location.href = "proyectos.php?lang=<?php echo $lang; ?>";
-        }
+        if (paso > 0) { paso--; actualizarVisor(); } 
+        else { window.location.href = "proyectos.php?lang=<?php echo $lang; ?>"; }
     }
 
     function actualizarVisor() {
