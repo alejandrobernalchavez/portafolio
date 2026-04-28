@@ -1,252 +1,239 @@
 /* =========================
    CONFIGURACIÓN GENERAL
 ========================= */
-
-body{
-margin:0;
-font-family: Georgia, serif;
-background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+:root {
+    --color-primario: #2d2f55;    /* Azul Oscuro (Navbar/Footer) */
+    --color-acento: #1a33ff;      /* Azul Vibrante (Títulos) */
+    --color-hover: #4f8cff;       /* Azul Claro (Hover) */
+    --color-texto: #333333;
+    --fuente-titulos: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fuente-cuerpo: 'Georgia', serif;
 }
 
-/* ANIMACIONES */
-
-*{
-transition: all 0.3s ease;
+body {
+    margin: 0;
+    font-family: var(--fuente-cuerpo);
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    color: var(--color-texto);
+    line-height: 1.6;
 }
 
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(20px);
+/* Transiciones globales suaves */
+* {
+    transition: all 0.3s ease-in-out;
 }
-to{
-opacity:1;
-transform:translateY(0);
-}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
-   NAVBAR (MEJORADO)
+   NAVBAR (ESTRUCTURA DE MENÚ PROFESIONAL)
 ========================= */
-
 .navbar {
-display:flex;
-justify-content:center;
-gap:40px;
-padding:15px 0;
-background:#2d2f55;
-position:sticky;
-top:0;
-z-index:1000;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    background: var(--color-primario);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .navbar a {
-color:white;
-text-decoration:none;
-font-weight:bold;
-font-size:18px;
-padding:8px 15px;
-border-radius:6px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-family: var(--fuente-titulos);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
 }
 
 .navbar a:hover {
-background:#4f8cff;
-color:white;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-/* OPCIONAL: pestaña activa */
-.navbar a.active{
-background:#4f8cff;
+.navbar a.active {
+    color: white;
+    background: var(--color-hover);
+    font-weight: bold;
 }
 
 /* =========================
    CONTENEDOR PRINCIPAL
 ========================= */
-
-.contenedor{
-display:flex;
-padding:40px;
-max-width:1200px;
-margin:auto;
-align-items:center;
+.contenedor {
+    display: flex;
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: auto;
+    align-items: center;
+    min-height: 60vh;
 }
 
 /* =========================
-   FOTO PERFIL
+   FOTO PERFIL (FONDO Y CONTRASTE)
 ========================= */
+.perfil {
+    flex-shrink: 0;
+}
 
-.perfil img{
-width:230px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+.perfil img {
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 5px solid white; /* Efecto marco para resaltar del fondo */
 }
 
 /* =========================
-   INFORMACIÓN
+   INFORMACIÓN Y JERARQUÍA
 ========================= */
-
-.info{
-margin-left:40px;
-max-width:600px;
-animation:fadeIn 1s ease;
+.info {
+    margin-left: 60px;
+    animation: fadeIn 0.8s ease-out;
 }
 
-.info h1{
-color:#1a33ff;
-font-size:48px;
-margin:0;
-letter-spacing:1px;
+.info h1 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-acento);
+    font-size: 52px;
+    margin: 0;
+    line-height: 1.1;
+    text-transform: uppercase;
 }
 
-.info h2{
-margin-bottom:0;
+.info h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.2rem;
+    color: #555;
+    margin: 10px 0;
+    font-weight: 400;
 }
 
-.info h3{
-font-size:32px;
-margin-top:-10px;
+.info h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    margin: 5px 0 20px 0;
+    color: #222;
+    font-weight: 700;
 }
 
-.descripcion{
-margin-top:10px;
-font-size:16px;
+.descripcion {
+    font-size: 18px;
+    color: #444;
+    max-width: 500px;
+    margin-bottom: 30px;
 }
 
 /* =========================
-   SECCIONES GENERALES
+   BOTONES DE ACCIÓN (NUEVO)
 ========================= */
+.acciones {
+    display: flex;
+    gap: 15px;
+}
 
-section{
-margin-top:60px;
-text-align:center;
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: var(--fuente-titulos);
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-primario {
+    background: var(--color-acento);
+    color: white;
+    box-shadow: 0 4px 15px rgba(26, 51, 255, 0.3);
+}
+
+.btn-primario:hover {
+    background: var(--color-hover);
+    transform: translateY(-3px);
+}
+
+.btn-secundario {
+    background: transparent;
+    color: var(--color-acento);
+    border: 2px solid var(--color-acento);
+}
+
+.btn-secundario:hover {
+    background: var(--color-acento);
+    color: white;
 }
 
 /* =========================
-   CARDS (PROYECTOS / SKILLS)
+   FOOTER MEJORADO
 ========================= */
-
-.contenedor-cards{
-display:flex;
-gap:20px;
-margin-top:20px;
-justify-content:center;
-flex-wrap:wrap;
+footer {
+    background: var(--color-primario);
+    color: white;
+    padding: 40px 20px;
+    margin-top: 100px;
 }
 
-.card{
-background:white;
-padding:20px;
-border-radius:12px;
-width:260px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+.footer-contenido {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
+.redes {
+    display: flex;
+    gap: 20px;
+}
+
+.redes a img {
+    width: 30px;
+    filter: brightness(0) invert(1); /* Hace los iconos blancos */
+    opacity: 0.8;
+}
+
+.redes a img:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.copy {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
 }
 
 /* =========================
-   FOOTER
+   RESPONSIVE
 ========================= */
-
-footer{
-background:#2d2f55;
-color:white;
-padding:30px;
-margin-top:80px;
-}
-
-.footer-contenido{
-display:flex;
-gap:120px;
-margin-left:40px;
-align-items:center;
-}
-
-.footer-contenido img{
-width:35px;
-margin-right:10px;
-}
-
-/* REDES (esto te faltaba) */
-.redes{
-display:flex;
-gap:15px;
-margin-top:10px;
-}
-
-.redes img{
-width:35px;
-}
-
-.copy{
-text-align:center;
-margin-top:20px;
-}
-
-/* =========================
-   SOBRE MI / PAGINAS INTERNAS
-========================= */
-
-.pagina-sobre-mi{
-max-width:900px;
-margin:auto;
-padding:60px;
-line-height:1.7;
-animation:fadeIn 1s ease;
-}
-
-.pagina-sobre-mi h1{
-font-size:36px;
-margin-bottom:30px;
-text-align:center;
-}
-
-/* =========================
-   BOTONES
-========================= */
-
-.boton-volver{
-display:inline-block;
-margin-top:30px;
-text-decoration:none;
-color:#1a33ff;
-font-weight:bold;
-font-size:18px;
-}
-
-.boton-volver:hover{
-text-decoration:underline;
-}
-
-/* =========================
-   RESPONSIVE (CELULAR)
-========================= */
-
-@media (max-width: 768px){
-
-.contenedor{
-flex-direction:column;
-align-items:center;
-text-align:center;
-}
-
-.info{
-margin-left:0;
-margin-top:20px;
-}
-
-.navbar{
-flex-direction:column;
-gap:10px;
-}
-
-.footer-contenido{
-flex-direction:column;
-gap:30px;
-margin-left:0;
-text-align:center;
-}
-
+@media (max-width: 768px) {
+    .contenedor {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    .info {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .info h1 { font-size: 38px; }
+    .acciones { justify-content: center; }
+    .footer-contenido {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
 }
