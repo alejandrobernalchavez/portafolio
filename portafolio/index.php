@@ -66,6 +66,10 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     </div>
 </nav>
 
+<div class="logo-container">
+    <img src="img/logoportafolio.png" alt="Logo Portafolio" class="logo-inicio">
+</div>
+
 <main class="contenedor">
     <div class="perfil">
         <img src="img/_LUI0053-2.jpeg" alt="Cristopher Bernal - QA Tester">
