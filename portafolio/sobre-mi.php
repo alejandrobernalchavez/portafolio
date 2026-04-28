@@ -78,6 +78,10 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     </div>
 </nav>
 
+<div class="logo-container">
+    <img src="img/logoportafolio.png" alt="Logo Portafolio" class="logo-inicio">
+</div>
+
 <main class="contenedor-sobre-mi">
     <h1><?php echo $t['h1']; ?></h1>
     <p class="descripcion-larga"><?php echo $t['p1']; ?></p>
