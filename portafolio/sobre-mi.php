@@ -8,7 +8,7 @@ $textos = [
         'titulo_pestana' => 'Sobre mí | Cristopher Bernal',
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
-        'proyectos' => 'Proyectos', // Nueva traducción
+        'proyectos' => 'Proyectos',
         'h1' => 'Sobre mí',
         'p1' => 'Soy estudiante de <strong>Ingeniería en Sistemas Computacionales</strong> y QA Tester apasionado por la excelencia técnica. Mi enfoque va más allá de encontrar fallos; busco optimizar la experiencia del usuario final garantizando que cada línea de código cumpla con los más altos estándares de calidad y funcionalidad.',
         'p2' => 'Me especializo en el ciclo de vida de pruebas, desde la detección temprana de errores hasta la mejora continua. Mi formación técnica me permite colaborar estrechamente con equipos de desarrollo, aportando una visión analítica y detallista en cada proyecto.',
@@ -22,14 +22,14 @@ $textos = [
         'habilidades' => 'Habilidades de Especialización',
         'btn_cv' => 'Descargar CV',
         'cv_path' => 'cv/cv-espanol.pdf',
-        'footer_doc' => 'Documentación',
-        'footer_redes' => 'Redes sociales'
+        'explorar' => 'Explorar',
+        'redes' => 'Redes sociales'
     ],
     'en' => [
         'titulo_pestana' => 'About Me | Cristopher Bernal',
         'inicio' => 'Home',
         'sobre' => 'About me',
-        'proyectos' => 'Projects', // New translation
+        'proyectos' => 'Projects',
         'h1' => 'About Me',
         'p1' => 'I am a <strong>Computer Systems Engineering</strong> student and a QA Tester passionate about technical excellence. My focus goes beyond finding bugs; I aim to optimize the end-user experience by ensuring every line of code meets the highest standards of quality and functionality.',
         'p2' => 'I specialize in the testing lifecycle, from early bug detection to continuous improvement. My technical background allows me to collaborate closely with development teams, providing an analytical and detailed perspective to every project.',
@@ -43,8 +43,8 @@ $textos = [
         'habilidades' => 'Specialized Skills',
         'btn_cv' => 'Download CV',
         'cv_path' => 'cv/cv-ingles.pdf',
-        'footer_doc' => 'Documentation',
-        'footer_redes' => 'Social Media'
+        'explorar' => 'Explore',
+        'redes' => 'Social Media'
     ]
 ];
 
@@ -88,9 +88,9 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 </div>
 
 <main class="contenedor-sobre-mi">
-    <h1><?php echo $t['h1']; ?></h1>
+    <h1 style="margin-bottom: 20px;"><?php echo $t['h1']; ?></h1>
     <p class="descripcion-larga"><?php echo $t['p1']; ?></p>
-    <p class="descripcion-larga"><?php echo $t['p2']; ?></p>
+    <p class="descripcion-larga" style="margin-bottom: 40px;"><?php echo $t['p2']; ?></p>
 
     <section class="seccion-detalle">
         <h2 class="subtitulo-seccion"><?php echo $t['formacion']; ?></h2>
@@ -106,7 +106,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
         </div>
     </section>
 
-    <section class="seccion-detalle">
+    <section class="seccion-detalle" style="margin-top: 40px;">
         <h2 class="subtitulo-seccion"><?php echo $t['habilidades']; ?></h2>
         <div class="contenedor-cards">
             <div class="card">🧩 Testing Manual</div>
@@ -118,7 +118,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
         </div>
     </section>
 
-    <div class="actions">
+    <div class="actions" style="justify-content: center; margin-bottom: 60px;">
         <a href="<?php echo $t['cv_path']; ?>" download class="btn-portafolio btn-blanco">
             <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
         </a>
@@ -126,24 +126,28 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 </main>
 
 <footer>
-    <div class="footer-contenido">
-        <div class="footer-col">
-            <h3><?php echo $t['footer_doc']; ?></h3>
-            <a href="cv/cv-ingles.pdf" download style="color: inherit; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">CV Inglés</a>
-            <a href="cv/cv-espanol.pdf" download style="color: inherit; text-decoration: none; opacity: 0.8; display: block;">CV Español</a>
+    <div style="display: flex; justify-content: space-around; max-width: 900px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
+        <div class="footer-col" style="text-align: left; min-width: 150px;">
+            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['explorar']; ?></h3>
+            <a href="index.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
+                <?php echo $t['inicio']; ?>
+            </a>
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+                <?php echo $t['proyectos']; ?>
+            </a>
         </div>
 
-        <div class="footer-col">
-            <h3><?php echo $t['footer_redes']; ?></h3>
-            <div class="redes">
+        <div class="footer-col" style="text-align: left; min-width: 150px;">
+            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['redes']; ?></h3>
+            <div style="display: flex; gap: 15px;">
                 <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
-                    <img src="img/linkedin.jpg" alt="LinkedIn">
+                    <img src="img/linkedin.jpg" alt="LinkedIn" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
                 <a href="https://github.com/alejandrobernalchavez" target="_blank">
-                    <img src="img/github.png" alt="GitHub">
+                    <img src="img/github.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
                 <a href="mailto:alejogevara27@gmail.com">
-                    <img src="img/email.png" alt="Email">
+                    <img src="img/email.png" alt="Email" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
             </div>
         </div>

@@ -8,7 +8,7 @@ $textos = [
         'titulo_pestana' => 'Cristopher Bernal | QA Tester',
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
-        'proyectos' => 'Proyectos', // Agregado para consistencia
+        'proyectos' => 'Proyectos',
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester enfocado en calidad de software',
         'h3' => 'Detecto errores antes de que lleguen al usuario final',
@@ -23,7 +23,7 @@ $textos = [
         'titulo_pestana' => 'Cristopher Bernal | QA Tester',
         'inicio' => 'Home',
         'sobre' => 'About me',
-        'proyectos' => 'Projects', // Agregado para consistencia
+        'proyectos' => 'Projects',
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester focused on software quality',
         'h3' => 'I detect bugs before they reach the end user',
@@ -101,28 +101,28 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 </main>
 
 <footer>
-    <div class="footer-contenido">
-        <div class="footer-col">
-            <h3><?php echo $t['explorar']; ?></h3>
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
+    <div style="display: flex; justify-content: space-around; max-width: 900px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
+        <div class="footer-col" style="text-align: left; min-width: 150px;">
+            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['explorar']; ?></h3>
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['sobre']; ?>
             </a>
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8; display: block;">
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
                 <?php echo $t['proyectos']; ?>
             </a>
         </div>
 
-        <div class="footer-col">
-            <h3><?php echo $t['redes']; ?></h3>
-            <div class="redes">
+        <div class="footer-col" style="text-align: left; min-width: 150px;">
+            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['redes']; ?></h3>
+            <div style="display: flex; gap: 15px;">
                 <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
-                    <img src="img/linkedin.jpg" alt="LinkedIn">
+                    <img src="img/linkedin.jpg" alt="LinkedIn" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
                 <a href="https://github.com/alejandrobernalchavez" target="_blank">
-                    <img src="img/github.png" alt="GitHub">
+                    <img src="img/github.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
                 <a href="mailto:alejogevara27@gmail.com">
-                    <img src="img/email.png" alt="Email">
+                    <img src="img/email.png" alt="Email" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
             </div>
         </div>

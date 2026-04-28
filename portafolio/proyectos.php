@@ -38,7 +38,6 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Estilo para que toda la tarjeta sea clickable */
         .proyecto-link {
             text-decoration: none;
             color: inherit;
@@ -113,17 +112,29 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 </main>
 
 <footer>
-    <div class="footer-contenido">
-        <div class="footer-col">
-            <h3><?php echo $t['explorar']; ?></h3>
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: inherit; text-decoration: none; opacity: 0.8; display: block;"><?php echo $t['sobre']; ?></a>
+    <div style="display: flex; justify-content: space-around; max-width: 900px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
+        <div class="footer-col" style="text-align: left; min-width: 150px;">
+            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['explorar']; ?></h3>
+            <a href="index.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
+                <?php echo $t['inicio']; ?>
+            </a>
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+                <?php echo $t['sobre']; ?>
+            </a>
         </div>
-        <div class="footer-col">
-            <h3><?php echo $t['redes']; ?></h3>
-            <div class="redes">
-                <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank"><img src="img/linkedin.jpg" alt="LinkedIn"></a>
-                <a href="https://github.com/alejandrobernalchavez" target="_blank"><img src="img/github.png" alt="GitHub"></a>
-                <a href="mailto:alejogevara27@gmail.com"><img src="img/email.png" alt="Email"></a>
+
+        <div class="footer-col" style="text-align: left; min-width: 150px;">
+            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['redes']; ?></h3>
+            <div style="display: flex; gap: 15px;">
+                <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
+                    <img src="img/linkedin.jpg" alt="LinkedIn" style="width: 30px; height: 30px; border-radius: 5px;">
+                </a>
+                <a href="https://github.com/alejandrobernalchavez" target="_blank">
+                    <img src="img/github.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 5px;">
+                </a>
+                <a href="mailto:alejogevara27@gmail.com">
+                    <img src="img/email.png" alt="Email" style="width: 30px; height: 30px; border-radius: 5px;">
+                </a>
             </div>
         </div>
     </div>
