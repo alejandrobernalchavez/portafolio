@@ -68,9 +68,9 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 
     <div style="display: flex; justify-content: space-between; margin-top: 50px; align-items: center; width: 100%; max-width: 900px; margin-left: auto; margin-right: auto;">
         
-        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-navegacion-flecha atras-flecha">
+        <button onclick="retrocederGaleria()" id="btn-atras" class="btn-navegacion-flecha atras-flecha" style="border:none; cursor:pointer;">
              <?php echo $t['atras']; ?>
-        </a>
+        </button>
 
         <a href="proyectos.php?lang=<?php echo $lang; ?>" id="btn-volver-inicio" class="btn-inicio-central" style="display: none;">
             <?php echo $t['inicio']; ?>
@@ -94,22 +94,39 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     function navegarGaleria() {
         if (paso < totalImagenes) {
             paso++;
+            actualizarVisor();
+        }
+    }
 
-            if (paso === 1) {
-                // Primera transición: Quitar texto, poner imagen y mostrar botón de inicio
-                if(texto) texto.style.display = 'none';
-                imagen.style.display = 'block';
-                btnVolver.style.display = 'inline-block';
-            }
+    function retrocederGaleria() {
+        if (paso > 0) {
+            paso--;
+            actualizarVisor();
+        } else {
+            // Si está en el texto (paso 0), vuelve a la lista de proyectos
+            window.location.href = "proyectos.php?lang=<?php echo $lang; ?>";
+        }
+    }
 
-            // Cambiar la imagen actual
+    function actualizarVisor() {
+        if (paso === 0) {
+            // Mostrar texto, ocultar imagen y botón central
+            if(texto) texto.style.display = 'block';
+            imagen.style.display = 'none';
+            btnVolver.style.display = 'none';
+        } else {
+            // Mostrar imagen, ocultar texto y mostrar botón central
+            if(texto) texto.style.display = 'none';
+            imagen.style.display = 'block';
             imagen.src = `img/g${paso}.jpeg`;
+            btnVolver.style.display = 'inline-block';
+        }
 
-            // Lógica para ocultar el botón siguiente al llegar al final
-            if (paso === totalImagenes) {
-                btnSiguiente.style.visibility = 'hidden'; 
-                // Usamos visibility hidden para que el espacio se mantenga y los otros botones no se muevan
-            }
+        // Control de visibilidad del botón siguiente
+        if (paso === totalImagenes) {
+            btnSiguiente.style.visibility = 'hidden'; 
+        } else {
+            btnSiguiente.style.visibility = 'visible';
         }
     }
 </script>
