@@ -12,8 +12,14 @@ $detalles = [
     'es' => [
         'atras' => 'ATRÁS',
         'siguiente' => 'SIGUIENTE',
-        'inicio' => 'Volver a proyectos',
+        'inicio_btn' => 'Volver a proyectos',
         'ver_repo' => 'Ver Código en GitHub',
+        // Textos para la Navbar
+        'nav_inicio' => 'Inicio',
+        'nav_sobre' => 'Sobre mí',
+        'nav_proyectos' => 'Proyectos',
+        'no_encontrado' => 'Proyecto no encontrado.',
+        'volver_proyectos' => 'Volver a Proyectos',
         'goodburger' => [
             'titulo' => 'GoodBurger',
             'desc' => 'GoodBurger es una página web orientada al sector de comida rápida, diseñada para presentar de forma atractiva e intuitiva la oferta de un restaurante. La plataforma permite a los usuarios explorar el menú, conocer los productos disponibles y acceder a información relevante como promociones y datos de contacto.',
@@ -45,8 +51,14 @@ $detalles = [
     'en' => [
         'atras' => 'BACK',
         'siguiente' => 'NEXT',
-        'inicio' => 'Back to projects',
+        'inicio_btn' => 'Back to projects',
         'ver_repo' => 'View Code on GitHub',
+        // Textos para la Navbar
+        'nav_inicio' => 'Home',
+        'nav_sobre' => 'About me',
+        'nav_proyectos' => 'Projects',
+        'no_encontrado' => 'Project not found.',
+        'volver_proyectos' => 'Back to Projects',
         'goodburger' => [
             'titulo' => 'GoodBurger',
             'desc' => 'A fast-food web platform designed to present a restaurant\'s menu in an attractive and intuitive way. I served as a QA Tester for this project.',
@@ -85,9 +97,16 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 
 <nav class="navbar">
     <div class="pestañas">
-        <a href="index.php?lang=<?php echo $lang; ?>"><i class="fas fa-home"></i> Inicio</a>
-        <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><i class="fas fa-user"></i> Sobre mí</a>
-        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="active"><i class="fas fa-code"></i> Proyectos</a>
+        <a href="index.php?lang=<?php echo $lang; ?>"><i class="fas fa-home"></i> <?php echo $t['nav_inicio']; ?></a>
+        <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><i class="fas fa-user"></i> <?php echo $t['nav_sobre']; ?></a>
+        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="active"><i class="fas fa-code"></i> <?php echo $t['nav_proyectos']; ?></a>
+    </div>
+
+    <div class="idiomas">
+        <i class="fas fa-language"></i>
+        <a href="?proyecto=<?php echo $_GET['proyecto']; ?>&lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
+        <span>|</span>
+        <a href="?proyecto=<?php echo $_GET['proyecto']; ?>&lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
     </div>
 </nav>
 
@@ -134,7 +153,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
             </button>
 
             <a href="proyectos.php?lang=<?php echo $lang; ?>" id="btn-volver-inicio" class="btn-inicio-central">
-                <?php echo $t['inicio']; ?>
+                <?php echo $t['inicio_btn']; ?>
             </a>
             
             <button onclick="navegarGaleria()" id="btn-siguiente" class="btn-navegacion-flecha siguiente-flecha">
@@ -145,9 +164,9 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     <?php else: ?>
         <div style="padding: 100px 0; text-align: center;">
             <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ccc; margin-bottom: 20px;"></i>
-            <p style="font-size: 1.5rem; color: var(--color-texto-suave);">Proyecto no encontrado.</p>
+            <p style="font-size: 1.5rem; color: #666;"><?php echo $t['no_encontrado']; ?></p>
             <br>
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-portafolio btn-azul">Volver a Proyectos</a>
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-portafolio btn-azul"><?php echo $t['volver_proyectos']; ?></a>
         </div>
     <?php endif; ?>
 </main>
