@@ -1,5 +1,5 @@
 /* =========================
-   1. VARIABLES Y RESET UNIVERSAL
+    1. VARIABLES Y RESET UNIVERSAL
 ========================= */
 :root {
     --color-chrome-bg: #dee1e6;     
@@ -20,11 +20,13 @@ body {
     background-color: var(--color-chrome-active);
     min-height: 100vh;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    /* Necesario para que el logo posicionado absolutamente se base en el body */
+    position: relative; 
 }
 
 /* =========================
-   2. NAVBAR E INDICADOR DE IDIOMA
+    2. NAVBAR E INDICADOR DE IDIOMA
 ========================= */
 .navbar {
     display: flex;
@@ -85,7 +87,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* DISTINTIVO DE IDIOMA ACTIVO */
 .idiomas a.lang-active {
     background-color: var(--color-acento);
     color: white !important;
@@ -93,12 +94,12 @@ body {
 }
 
 /* =========================
-   3. BOTONES Y ACCIONES (SEPARACIÓN)
+    3. BOTONES Y ACCIONES
 ========================= */
 .actions {
     display: flex;
     align-items: center;
-    gap: 0.5cm; /* Separación exacta solicitada */
+    gap: 0.5cm; 
     margin-top: 30px;
 }
 
@@ -137,7 +138,7 @@ body {
 }
 
 /* =========================
-   4. CONTENEDOR PRINCIPAL
+    4. CONTENEDOR PRINCIPAL
 ========================= */
 main {
     flex: 1; 
@@ -148,7 +149,7 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 40px 5% 80px; /* Reducido el padding superior por la presencia del logo */
+    padding: 80px 5%; 
     gap: 80px; 
     max-width: 1200px;
     margin: 0 auto;
@@ -174,7 +175,7 @@ main {
 }
 
 /* =========================
-   5. SECCIÓN SOBRE MÍ
+    5. SECCIÓN SOBRE MÍ
 ========================= */
 .contenedor-sobre-mi {
     max-width: 900px;
@@ -207,7 +208,7 @@ main {
 }
 
 /* =========================
-   6. FOOTER
+    6. FOOTER
 ========================= */
 footer {
     width: 100%;
@@ -242,29 +243,34 @@ footer {
 }
 
 /* =========================
-   7. RESPONSIVIDAD
+    7. RESPONSIVIDAD
 ========================= */
 @media (max-width: 768px) {
     .contenedor { flex-direction: column; text-align: center; }
     .actions { justify-content: center; flex-direction: column; gap: 15px; }
     .footer-contenido { flex-direction: column; text-align: center; align-items: center; }
-    .logo-container { justify-content: center; padding-top: 20px; }
+    
+    .logo-container { 
+        position: static; /* En móviles el logo vuelve al flujo normal */
+        display: flex;
+        justify-content: center; 
+        padding: 20px 0; 
+    }
 }
 
 /* =========================
-   8. ESTILOS DEL LOGO (NUEVO)
+    8. ESTILOS DEL LOGO EN ESQUINA DERECHA
 ========================= */
 .logo-container {
-    padding: 20px 5% 0; /* Padding lateral al 5% para alinear con pestañas */
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start; /* Alineado a la izquierda */
+    position: absolute;
+    top: 80px;      /* Ubicación debajo de la navbar */
+    right: 5%;      /* Alineado al borde derecho del contenido */
+    z-index: 10;
 }
 
 .logo-inicio {
-    width: 4cm;  /* Ancho solicitado */
-    height: 3cm; /* Largo solicitado */
-    object-fit: contain; /* Mantiene la proporción sin deformar */
+    width: 4cm;     /* Ancho solicitado */
+    height: 3cm;    /* Largo solicitado */
+    object-fit: contain;
     display: block;
 }
