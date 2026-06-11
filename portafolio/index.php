@@ -1,18 +1,20 @@
-<?php
+<<?php
 // 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// 2. Diccionario de textos optimizado
+// 2. Diccionario de textos optimizado con Mensajes de Impacto
 $textos = [
     'es' => [
-        'titulo_pestana' => 'Cristopher Bernal | QA Tester',
+        'titulo_pestana' => 'Cristopher Bernal | QA Tester en formación',
+        'meta_desc' => 'Portafolio profesional de Cristopher Bernal, QA Tester en formación e Ingeniero en Sistemas. Especializado en asegurar la calidad de software y optimizar la experiencia de usuario.',
+        'meta_keywords' => 'QA Tester, Aseguramiento de Calidad, Cristopher Bernal, Ingeniería en Sistemas, Portafolio QA, UGB, Pruebas de software, El Salvador',
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
         'h1' => 'CRISTOPHER BERNAL',
-        'h2' => 'QA Tester enfocado en calidad de software',
-        'h3' => 'Detecto errores antes de que lleguen al usuario final',
-        'desc' => 'Estudiante de 4° año de <strong>Ingeniería en Sistemas Computacionales</strong> en la UGB. Apasionado por el aseguramiento de calidad, pruebas funcionales y la mejora continua del software.',
+        'h2' => 'QA Tester en formación',
+        'h3' => 'Garantizando la excelencia técnica y optimizando la experiencia del usuario final.',
+        'desc' => 'Estudiante de 4° año de <strong>Ingeniería en Sistemas Computacionales</strong> en la UGB. Apasionado por el aseguramiento de calidad, el diseño de pruebas funcionales y la detección temprana de fallos para transformar software común en productos de alta confiabilidad.',
         'btn_conocer' => 'Conocer más',
         'btn_cv' => 'Descargar CV',
         'cv_path' => 'cv/cv-espanol.pdf',
@@ -20,14 +22,16 @@ $textos = [
         'redes' => 'Redes sociales'
     ],
     'en' => [
-        'titulo_pestana' => 'Cristopher Bernal | QA Tester',
+        'titulo_pestana' => 'Cristopher Bernal | Junior QA Tester',
+        'meta_desc' => 'Professional portfolio of Cristopher Bernal, QA Tester in training and Systems Engineer. Specialized in software quality assurance and optimizing user experience.',
+        'meta_keywords' => 'QA Tester, Quality Assurance, Cristopher Bernal, Systems Engineering, QA Portfolio, UGB, Software testing, El Salvador',
         'inicio' => 'Home',
         'sobre' => 'About me',
         'proyectos' => 'Projects',
         'h1' => 'CRISTOPHER BERNAL',
-        'h2' => 'QA Tester focused on software quality',
-        'h3' => 'I detect bugs before they reach the end user',
-        'desc' => '4th-year <strong>Computer Systems Engineering</strong> student at UGB. Passionate about quality assurance, functional testing, and continuous software improvement.',
+        'h2' => 'QA Tester in training',
+        'h3' => 'Ensuring technical excellence and optimizing the end-user experience.',
+        'desc' => '4th-year <strong>Computer Systems Engineering</strong> student at UGB. Passionate about quality assurance, functional testing design, and early bug detection to transform standard software into highly reliable products.',
         'btn_conocer' => 'Learn more',
         'btn_cv' => 'Download CV',
         'cv_path' => 'cv/cv-ingles.pdf',
@@ -44,6 +48,12 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="<?php echo $t['meta_desc']; ?>">
+    <meta name="keywords" content="<?php echo $t['meta_keywords']; ?>">
+    <meta name="author" content="Cristopher Bernal">
+    <meta name="robots" content="index, follow">
+
     <title><?php echo $t['titulo_pestana']; ?></title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -83,9 +93,9 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     <div class="info">
         <h1><?php echo $t['h1']; ?></h1>
         <h2><?php echo $t['h2']; ?></h2>
-        <h3 style="color: var(--color-texto-suave); margin-bottom: 20px;"><?php echo $t['h3']; ?></h3>
+        <h3 style="color: var(--color-texto-suave); margin-bottom: 20px; font-weight: 500; font-size: 1.3rem;"><?php echo $t['h3']; ?></h3>
 
-        <p class="descripcion">
+        <p class="descripcion" style="line-height: 1.6; color: #4e5154;">
             <?php echo $t['desc']; ?>
         </p>
 
