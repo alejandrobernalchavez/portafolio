@@ -197,7 +197,7 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             align-items: center !important;
             gap: 15px !important;
             margin-bottom: 30px !important;
-            padding-right: 70px !important;
+            padding-right: 90px !important; /* Espacio para que el formulario no pise el logo */
         }
         
         .burbuja-icono-mensaje {
@@ -212,25 +212,20 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             font-size: 1.1rem !important;
         }
         
-        /* CONTENEDOR MÁSCARA: Bloquea visualmente la parte izquierda defectuosa de tu imagen */
-        .contenedor-mascara-logo {
-            position: absolute !important;
-            top: 40px !important;
-            right: 45px !important;
-            width: 55px !important;  /* Ancho final visible deseado */
-            height: 55px !important;
-            overflow: hidden !important; /* Esconde todo lo que se salga de este cuadro */
-            z-index: 10 !important;
-        }
-
-        /* AJUSTE VIRTUAL: Desplaza el rastro azul hacia afuera del margen visible */
+        /* EL UNICO LOGO TRATADO DE FORMA LIMPIA */
         .imagen-logo-esquina {
-            width: 70px !important; /* Le damos más espacio interno para empujar el error */
-            height: auto !important;
-            object-fit: cover !important;
-            /* Desplazamos la imagen -15px a la izquierda para "morder" y desaparecer el paréntesis azul */
-            object-position: -15px center !important; 
-            display: block !important;
+            position: absolute !important;
+            top: 25px !important;
+            right: 35px !important;
+            width: 65px !important;      /* Cuadro contenedor de visión rígido */
+            height: 65px !important;
+            overflow: hidden !important;  /* Recorta los excesos */
+            object-fit: none !important;  /* No escala ni deforma la imagen */
+            /* Mueve la imagen para que muestre el centro-derecha, dejando el error azul fuera de la caja */
+            object-position: 22px center !important; 
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
         }
         
         .fila-formulario-doble {
@@ -377,9 +372,7 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
     
     <section class="tarjeta-contacto-formulario">
         
-        <div class="contenedor-mascara-logo">
-            <img src="img/logoportafolio.png" alt="Logo Portafolio" class="imagen-logo-esquina">
-        </div>
+        <img src="img/logoportafolio.png" alt="Logo Portafolio" class="imagen-logo-esquina">
 
         <div class="encabezado-tarjeta-formulario">
             <div class="burbuja-icono-mensaje">
