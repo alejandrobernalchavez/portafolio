@@ -11,6 +11,7 @@ $textos = [
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
+        'contacto' => 'Contacto',
         'h1' => 'Sobre mí',
         'p1' => 'Soy estudiante de 4° año de <strong>Ingeniería en Sistemas Computacionales</strong> y un apasionado <strong>QA Tester en formación</strong> enfocado en la excelencia técnica. Mi objetivo va más allá de encontrar fallos aislados; busco optimizar la experiencia global del usuario garantizando que los productos de software cumplan con los más altos estándares de calidad, robustez y funcionalidad.',
         'p2' => 'Me especializo en el ciclo de vida de las pruebas (STLC), aportando una perspectiva analítica, rigurosa y orientada al detalle desde las fases tempranas del desarrollo. Mi formación técnica me permite comunicarme de manera fluida y efectiva con equipos multidisciplinarios para asegurar entregas exitosas.',
@@ -42,6 +43,7 @@ $textos = [
         'inicio' => 'Home',
         'sobre' => 'About me',
         'proyectos' => 'Projects',
+        'contacto' => 'Contact',
         'h1' => 'About Me',
         'p1' => 'I am a 4th-year <strong>Computer Systems Engineering</strong> student and a passionate <strong>QA Tester in training</strong> committed to technical excellence. My goal goes beyond finding isolated bugs; I aim to optimize the overall user experience by ensuring software products meet the highest standards of quality, robustness, and functionality.',
         'p2' => 'I specialize in the Software Testing Life Cycle (STLC), bringing an analytical, rigorous, and detail-oriented perspective from the early stages of development. My technical background allows me to communicate fluently and effectively with multidisciplinary teams to ensure successful deliveries.',
@@ -96,8 +98,11 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
         <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
             <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
         </a>
-        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php') ? 'active' : ''; ?>">
+        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php' || $pagina_actual == 'detalle-proyecto.php') ? 'active' : ''; ?>">
             <i class="fas fa-code"></i> <?php echo $t['proyectos']; ?>
+        </a>
+        <a href="contacto.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'contacto.php') ? 'active' : ''; ?>">
+            <i class="fas fa-envelope"></i> <?php echo $t['contacto']; ?>
         </a>
     </div>
 
@@ -176,8 +181,11 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
             <a href="index.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['inicio']; ?>
             </a>
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['proyectos']; ?>
+            </a>
+            <a href="contacto.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+                <?php echo $t['contacto']; ?>
             </a>
         </div>
 
@@ -190,7 +198,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
                 <a href="https://github.com/alejandrobernalchavez" target="_blank">
                     <img src="img/github.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
-                <a href="mailto:alejogevara27@gmail.com">
+                <a href="mailto:bernalalejandro1302@gmail.com">
                     <img src="img/email.png" alt="Email" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
             </div>
