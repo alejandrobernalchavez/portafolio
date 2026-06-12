@@ -10,19 +10,19 @@ $textos = [
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
         'contacto' => 'Contacto',
-        'h1' => 'Hablemos de tu próximo proyecto',
-        'p1' => 'Estoy abierto a oportunidades laborales, proyectos de automatización/testing manual o simplemente a conectar con entusiastas de la tecnología. Si buscas asegurar que tu software funcione sin fallos, ¡escríbeme!',
+        'h1' => '¡Hablemos!',
+        'p1' => 'Estoy abierta a oportunidades, colaboraciones o simplemente a conectar. No dudes en escribirme.',
         'lbl_correo' => 'CORREO',
-        'sub_correo' => 'Envíame un email',
+        'sub_correo' => 'yuvicelavalleguzman@gmail.com',
         'lbl_telefono' => 'TELÉFONO',
-        'sub_telefono' => 'Hablemos por llamada',
+        'sub_telefono' => '7352-5845',
         'lbl_ubicacion' => 'UBICACIÓN',
-        'titulo_form' => 'Completa el formulario',
-        'sub_form' => 'y te responderé a la brevedad.',
+        'titulo_form' => 'Envíame un mensaje',
+        'sub_form' => 'Completa el formulario y te responderé a la brevedad.',
         'placeholder_nombre' => 'Tu nombre completo',
         'placeholder_correo' => 'tu@correo.com',
         'placeholder_asunto' => '¿En qué puedo ayudarte?',
-        'placeholder_mensaje' => 'Cuéntame sobre tu proyecto...',
+        'placeholder_mensaje' => 'Cuéntame sobre tu proyecto, oportunidad o consulta...',
         'lbl_nombre' => 'NOMBRE',
         'lbl_correo_form' => 'CORREO ELECTRÓNICO',
         'lbl_asunto' => 'ASUNTO',
@@ -37,19 +37,19 @@ $textos = [
         'sobre' => 'About me',
         'proyectos' => 'Projects',
         'contacto' => 'Contact',
-        'h1' => "Let's talk about your next project",
-        'p1' => 'I am open to job opportunities, automation/manual testing projects, or simply connecting with technology enthusiasts. If you want to ensure your software runs bug-free, write to me!',
+        'h1' => "Let's talk!",
+        'p1' => 'I am open to job opportunities, collaborations, or simply connecting. Don’t hesitate to write to me!',
         'lbl_correo' => 'EMAIL',
-        'sub_correo' => 'Send me an email',
+        'sub_correo' => 'yuvicelavalleguzman@gmail.com',
         'lbl_telefono' => 'PHONE',
-        'sub_telefono' => 'Let’s talk over a call',
+        'sub_telefono' => '7352-5845',
         'lbl_ubicacion' => 'LOCATION',
-        'titulo_form' => 'Complete the form',
-        'sub_form' => 'and I will get back to you shortly.',
+        'titulo_form' => 'Send me a message',
+        'sub_form' => 'Complete the form and I will get back to you shortly.',
         'placeholder_nombre' => 'Your full name',
         'placeholder_correo' => 'your@email.com',
         'placeholder_asunto' => 'How can I help you?',
-        'placeholder_mensaje' => 'Tell me about your project...',
+        'placeholder_mensaje' => 'Tell me about your project, opportunity or inquiry...',
         'lbl_nombre' => 'NAME',
         'lbl_correo_form' => 'EMAIL ADDRESS',
         'lbl_asunto' => 'SUBJECT',
@@ -63,8 +63,8 @@ $textos = [
 $t = $textos[$lang];
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 
-$mi_correo = "bernalalejandro1302@gmail.com";
-$mi_telefono = "64277676";
+$mi_correo = "yuvicelavalleguzman@gmail.com";
+$mi_telefono = "7352-5845";
 $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
 ?>
 <!DOCTYPE html>
@@ -79,9 +79,10 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
     <style>
         .seccion-contacto-contenedor {
             display: flex !important;
-            gap: 40px !important;
-            max-width: 1140px !important;
-            margin: 40px auto !important;
+            align-items: flex-start !important; /* Alinea ambas tarjetas perfectamente arriba */
+            gap: 30px !important;
+            max-width: 1200px !important;
+            margin: 30px auto !important;
             padding: 0 20px !important;
             flex-wrap: wrap !important;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
@@ -92,17 +93,17 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             flex: 1 !important;
             min-width: 320px !important;
             background: #ffffff !important;
-            padding: 45px !important;
+            padding: 35px !important; /* Compactado para evitar vacíos */
             border-radius: 20px !important;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
             text-align: left !important;
         }
         
         .tarjeta-contacto-formulario {
-            flex: 1.2 !important;
-            min-width: 350px !important;
+            flex: 1.4 !important;
+            min-width: 380px !important;
             background: #ffffff !important;
-            padding: 45px !important;
+            padding: 35px !important;
             border-radius: 20px !important;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
             text-align: left !important;
@@ -110,38 +111,39 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
         }
         
         .titulo-principal-contacto {
-            font-size: 2.3rem !important;
+            font-size: 2rem !important;
             font-weight: 700 !important;
             color: #1e293b !important;
             line-height: 1.2 !important;
-            margin-bottom: 20px !important;
-            margin-top: 0 !important;
+            margin-bottom: 15px !important;
+            margin-top: 0 !important; /* Elimina espacio muerto arriba */
         }
         
         .parrafo-descriptivo-contacto {
             color: #64748b !important;
             font-size: 0.95rem !important;
-            line-height: 1.6 !important;
-            margin-bottom: 35px !important;
+            line-height: 1.5 !important;
+            margin-bottom: 30px !important;
+            margin-top: 0 !important;
         }
         
         .bloque-item-contacto {
             display: flex !important;
             align-items: center !important;
-            gap: 20px !important;
-            margin-bottom: 25px !important;
+            gap: 15px !important;
+            margin-bottom: 22px !important;
         }
         
         .caja-icono-azul {
             background-color: #eff6ff !important;
             color: #2563eb !important;
-            width: 50px !important;
-            height: 50px !important;
-            border-radius: 12px !important;
+            width: 46px !important;
+            height: 46px !important;
+            border-radius: 10px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            font-size: 1.2rem !important;
+            font-size: 1.1rem !important;
             flex-shrink: 0 !important;
         }
         
@@ -151,103 +153,74 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
         
         .detalles-texto-contacto .tag-label {
             font-weight: 700 !important;
-            font-size: 0.8rem !important;
-            color: #1e293b !important;
+            font-size: 0.75rem !important;
+            color: #64748b !important;
             letter-spacing: 0.5px !important;
         }
         
         .detalles-texto-contacto .tag-subtext {
-            font-size: 0.85rem !important;
-            color: #64748b !important;
-            margin-top: 2px !important;
-        }
-        
-        .detalles-texto-contacto .tag-enlace {
             font-size: 0.9rem !important;
-            color: #2563eb !important;
+            color: #1e293b !important;
             font-weight: 500 !important;
-            margin-top: 1px !important;
+            margin-top: 2px !important;
             text-decoration: none !important;
         }
         
-        .boton-contacto-linkedin {
+        /* Contenedor para botones inferiores alineados */
+        .contenedor-botones-redes {
+            display: flex !important;
+            gap: 12px !important;
+            flex-wrap: wrap !important;
+            margin-top: 30px !important;
+            padding-top: 20px !important;
+            border-top: 1px solid #f1f5f9 !important;
+        }
+        
+        .boton-contacto-link {
             display: inline-flex !important;
             align-items: center !important;
             gap: 8px !important;
             background: #ffffff !important;
             color: #2563eb !important;
             border: 1px solid #e2e8f0 !important;
-            padding: 10px 24px !important;
-            border-radius: 25px !important;
+            padding: 10px 18px !important;
+            border-radius: 10px !important;
             font-weight: 600 !important;
-            font-size: 0.9rem !important;
+            font-size: 0.85rem !important;
             text-decoration: none !important;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02) !important;
-            margin-top: 15px !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.01) !important;
             transition: all 0.2s ease !important;
         }
         
-        .boton-contacto-linkedin:hover {
+        .boton-contacto-link:hover {
             background: #f8fafc !important;
             border-color: #cbd5e1 !important;
         }
         
         .encabezado-tarjeta-formulario {
-            display: flex !important;
-            align-items: center !important;
-            gap: 15px !important;
-            margin-bottom: 30px !important;
-            padding-right: 90px !important; /* Espacio para que el formulario no pise el logo */
-        }
-        
-        .burbuja-icono-mensaje {
-            background: #f1f5f9 !important;
-            color: #2563eb !important;
-            width: 44px !important;
-            height: 44px !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            font-size: 1.1rem !important;
-        }
-        
-        /* EL UNICO LOGO TRATADO DE FORMA LIMPIA */
-        .imagen-logo-esquina {
-            position: absolute !important;
-            top: 25px !important;
-            right: 35px !important;
-            width: 65px !important;      /* Cuadro contenedor de visión rígido */
-            height: 65px !important;
-            overflow: hidden !important;  /* Recorta los excesos */
-            object-fit: none !important;  /* No escala ni deforma la imagen */
-            /* Mueve la imagen para que muestre el centro-derecha, dejando el error azul fuera de la caja */
-            object-position: 22px center !important; 
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
+            margin-bottom: 25px !important;
         }
         
         .fila-formulario-doble {
             display: flex !important;
-            gap: 20px !important;
+            gap: 15px !important;
             flex-wrap: wrap !important;
-            margin-bottom: 20px !important;
+            margin-bottom: 15px !important;
         }
         
         .grupo-formulario-input {
             flex: 1 !important;
-            min-width: 200px !important;
+            min-width: 180px !important;
             display: flex !important;
             flex-direction: column !important;
-            gap: 8px !important;
+            gap: 6px !important;
         }
         
         .grupo-formulario-ancho-completo {
             display: flex !important;
             flex-direction: column !important;
-            gap: 8px !important;
-            margin-bottom: 20px !important;
+            gap: 6px !important;
+            margin-bottom: 15px !important;
         }
         
         .etiqueta-formulario {
@@ -259,19 +232,20 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
         
         .campo-formulario-input {
             width: 100% !important;
-            padding: 14px 16px !important;
+            padding: 12px 14px !important;
             border: 1px solid #e2e8f0 !important;
-            border-radius: 10px !important;
+            border-radius: 8px !important;
             font-size: 0.9rem !important;
             color: #334155 !important;
-            background: #ffffff !important;
+            background: #f8fafc !important;
             box-sizing: border-box !important;
-            transition: border-color 0.2s !important;
+            transition: all 0.2s !important;
         }
         
         .campo-formulario-input:focus {
             outline: none !important;
             border-color: #2563eb !important;
+            background: #ffffff !important;
         }
         
         .boton-enviar-formulario {
@@ -279,16 +253,16 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             background: #2563eb !important;
             color: #ffffff !important;
             border: none !important;
-            padding: 16px !important;
-            border-radius: 12px !important;
-            font-size: 1rem !important;
+            padding: 14px !important;
+            border-radius: 10px !important;
+            font-size: 0.95rem !important;
             font-weight: 600 !important;
             cursor: pointer !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             gap: 10px !important;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2) !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15) !important;
             transition: background 0.2s !important;
         }
         
@@ -323,10 +297,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
     </div>
 </nav>
 
-<div class="logo-container">
-    <img src="img/logoportafolio.png" alt="Logo Portafolio" class="logo-inicio">
-</div>
-
 <main class="seccion-contacto-contenedor">
     
     <section class="tarjeta-contacto-info">
@@ -339,8 +309,7 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             </div>
             <div class="detalles-texto-contacto">
                 <span class="tag-label"><?php echo $t['lbl_correo']; ?></span>
-                <span class="tag-subtext"><?php echo $t['sub_correo']; ?></span>
-                <a href="mailto:<?php echo $mi_correo; ?>" class="tag-enlace"><?php echo $mi_correo; ?></a>
+                <a href="mailto:<?php echo $mi_correo; ?>" class="tag-subtext"><?php echo $t['sub_correo']; ?></a>
             </div>
         </div>
 
@@ -350,8 +319,7 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             </div>
             <div class="detalles-texto-contacto">
                 <span class="tag-label"><?php echo $t['lbl_telefono']; ?></span>
-                <span class="tag-subtext"><?php echo $t['sub_telefono']; ?></span>
-                <a href="tel:+503<?php echo $mi_telefono; ?>" class="tag-enlace"><?php echo $mi_telefono; ?></a>
+                <a href="tel:+503<?php echo $mi_telefono; ?>" class="tag-subtext"><?php echo $t['sub_telefono']; ?></a>
             </div>
         </div>
 
@@ -361,27 +329,24 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             </div>
             <div class="detalles-texto-contacto">
                 <span class="tag-label"><?php echo $t['lbl_ubicacion']; ?></span>
-                <span class="tag-subtext"><?php echo $mi_ubicacion; ?></span>
+                <span class="tag-subtext" style="color: #334155;"><?php echo $mi_ubicacion; ?></span>
             </div>
         </div>
 
-        <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" class="boton-contacto-linkedin">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
+        <div class="contenedor-botones-redes">
+            <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" class="boton-contacto-link">
+                <i class="fab fa-linkedin-in" style="color: #0077b5;"></i> LinkedIn
+            </a>
+            <a href="mailto:<?php echo $mi_correo; ?>" class="boton-contacto-link">
+                <i class="fas fa-paper-plane" style="color: #2563eb;"></i> Correo directo
+            </a>
+        </div>
     </section>
     
     <section class="tarjeta-contacto-formulario">
-        
-        <img src="img/logoportafolio.png" alt="Logo Portafolio" class="imagen-logo-esquina">
-
         <div class="encabezado-tarjeta-formulario">
-            <div class="burbuja-icono-mensaje">
-                <i class="fas fa-comment-alt"></i>
-            </div>
-            <div>
-                <h2 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin: 0;"><?php echo $t['titulo_form']; ?></h2>
-                <p style="font-size: 0.85rem; color: #64748b; margin: 2px 0 0 0;"><?php echo $t['sub_form']; ?></p>
-            </div>
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: #1e293b; margin: 0;"><?php echo $t['titulo_form']; ?></h2>
+            <p style="font-size: 0.9rem; color: #64748b; margin: 5px 0 0 0;"><?php echo $t['sub_form']; ?></p>
         </div>
         
         <form action="#" method="POST">
