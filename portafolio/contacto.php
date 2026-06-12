@@ -63,7 +63,7 @@ $textos = [
 $t = $textos[$lang];
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 
-// Tus datos de contacto personales
+// Tus datos de contacto personales reales
 $mi_correo = "bernalalejandro1302@gmail.com";
 $mi_telefono = "64277676";
 $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
@@ -77,7 +77,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Estilos específicos para maquetar el diseño de la plantilla */
         .wrapper-contacto {
             display: flex;
             gap: 40px;
@@ -95,7 +94,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             text-align: left;
-            position: relative;
         }
         .col-form {
             flex: 1.2;
@@ -105,6 +103,7 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             text-align: left;
+            position: relative; /* Clave para posicionar el logo interno limpiamente */
         }
         .h1-contacto {
             font-size: 2.3rem;
@@ -183,6 +182,7 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             align-items: center;
             gap: 15px;
             margin-bottom: 30px;
+            padding-right: 70px; /* Previene que el texto choque con el logo */
         }
         .icono-msg {
             background: #f1f5f9;
@@ -194,6 +194,15 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             align-items: center;
             justify-content: center;
             font-size: 1.1rem;
+        }
+        .logo-esquina-form {
+            position: absolute;
+            top: 40px;
+            right: 45px;
+            width: 55px;
+            height: auto;
+            opacity: 0.95;
+            z-index: 5;
         }
         .form-group-row {
             display: flex;
@@ -331,6 +340,8 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
     </section>
     
     <section class="col-form">
+        <img src="img/logoportafolio.png" alt="Logo Portafolio" class="logo-esquina-form">
+
         <div class="form-header">
             <div class="icono-msg">
                 <i class="fas fa-comment-alt"></i>
@@ -342,11 +353,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
         </div>
         
         <form action="#" method="POST">
-            <div class="form-header-logo" style="float: right; margin-top: -75px;">
-                <img src="img/logoportafolio.png" alt="Logo" style="width: 55px; opacity: 0.9;">
-            </div>
-            <div style="clear: both;"></div>
-
             <div class="form-group-row">
                 <div class="form-group">
                     <label class="form-label"><?php echo $t['lbl_nombre']; ?></label>
