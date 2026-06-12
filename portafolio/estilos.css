@@ -1,12 +1,13 @@
-/* =========================
-    1. VARIABLES Y RESET UNIVERSAL
-========================= */
+/* ==========================================================================
+    1. VARIABLES Y RESET UNIVERSAL (Actualizado con tu paleta real)
+   ========================================================================== */
 :root {
-    --color-chrome-bg: #dee1e6;     
-    --color-chrome-active: #ffffff; 
-    --color-acento: #1a73e8;        
-    --color-texto-suave: #5f6368;
-    --fuente-titulos: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-chrome-bg: #e2e8f0;       /* Gris claro de la barra superior */
+    --color-chrome-active: #f8fafc;   /* Blanco suave del fondo general */
+    --color-acento: #2563eb;          /* Azul eléctrico vibrante de tu marca */
+    --color-texto-principal: #0f172a; /* Gris oscuro/negro corporativo */
+    --color-texto-suave: #475569;     /* Gris para descripciones y etiquetas */
+    --fuente-titulos: 'Segoe UI', Inter, sans-serif;
     --color-flechas: #5b9bd5;
     --color-borde-negro: #1a2a3a;
 }
@@ -17,93 +18,125 @@
     box-sizing: border-box; 
 }
 
-/* Estructura para Sticky Footer */
 html, body {
     height: 100%;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--color-chrome-active);
+    font-family: var(--fuente-titulos);
+    background-color: var(--color-chrome-active) !important;
+    color: var(--color-texto-principal);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* =========================
-    2. NAVBAR E INDICADOR DE IDIOMA
-========================= */
+/* Ondas estéticas de fondo difuminadas como en tu diseño de referencia */
+body::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(37,99,235,0.04) 0%, rgba(255,255,255,0) 70%);
+    bottom: -100px;
+    left: -100px;
+    z-index: -1;
+}
+
+/* ==========================================================================
+    2. NAVBAR E INDICADOR DE IDIOMA (Efecto Ficha de Archivo / Pestaña Unida)
+   ========================================================================== */
 .navbar {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 0 5%; 
-    background-color: var(--color-chrome-bg);
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-end !important; /* Alinea los elementos a la base inferior */
+    padding: 0 5% !important; 
+    background-color: var(--color-chrome-bg) !important;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #bdc1c6;
-    height: 60px;
+    border-bottom: 1px solid #bdc1c6 !important;
+    height: 70px !important;
     flex-shrink: 0;
+    box-sizing: border-box !important;
 }
 
 .pestañas {
-    display: flex;
-    align-items: flex-end; 
-    height: 100%;
+    display: flex !important;
+    align-items: flex-end !important; 
+    height: 100% !important;
 }
 
 .navbar a {
-    color: var(--color-texto-suave);
-    text-decoration: none;
-    font-family: var(--fuente-titulos);
-    font-weight: 500;
-    font-size: 13px;
-    padding: 12px 20px;
-    border-radius: 8px 8px 0 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.2s;
+    color: var(--color-texto-suave) !important;
+    text-decoration: none !important;
+    font-family: var(--fuente-titulos) !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    padding: 0 22px !important;
+    height: 46px !important; /* Altura de pestañas inactivas */
+    border-radius: 12px 12px 0 0 !important; /* Curvatura solo arriba */
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    border: 1px solid transparent !important;
+    border-bottom: none !important;
+    transition: all 0.2s ease !important;
 }
 
+/* Hover sutil para pestañas no seleccionadas */
+.navbar a:hover:not(.active) {
+    color: var(--color-texto-principal) !important;
+    background-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Pestaña Activa: Se estira y borra la línea gris inferior uniéndose al fondo */
 .navbar a.active {
-    background-color: var(--color-chrome-active);
-    color: var(--color-acento);
-    border: 1px solid #bdc1c6;
-    border-bottom: 1px solid var(--color-chrome-active);
-    margin-bottom: -1px;
+    background-color: var(--color-chrome-active) !important; /* Fondo #f8fafc */
+    color: var(--color-acento) !important;
+    height: 54px !important; /* Sobresale rompiendo el nivel */
+    border: 1px solid #bdc1c6 !important;
+    border-bottom: 1px solid var(--color-chrome-active) !important; /* Pisa el borde de la navbar */
+    margin-bottom: -1px !important; /* Ajuste milimétrico de traslape */
+    position: relative !important;
+    z-index: 5 !important;
 }
 
+/* Cápsula del Selector de Idiomas */
 .idiomas {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background: white;
-    padding: 4px 8px;
-    border-radius: 20px;
-    border: 1px solid #dadce0;
-    font-size: 12px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    background: white !important;
+    padding: 6px 12px !important;
+    border-radius: 25px !important;
+    border: 1px solid #dadce0 !important;
+    font-size: 12px !important;
+    margin-bottom: 10px !important; /* Separación elegante del borde */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
 }
 
 .idiomas a {
-    padding: 5px 10px !important;
-    color: var(--color-texto-suave);
-    text-decoration: none;
-    border-radius: 15px;
-    transition: all 0.3s ease;
+    padding: 5px 12px !important;
+    height: auto !important; /* Aísla e impide que herede la altura de la navbar */
+    color: var(--color-texto-suave) !important;
+    text-decoration: none !important;
+    border-radius: 15px !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease !important;
 }
 
 .idiomas a.lang-active {
-    background-color: var(--color-acento);
+    background-color: var(--color-acento) !important;
     color: white !important;
-    font-weight: bold;
 }
 
-/* =========================
+/* ==========================================================================
     3. BOTONES Y ACCIONES GENERALES
-========================= */
+   ========================================================================== */
 .actions {
     display: flex;
     align-items: center;
@@ -145,9 +178,298 @@ body {
     background-color: #f8f9fa;
 }
 
-/* =========================
-    4. CONTENEDORES PRINCIPALES
-========================= */
+/* ==========================================================================
+    4. ESTRUCTURA DE CONTACTO (Fiel a tus tarjetas modernas)
+   ========================================================================== */
+.seccion-contacto-contenedor {
+    display: flex !important;
+    align-items: stretch !important; 
+    gap: 32px !important;
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+    padding: 0 24px !important;
+    flex-wrap: wrap !important;
+    box-sizing: border-box !important;
+    flex: 1 0 auto !important;
+}
+
+/* Tarjeta Izquierda: Información */
+.tarjeta-contacto-info {
+    flex: 1 !important;
+    min-width: 340px !important;
+    background: #ffffff !important;
+    padding: 50px 40px !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.03) !important;
+    text-align: left !important;
+    position: relative !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Puntos estéticos de fondo decorativos en las esquinas */
+.tarjeta-contacto-info::before {
+    content: '••••\n••••\n••••';
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    color: #cbd5e1;
+    font-size: 14px;
+    letter-spacing: 4px;
+    line-height: 12px;
+    white-space: pre;
+    opacity: 0.4;
+}
+.tarjeta-contacto-info::after {
+    content: '••••\n••••\n••••';
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    color: #cbd5e1;
+    font-size: 14px;
+    letter-spacing: 4px;
+    line-height: 12px;
+    white-space: pre;
+    opacity: 0.4;
+}
+
+/* Tarjeta Derecha: Formulario */
+.tarjeta-contacto-formulario {
+    flex: 1.2 !important;
+    min-width: 380px !important;
+    background: #ffffff !important;
+    padding: 50px 45px !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.03) !important;
+    text-align: left !important;
+    position: relative !important;
+}
+
+.titulo-principal-contacto {
+    font-size: 2.3rem !important;
+    font-weight: 800 !important;
+    color: var(--color-texto-principal) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 8px !important;
+    margin-top: 0 !important;
+    letter-spacing: -0.5px;
+}
+
+.linea-decorativa-titulo {
+    width: 45px;
+    height: 4px;
+    background-color: var(--color-acento);
+    border-radius: 2px;
+    margin-bottom: 30px;
+}
+
+.parrafo-descriptivo-contacto {
+    color: var(--color-texto-suave) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 35px !important;
+}
+
+.bloque-item-contacto {
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+    margin-bottom: 24px !important;
+}
+
+.caja-icono-azul {
+    background-color: #eff6ff !important;
+    color: var(--color-acento) !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.15rem !important;
+    flex-shrink: 0 !important;
+}
+
+.detalles-texto-contacto span {
+    display: block !important;
+}
+
+.detalles-texto-contacto .tag-label {
+    font-weight: 800 !important;
+    font-size: 0.85rem !important;
+    color: var(--color-texto-principal) !important;
+    letter-spacing: 0.3px !important;
+}
+
+.detalles-texto-contacto .tag-subtext {
+    font-size: 0.85rem !important;
+    color: #64748b !important;
+    margin-top: 1px !important;
+}
+
+.detalles-texto-contacto .tag-enlace {
+    font-size: 0.9rem !important;
+    color: var(--color-acento) !important;
+    font-weight: 600 !important;
+    margin-top: 1px !important;
+    text-decoration: none !important;
+}
+
+/* Botón LinkedIn Ajustado */
+.boton-contacto-linkedin {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #ffffff !important;
+    color: var(--color-texto-suave) !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 10px 20px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01) !important;
+    margin-top: 20px !important;
+    width: max-content;
+    transition: all 0.2s ease !important;
+}
+
+.boton-contacto-linkedin:hover {
+    background: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+    color: var(--color-acento) !important;
+}
+
+.encabezado-tarjeta-formulario {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 35px !important;
+    padding-right: 100px !important; 
+}
+
+.burbuja-icono-mensaje {
+    background: #eff6ff !important;
+    color: var(--color-acento) !important;
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.1rem !important;
+}
+
+/* Ubicación del logo en la esquina superior derecha del formulario */
+.imagen-logo-esquina {
+    position: absolute !important;
+    top: 40px !important;
+    right: 45px !important;
+    width: 70px !important;
+    height: auto !important;
+    background: transparent !important;
+}
+
+.fila-formulario-doble {
+    display: flex !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 20px !important;
+}
+
+.grupo-formulario-input {
+    flex: 1 !important;
+    min-width: 220px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.grupo-formulario-ancho-completo {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-bottom: 20px !important;
+}
+
+.etiqueta-formulario {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: var(--color-texto-principal) !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Wrappers e inputs con iconos integrados a la izquierda */
+.wrapper-input-icono {
+    position: relative !important;
+    width: 100% !important;
+}
+
+.wrapper-input-icono i {
+    position: absolute !important;
+    left: 16px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: #94a3b8 !important;
+    font-size: 0.95rem !important;
+    pointer-events: none !important;
+}
+
+.wrapper-input-icono.textarea-icon i {
+    top: 20px !important;
+    transform: none !important;
+}
+
+.campo-formulario-input {
+    width: 100% !important;
+    padding: 14px 16px 14px 45px !important; /* Espacio para que el texto no pise el icono */
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    font-size: 0.92rem !important;
+    color: #334155 !important;
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+}
+
+.campo-formulario-input:focus {
+    outline: none !important;
+    border-color: var(--color-acento) !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08) !important;
+}
+
+.campo-formulario-input::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* Botón con degradado suave fiel a tu imagen */
+.boton-enviar-formulario {
+    width: 100% !important;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 15px !important;
+    border-radius: 14px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2) !important;
+    transition: all 0.2s ease !important;
+}
+
+.boton-enviar-formulario:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* ==========================================================================
+    5. CONTENEDORES GENERALES DE OTRAS PÁGINAS
+   ========================================================================== */
 main {
     flex: 1 0 auto;
     position: relative;
@@ -171,9 +493,7 @@ main {
     text-align: center;
 }
 
-/* =========================
-    5. TARJETAS DE PROYECTOS (Vista General)
-========================= */
+/* Tarjetas de Proyectos (Vista General) */
 .contenedor-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -213,9 +533,7 @@ main {
     margin-bottom: 20px;
 }
 
-/* =========================
-    6. TIMELINE (Sobre Mí / Experiencia)
-========================= */
+/* Timeline (Sobre Mí) */
 .timeline-item {
     margin-bottom: 30px;
     padding: 20px;
@@ -239,9 +557,7 @@ main {
     margin-bottom: 5px;
 }
 
-/* =========================
-    7. TARJETA TÉCNICA DETALLADA ("Así sí")
-========================= */
+/* Tarjeta Técnica */
 .tech-card-modern {
     border: 3px solid var(--color-borde-negro);
     padding: 30px;
@@ -263,7 +579,6 @@ main {
     font-weight: bold;
 }
 
-/* Distribución en dos columnas para los puntos */
 .tech-lista-columnas {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -281,7 +596,6 @@ main {
     font-weight: 500;
 }
 
-/* Estilo del punto negro */
 .bullet {
     font-size: 2.5rem;
     font-weight: bold;
@@ -289,7 +603,6 @@ main {
     color: #000;
 }
 
-/* Fila inferior: Rol y Botón alineados en los extremos */
 .tech-footer-row {
     display: flex;
     justify-content: space-between;
@@ -322,9 +635,7 @@ main {
     background-color: #444; 
 }
 
-/* =========================
-    8. LOGO Y MULTIMEDIA
-========================= */
+/* Logos e Imágenes de otras secciones */
 .logo-container {
     position: absolute;
     top: 80px; 
@@ -354,9 +665,7 @@ main {
     display: block;
 }
 
-/* =========================
-    9. NAVEGACIÓN Y FLECHAS
-========================= */
+/* Navegación y Flechas */
 .navegacion-proyectos {
     display: flex; 
     justify-content: space-between; 
@@ -392,9 +701,9 @@ main {
     font-weight: bold;
 }
 
-/* =========================
-    10. FOOTER
-========================= */
+/* ==========================================================================
+    6. FOOTER
+   ========================================================================== */
 footer {
     flex-shrink: 0;
     width: 100%;
@@ -414,13 +723,24 @@ footer {
     margin: 0 auto;
 }
 
-/* =========================
-    11. RESPONSIVIDAD
-========================= */
+/* ==========================================================================
+    7. RESPONSIVIDAD
+   ========================================================================== */
+@media (max-width: 992px) {
+    .seccion-contacto-contenedor {
+        flex-direction: column !important;
+    }
+    .tarjeta-contacto-info, .tarjeta-contacto-formulario {
+        min-width: 100% !important;
+    }
+}
+
 @media (max-width: 768px) {
     .contenedor { flex-direction: column; text-align: center; }
     .tech-lista-columnas { grid-template-columns: 1fr; padding: 0 10px; }
     .tech-footer-row { flex-direction: column; gap: 20px; }
     .logo-container { position: static; margin-bottom: 20px; text-align: center; }
     .navegacion-proyectos { flex-direction: column; gap: 20px; }
+    .navbar { padding: 0 2% !important; }
+    .navbar a { padding: 0 12px !important; font-size: 12px !important; }
 }
