@@ -63,7 +63,6 @@ $textos = [
 $t = $textos[$lang];
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 
-// Tus datos de contacto personales reales
 $mi_correo = "bernalalejandro1302@gmail.com";
 $mi_telefono = "64277676";
 $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
@@ -76,193 +75,230 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
     <title><?php echo $t['titulo_pestana']; ?></title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        .wrapper-contacto {
-            display: flex;
-            gap: 40px;
-            max-width: 1140px;
-            margin: 40px auto;
-            padding: 0 20px;
-            flex-wrap: wrap;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        .seccion-contacto-contenedor {
+            display: flex !important;
+            gap: 40px !important;
+            max-width: 1140px !important;
+            margin: 40px auto !important;
+            padding: 0 20px !important;
+            flex-wrap: wrap !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            box-sizing: border-box !important;
         }
-        .col-info {
-            flex: 1;
-            min-width: 320px;
-            background: #ffffff;
-            padding: 45px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            text-align: left;
+        
+        .tarjeta-contacto-info {
+            flex: 1 !important;
+            min-width: 320px !important;
+            background: #ffffff !important;
+            padding: 45px !important;
+            border-radius: 20px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+            text-align: left !important;
         }
-        .col-form {
-            flex: 1.2;
-            min-width: 350px;
-            background: #ffffff;
-            padding: 45px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            text-align: left;
-            position: relative; /* Clave para posicionar el logo interno limpiamente */
+        
+        .tarjeta-contacto-formulario {
+            flex: 1.2 !important;
+            min-width: 350px !important;
+            background: #ffffff !important;
+            padding: 45px !important;
+            border-radius: 20px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+            text-align: left !important;
+            position: relative !important;
         }
-        .h1-contacto {
-            font-size: 2.3rem;
-            font-weight: 700;
-            color: #1e293b;
-            line-height: 1.2;
-            margin-bottom: 20px;
+        
+        .titulo-principal-contacto {
+            font-size: 2.3rem !important;
+            font-weight: 700 !important;
+            color: #1e293b !important;
+            line-height: 1.2 !important;
+            margin-bottom: 20px !important;
+            margin-top: 0 !important;
         }
-        .p-contacto {
-            color: #64748b;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 35px;
+        
+        .parrafo-descriptivo-contacto {
+            color: #64748b !important;
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 35px !important;
         }
-        .item-contacto {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
+        
+        .bloque-item-contacto {
+            display: flex !important;
+            align-items: center !important;
+            gap: 20px !important;
+            margin-bottom: 25px !important;
         }
-        .icono-contacto {
-            background-color: #eff6ff;
-            color: #2563eb;
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+        
+        .caja-icono-azul {
+            background-color: #eff6ff !important;
+            color: #2563eb !important;
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 12px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1.2rem !important;
+            flex-shrink: 0 !important;
         }
-        .info-detalles span {
-            display: block;
+        
+        .detalles-texto-contacto span {
+            display: block !important;
         }
-        .info-detalles .label {
-            font-weight: 700;
-            font-size: 0.8rem;
-            color: #1e293b;
-            letter-spacing: 0.5px;
+        
+        .detalles-texto-contacto .tag-label {
+            font-weight: 700 !important;
+            font-size: 0.8rem !important;
+            color: #1e293b !important;
+            letter-spacing: 0.5px !important;
         }
-        .info-detalles .subtext {
-            font-size: 0.85rem;
-            color: #64748b;
-            margin-top: 2px;
+        
+        .detalles-texto-contacto .tag-subtext {
+            font-size: 0.85rem !important;
+            color: #64748b !important;
+            margin-top: 2px !important;
         }
-        .info-detalles .dato-real {
-            font-size: 0.9rem;
-            color: #2563eb;
-            font-weight: 500;
-            margin-top: 1px;
-            text-decoration: none;
+        
+        .detalles-texto-contacto .tag-enlace {
+            font-size: 0.9rem !important;
+            color: #2563eb !important;
+            font-weight: 500 !important;
+            margin-top: 1px !important;
+            text-decoration: none !important;
         }
-        .btn-linkedin {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #ffffff;
-            color: #2563eb;
-            border: 1px solid #e2e8f0;
-            padding: 10px 24px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-            margin-top: 15px;
-            transition: all 0.2s ease;
+        
+        .boton-contacto-linkedin {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            background: #ffffff !important;
+            color: #2563eb !important;
+            border: 1px solid #e2e8f0 !important;
+            padding: 10px 24px !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02) !important;
+            margin-top: 15px !important;
+            transition: all 0.2s ease !important;
         }
-        .btn-linkedin:hover {
-            background: #f8fafc;
-            border-color: #cbd5e1;
+        
+        .boton-contacto-linkedin:hover {
+            background: #f8fafc !important;
+            border-color: #cbd5e1 !important;
         }
-        .form-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding-right: 70px; /* Previene que el texto choque con el logo */
+        
+        .encabezado-tarjeta-formulario {
+            display: flex !important;
+            align-items: center !important;
+            gap: 15px !important;
+            margin-bottom: 30px !important;
+            padding-right: 70px !important;
         }
-        .icono-msg {
-            background: #f1f5f9;
-            color: #2563eb;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
+        
+        .burbuja-icono-mensaje {
+            background: #f1f5f9 !important;
+            color: #2563eb !important;
+            width: 44px !important;
+            height: 44px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1.1rem !important;
         }
-        .logo-esquina-form {
-            position: absolute;
-            top: 40px;
-            right: 45px;
-            width: 55px;
-            height: auto;
-            opacity: 0.95;
-            z-index: 5;
+        
+        /* CONTENEDOR MÁSCARA: Bloquea visualmente la parte izquierda defectuosa de tu imagen */
+        .contenedor-mascara-logo {
+            position: absolute !important;
+            top: 40px !important;
+            right: 45px !important;
+            width: 55px !important;  /* Ancho final visible deseado */
+            height: 55px !important;
+            overflow: hidden !important; /* Esconde todo lo que se salga de este cuadro */
+            z-index: 10 !important;
         }
-        .form-group-row {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
+
+        /* AJUSTE VIRTUAL: Desplaza el rastro azul hacia afuera del margen visible */
+        .imagen-logo-esquina {
+            width: 70px !important; /* Le damos más espacio interno para empujar el error */
+            height: auto !important;
+            object-fit: cover !important;
+            /* Desplazamos la imagen -15px a la izquierda para "morder" y desaparecer el paréntesis azul */
+            object-position: -15px center !important; 
+            display: block !important;
         }
-        .form-group {
-            flex: 1;
-            min-width: 200px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        
+        .fila-formulario-doble {
+            display: flex !important;
+            gap: 20px !important;
+            flex-wrap: wrap !important;
+            margin-bottom: 20px !important;
         }
-        .form-group-full {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 20px;
+        
+        .grupo-formulario-input {
+            flex: 1 !important;
+            min-width: 200px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px !important;
         }
-        .form-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #475569;
-            letter-spacing: 0.5px;
+        
+        .grupo-formulario-ancho-completo {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px !important;
+            margin-bottom: 20px !important;
         }
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            color: #334155;
-            background: #ffffff;
-            box-sizing: border-box;
-            transition: border-color 0.2s;
+        
+        .etiqueta-formulario {
+            font-size: 0.75rem !important;
+            font-weight: 700 !important;
+            color: #475569 !important;
+            letter-spacing: 0.5px !important;
         }
-        .form-input:focus {
-            outline: none;
-            border-color: #2563eb;
+        
+        .campo-formulario-input {
+            width: 100% !important;
+            padding: 14px 16px !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 10px !important;
+            font-size: 0.9rem !important;
+            color: #334155 !important;
+            background: #ffffff !important;
+            box-sizing: border-box !important;
+            transition: border-color 0.2s !important;
         }
-        .btn-submit {
-            width: 100%;
-            background: #2563eb;
-            color: #ffffff;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-            transition: background 0.2s;
+        
+        .campo-formulario-input:focus {
+            outline: none !important;
+            border-color: #2563eb !important;
         }
-        .btn-submit:hover {
-            background: #1d4ed8;
+        
+        .boton-enviar-formulario {
+            width: 100% !important;
+            background: #2563eb !important;
+            color: #ffffff !important;
+            border: none !important;
+            padding: 16px !important;
+            border-radius: 12px !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2) !important;
+            transition: background 0.2s !important;
+        }
+        
+        .boton-enviar-formulario:hover {
+            background: #1d4ed8 !important;
         }
     </style>
 </head>
@@ -296,54 +332,57 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
     <img src="img/logoportafolio.png" alt="Logo Portafolio" class="logo-inicio">
 </div>
 
-<main class="wrapper-contacto">
+<main class="seccion-contacto-contenedor">
     
-    <section class="col-info">
-        <h1 class="h1-contacto"><?php echo $t['h1']; ?></h1>
-        <p class="p-contacto"><?php echo $t['p1']; ?></p>
+    <section class="tarjeta-contacto-info">
+        <h1 class="titulo-principal-contacto"><?php echo $t['h1']; ?></h1>
+        <p class="parrafo-descriptivo-contacto"><?php echo $t['p1']; ?></p>
         
-        <div class="item-contacto">
-            <div class="icono-contacto">
+        <div class="bloque-item-contacto">
+            <div class="caja-icono-azul">
                 <i class="fas fa-envelope"></i>
             </div>
-            <div class="info-detalles">
-                <span class="label"><?php echo $t['lbl_correo']; ?></span>
-                <span class="subtext"><?php echo $t['sub_correo']; ?></span>
-                <a href="mailto:<?php echo $mi_correo; ?>" class="dato-real"><?php echo $mi_correo; ?></a>
+            <div class="detalles-texto-contacto">
+                <span class="tag-label"><?php echo $t['lbl_correo']; ?></span>
+                <span class="tag-subtext"><?php echo $t['sub_correo']; ?></span>
+                <a href="mailto:<?php echo $mi_correo; ?>" class="tag-enlace"><?php echo $mi_correo; ?></a>
             </div>
         </div>
 
-        <div class="item-contacto">
-            <div class="icono-contacto">
+        <div class="bloque-item-contacto">
+            <div class="caja-icono-azul">
                 <i class="fas fa-phone-alt"></i>
             </div>
-            <div class="info-detalles">
-                <span class="label"><?php echo $t['lbl_telefono']; ?></span>
-                <span class="subtext"><?php echo $t['sub_telefono']; ?></span>
-                <a href="tel:+503<?php echo $mi_telefono; ?>" class="dato-real"><?php echo $mi_telefono; ?></a>
+            <div class="detalles-texto-contacto">
+                <span class="tag-label"><?php echo $t['lbl_telefono']; ?></span>
+                <span class="tag-subtext"><?php echo $t['sub_telefono']; ?></span>
+                <a href="tel:+503<?php echo $mi_telefono; ?>" class="tag-enlace"><?php echo $mi_telefono; ?></a>
             </div>
         </div>
 
-        <div class="item-contacto">
-            <div class="icono-contacto">
+        <div class="bloque-item-contacto">
+            <div class="caja-icono-azul">
                 <i class="fas fa-map-marker-alt"></i>
             </div>
-            <div class="info-detalles">
-                <span class="label"><?php echo $t['lbl_ubicacion']; ?></span>
-                <span class="subtext"><?php echo $mi_ubicacion; ?></span>
+            <div class="detalles-texto-contacto">
+                <span class="tag-label"><?php echo $t['lbl_ubicacion']; ?></span>
+                <span class="tag-subtext"><?php echo $mi_ubicacion; ?></span>
             </div>
         </div>
 
-        <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" class="btn-linkedin">
+        <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" class="boton-contacto-linkedin">
             <i class="fab fa-linkedin"></i> LinkedIn
         </a>
     </section>
     
-    <section class="col-form">
-        <img src="img/logoportafolio.png" alt="Logo Portafolio" class="logo-esquina-form">
+    <section class="tarjeta-contacto-formulario">
+        
+        <div class="contenedor-mascara-logo">
+            <img src="img/logoportafolio.png" alt="Logo Portafolio" class="imagen-logo-esquina">
+        </div>
 
-        <div class="form-header">
-            <div class="icono-msg">
+        <div class="encabezado-tarjeta-formulario">
+            <div class="burbuja-icono-mensaje">
                 <i class="fas fa-comment-alt"></i>
             </div>
             <div>
@@ -353,28 +392,28 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
         </div>
         
         <form action="#" method="POST">
-            <div class="form-group-row">
-                <div class="form-group">
-                    <label class="form-label"><?php echo $t['lbl_nombre']; ?></label>
-                    <input type="text" class="form-input" placeholder="<?php echo $t['placeholder_nombre']; ?>" required>
+            <div class="fila-formulario-doble">
+                <div class="grupo-formulario-input">
+                    <label class="etiqueta-formulario"><?php echo $t['lbl_nombre']; ?></label>
+                    <input type="text" class="campo-formulario-input" placeholder="<?php echo $t['placeholder_nombre']; ?>" required>
                 </div>
-                <div class="form-group">
-                    <label class="form-label"><?php echo $t['lbl_correo_form']; ?></label>
-                    <input type="email" class="form-input" placeholder="<?php echo $t['placeholder_correo']; ?>" required>
+                <div class="grupo-formulario-input">
+                    <label class="etiqueta-formulario"><?php echo $t['lbl_correo_form']; ?></label>
+                    <input type="email" class="campo-formulario-input" placeholder="<?php echo $t['placeholder_correo']; ?>" required>
                 </div>
             </div>
 
-            <div class="form-group-full">
-                <label class="form-label"><?php echo $t['lbl_asunto']; ?></label>
-                <input type="text" class="form-input" placeholder="<?php echo $t['placeholder_asunto']; ?>" required>
+            <div class="grupo-formulario-ancho-completo">
+                <label class="etiqueta-formulario"><?php echo $t['lbl_asunto']; ?></label>
+                <input type="text" class="campo-formulario-input" placeholder="<?php echo $t['placeholder_asunto']; ?>" required>
             </div>
 
-            <div class="form-group-full">
-                <label class="form-label"><?php echo $t['lbl_mensaje']; ?></label>
-                <textarea class="form-input" rows="5" placeholder="<?php echo $t['placeholder_mensaje']; ?>" required style="resize: vertical;"></textarea>
+            <div class="grupo-formulario-ancho-completo">
+                <label class="etiqueta-formulario"><?php echo $t['lbl_mensaje']; ?></label>
+                <textarea class="campo-formulario-input" rows="5" placeholder="<?php echo $t['placeholder_mensaje']; ?>" required style="resize: vertical;"></textarea>
             </div>
 
-            <button type="submit" class="btn-submit">
+            <button type="submit" class="boton-enviar-formulario">
                 <i class="fas fa-paper-plane"></i> <?php echo $t['btn_enviar']; ?>
             </button>
         </form>
