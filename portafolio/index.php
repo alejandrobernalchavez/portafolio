@@ -1,8 +1,8 @@
-<<?php
+<?php
 // 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// 2. Diccionario de textos optimizado con Mensajes de Impacto
+// 2. Diccionario de textos optimizado con Mensajes de Impacto (Contacto Agregado)
 $textos = [
     'es' => [
         'titulo_pestana' => 'Cristopher Bernal | QA Tester en formación',
@@ -11,6 +11,7 @@ $textos = [
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
+        'contacto' => 'Contacto', // <-- Agregado para traducción
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester en formación',
         'h3' => 'Garantizando la excelencia técnica y optimizando la experiencia del usuario final.',
@@ -28,6 +29,7 @@ $textos = [
         'inicio' => 'Home',
         'sobre' => 'About me',
         'proyectos' => 'Projects',
+        'contacto' => 'Contact', // <-- Agregado para traducción
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester in training',
         'h3' => 'Ensuring technical excellence and optimizing the end-user experience.',
@@ -68,8 +70,11 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
         <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
             <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
         </a>
-        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php') ? 'active' : ''; ?>">
+        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php' || $pagina_actual == 'detalle-proyecto.php') ? 'active' : ''; ?>">
             <i class="fas fa-code"></i> <?php echo $t['proyectos']; ?>
+        </a>
+        <a href="contacto.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'contacto.php') ? 'active' : ''; ?>">
+            <i class="fas fa-envelope"></i> <?php echo $t['contacto']; ?>
         </a>
     </div>
 
@@ -114,11 +119,17 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     <div style="display: flex; justify-content: space-around; max-width: 900px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
         <div class="footer-col" style="text-align: left; min-width: 150px;">
             <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['explorar']; ?></h3>
+            <a href="index.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
+                <?php echo $t['inicio']; ?>
+            </a>
             <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['sobre']; ?>
             </a>
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['proyectos']; ?>
+            </a>
+            <a href="contacto.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+                <?php echo $t['contacto']; ?>
             </a>
         </div>
 
@@ -131,7 +142,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
                 <a href="https://github.com/alejandrobernalchavez" target="_blank">
                     <img src="img/github.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
-                <a href="mailto:alejogevara27@gmail.com">
+                <a href="mailto:bernalalejandro1302@gmail.com">
                     <img src="img/email.png" alt="Email" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
             </div>
