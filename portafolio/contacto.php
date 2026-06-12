@@ -2,7 +2,7 @@
 // 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// 2. Diccionario de textos (Optimizado para QA Tester)
+// 2. Diccionario de textos optimizado
 $textos = [
     'es' => [
         'titulo_pestana' => 'Contacto | Cristopher Bernal',
@@ -13,8 +13,8 @@ $textos = [
         'proyectos' => 'Proyectos',
         'contacto' => 'Contacto',
         
-        // Columna Izquierda (Info)
-        'hablemos' => '¡Hablemos de Calidad!',
+        // Columna Izquierda (Info solicitada)
+        'hablemos' => '¡Hablemos!',
         'intro_qa' => 'Estoy abierto a oportunidades laborales, proyectos de automatización/testing manual o simplemente a conectar con entusiastas de la tecnología. Si buscas asegurar que tu software funcione sin fallos, ¡escríbeme!',
         'correo_tit' => 'CORREO',
         'tel_tit' => 'TELÉFONO',
@@ -50,7 +50,7 @@ $textos = [
         'contacto' => 'Contact',
         
         // Left Column (Info)
-        'hablemos' => "Let's Talk Quality!",
+        'hablemos' => "Let's Talk!",
         'intro_qa' => 'I am open to job opportunities, manual or automated testing projects, or simply connecting with tech enthusiasts. If you want to ensure your software runs bug-free, drop me a line!',
         'correo_tit' => 'EMAIL',
         'tel_tit' => 'PHONE',
@@ -203,7 +203,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form action="contacto.php?lang=<?php echo $lang; ?>" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
-            
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                     <label style="font-size: 0.75rem; font-weight: bold; color: #8c9096; letter-spacing: 0.5px;"><?php echo $t['lbl_nombre']; ?></label>
@@ -225,7 +224,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <textarea name="mensaje" rows="5" placeholder="<?php echo $t['ph_mensaje']; ?>" required style="padding: 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.2); color: #fff; font-size: 0.95rem; width: 100%; box-sizing: border-box; resize: vertical; line-height: 1.5;"></textarea>
             </div>
 
-            <button type="submit" class="btn-portafolio btn-azul" style="border: none; cursor: pointer; padding: 16px; font-size: 1rem; font-weight: bold; width: 100%; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 8px; transition: background 0.3s ease;">
+            <button type="submit" class="btn-portafolio btn-azul" style="border: none; cursor: pointer; padding: 16px; font-size: 1rem; font-weight: bold; width: 100%; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; border-radius: 8px;">
                 <i class="fas fa-paper-plane"></i> <?php echo $t['btn_enviar']; ?>
             </button>
         </form>
