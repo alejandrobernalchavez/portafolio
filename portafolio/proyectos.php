@@ -7,6 +7,7 @@ $textos = [
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
+        'contacto' => 'Contacto',
         'h1' => 'Mis Proyectos',
         'desc' => 'Una selección de los trabajos más relevantes en los que he participado, aplicando metodologías de desarrollo y aseguramiento de calidad.',
         'ver_detalle' => 'Ver detalles del proyecto',
@@ -25,6 +26,7 @@ $textos = [
         'inicio' => 'Home',
         'sobre' => 'About me',
         'proyectos' => 'Projects',
+        'contacto' => 'Contact',
         'h1' => 'My Projects',
         'desc' => 'A selection of the most relevant works I have participated in, applying development and quality assurance methodologies.',
         'ver_detalle' => 'View project details',
@@ -69,8 +71,11 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
         <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
             <i class="fas fa-user"></i> <?php echo $t['sobre']; ?>
         </a>
-        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php') ? 'active' : ''; ?>">
+        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php' || $pagina_actual == 'detalle-proyecto.php') ? 'active' : ''; ?>">
             <i class="fas fa-code"></i> <?php echo $t['proyectos']; ?>
+        </a>
+        <a href="contacto.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'contacto.php') ? 'active' : ''; ?>">
+            <i class="fas fa-envelope"></i> <?php echo $t['contacto']; ?>
         </a>
     </div>
 
@@ -132,8 +137,11 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
             <a href="index.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['inicio']; ?>
             </a>
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['sobre']; ?>
+            </a>
+            <a href="contacto.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+                <?php echo $t['contacto']; ?>
             </a>
         </div>
 
@@ -146,7 +154,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
                 <a href="https://github.com/alejandrobernalchavez" target="_blank">
                     <img src="img/github.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
-                <a href="mailto:alejogevara27@gmail.com">
+                <a href="mailto:bernalalejandro1302@gmail.com">
                     <img src="img/email.png" alt="Email" style="width: 30px; height: 30px; border-radius: 5px;">
                 </a>
             </div>
