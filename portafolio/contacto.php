@@ -2,26 +2,23 @@
 // 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
-// 2. Diccionario de textos optimizado
+// 2. Diccionario de textos corregido con las llaves exactas que pide tu interfaz gráfica
 $textos = [
     'es' => [
         'titulo_pestana' => 'Contacto | Cristopher Bernal',
         'meta_desc' => 'Ponte en contacto con Cristopher Bernal, QA Tester en formación. Formulario de contacto para propuestas de aseguramiento de calidad y proyectos de software.',
-        'meta_keywords' => 'Contacto, Cristopher Bernal, QA Tester, Aseguramiento de calidad, El Salvador, Jiquilisco, Control de calidad software',
+        'meta_keywords' => 'Contacto, Cristopher Bernal, QA Tester, Aseguramiento de calidad, El Salvador, Jiquilisco',
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
         'contacto' => 'Contacto',
         
-        // Columna Izquierda (Info solicitada)
-        'hablemos' => '¡Hablemos!',
-        'intro_qa' => 'Estoy abierto a oportunidades laborales, proyectos de automatización/testing manual o simplemente a conectar con entusiastas de la tecnología. Si buscas asegurar que tu software funcione sin fallos, ¡escríbeme!',
-        'correo_tit' => 'CORREO',
-        'tel_tit' => 'TELÉFONO',
-        'ubi_tit' => 'UBICACIÓN',
-        'ubi_det' => 'Jiquilisco, Usulután, El Salvador',
+        // Datos que se muestran a la par de los iconos de la izquierda
+        'correo' => 'bernalalejandro1302@gmail.com',
+        'telefono' => '6427-7676',
+        'ubicacion' => 'Jiquilisco, Usulután, El Salvador',
         
-        // Columna Derecha (Formulario)
+        // Sección del formulario (Derecha)
         'enviname' => 'Envíame un mensaje',
         'completar' => 'Completa el formulario y te responderé a la brevedad.',
         'lbl_nombre' => 'NOMBRE',
@@ -34,30 +31,27 @@ $textos = [
         'ph_mensaje' => 'Cuéntame sobre tu proyecto, oportunidad o consulta...',
         'btn_enviar' => 'Enviar mensaje',
         
-        // Mensajes de Validación
-        'msg_exito' => '¡Reporte enviado! Tu mensaje ha sido recibido con éxito.',
-        'msg_error' => 'Error: Por favor, revisa y completa todos los campos.',
+        // Estado
+        'msg_exito' => '¡Reporte enviado con éxito!',
+        'msg_error' => 'Por favor, llena todos los campos.',
         'explorar' => 'Explorar',
         'redes' => 'Redes sociales'
     ],
     'en' => [
         'titulo_pestana' => 'Contact | Cristopher Bernal',
-        'meta_desc' => 'Get in touch with Cristopher Bernal, QA Tester in training. Contact form for quality assurance proposals and software projects.',
-        'meta_keywords' => 'Contact, Cristopher Bernal, QA Tester, Quality Assurance, El Salvador, Jiquilisco, Software testing',
+        'meta_desc' => 'Get in touch with Cristopher Bernal, QA Tester in training.',
+        'meta_keywords' => 'Contact, Cristopher Bernal, QA Tester, Quality Assurance, El Salvador',
         'inicio' => 'Home',
         'sobre' => 'About me',
         'proyectos' => 'Projects',
         'contacto' => 'Contact',
         
-        // Left Column (Info)
-        'hablemos' => "Let's Talk!",
-        'intro_qa' => 'I am open to job opportunities, manual or automated testing projects, or simply connecting with tech enthusiasts. If you want to ensure your software runs bug-free, drop me a line!',
-        'correo_tit' => 'EMAIL',
-        'tel_tit' => 'PHONE',
-        'ubi_tit' => 'LOCATION',
-        'ubi_det' => 'Jiquilisco, Usulutan, El Salvador',
+        // Datos en inglés
+        'correo' => 'bernalalejandro1302@gmail.com',
+        'telefono' => '6427-7676',
+        'ubicacion' => 'Jiquilisco, Usulutan, El Salvador',
         
-        // Right Column (Form)
+        // Formulario
         'enviname' => 'Send me a message',
         'completar' => 'Complete the form and I will get back to you shortly.',
         'lbl_nombre' => 'NAME',
@@ -67,12 +61,11 @@ $textos = [
         'ph_nombre' => 'Your full name',
         'ph_correo' => 'you@example.com',
         'ph_asunto' => 'How can I help you?',
-        'ph_mensaje' => 'Tell me about your project, opportunity, or inquiry...',
+        'ph_mensaje' => 'Tell me about your project...',
         'btn_enviar' => 'Send message',
         
-        // Validation Messages
-        'msg_exito' => 'Report sent! Your message has been successfully received.',
-        'msg_error' => 'Error: Please check and fill in all fields.',
+        'msg_exito' => 'Message sent successfully!',
+        'msg_error' => 'Please fill in all fields.',
         'explorar' => 'Explore',
         'redes' => 'Social Media'
     ]
@@ -81,7 +74,7 @@ $textos = [
 $t = $textos[$lang];
 $pagina_actual = basename($_SERVER['PHP_SELF']);
 
-// Lógica de procesamiento
+// Procesamiento del formulario
 $mensaje_estado = '';
 $clase_estado = '';
 
@@ -105,11 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo $t['meta_desc']; ?>">
-    <meta name="keywords" content="<?php echo $t['meta_keywords']; ?>">
-    <meta name="author" content="Cristopher Bernal">
-    <meta name="robots" content="index, follow">
-
     <title><?php echo $t['titulo_pestana']; ?></title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -148,16 +136,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <section style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 40px; text-align: left; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);">
         <div>
-            <h1 style="margin-top: 0; margin-bottom: 15px; font-size: 2rem; color: #ffffff;"><?php echo $t['hablemos']; ?></h1>
-            <p style="color: #b0b3b8; line-height: 1.6; margin-bottom: 40px; font-size: 1.05rem;"><?php echo $t['intro_qa']; ?></p>
+            <h1 style="margin-top: 0; margin-bottom: 15px; font-size: 2rem; color: #ffffff;">¡Hablemos!</h1>
+            <p style="color: #b0b3b8; line-height: 1.6; margin-bottom: 40px; font-size: 1.05rem;">
+                Estoy abierto a oportunidades laborales, proyectos de automatización/testing manual o simplemente a conectar con entusiastas de la tecnología. Si buscas asegurar que tu software funcione sin fallos, ¡escríbeme!
+            </p>
             
             <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 25px;">
                 <div style="width: 50px; height: 50px; background: rgba(0, 123, 255, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #007bff; font-size: 1.2rem;">
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div>
-                    <span style="font-size: 0.8rem; font-weight: bold; color: #8c9096; display: block; letter-spacing: 1px;"><?php echo $t['correo_tit']; ?></span>
-                    <a href="mailto:bernalalejandro1302@gmail.com" style="color: #ffffff; text-decoration: none; font-size: 1.05rem; font-weight: 500;">bernalalejandro1302@gmail.com</a>
+                    <span style="font-size: 0.8rem; font-weight: bold; color: #8c9096; display: block; letter-spacing: 1px;">CORREO</span>
+                    <a href="mailto:<?php echo $t['correo']; ?>" style="color: #ffffff; text-decoration: none; font-size: 1.05rem; font-weight: 500;"><?php echo $t['correo']; ?></a>
                 </div>
             </div>
 
@@ -166,8 +156,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <i class="fas fa-phone-alt"></i>
                 </div>
                 <div>
-                    <span style="font-size: 0.8rem; font-weight: bold; color: #8c9096; display: block; letter-spacing: 1px;"><?php echo $t['tel_tit']; ?></span>
-                    <a href="tel:+50364277676" style="color: #ffffff; text-decoration: none; font-size: 1.05rem; font-weight: 500;">6427-7676</a>
+                    <span style="font-size: 0.8rem; font-weight: bold; color: #8c9096; display: block; letter-spacing: 1px;">TELÉFONO</span>
+                    <a href="tel:<?php echo $t['telefono']; ?>" style="color: #ffffff; text-decoration: none; font-size: 1.05rem; font-weight: 500;"><?php echo $t['telefono']; ?></a>
                 </div>
             </div>
 
@@ -176,17 +166,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <div>
-                    <span style="font-size: 0.8rem; font-weight: bold; color: #8c9096; display: block; letter-spacing: 1px;"><?php echo $t['ubi_tit']; ?></span>
-                    <span style="color: #ffffff; font-size: 1.05rem; font-weight: 500;"><?php echo $t['ubi_det']; ?></span>
+                    <span style="font-size: 0.8rem; font-weight: bold; color: #8c9096; display: block; letter-spacing: 1px;">UBICACIÓN</span>
+                    <span style="color: #ffffff; font-size: 1.05rem; font-weight: 500;"><?php echo $t['ubicacion']; ?></span>
                 </div>
             </div>
         </div>
 
         <div style="display: flex; gap: 15px;">
-            <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" class="btn-portafolio btn-blanco" style="padding: 10px 20px; font-size: 0.9rem; margin: 0;">
+            <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" class="btn-portafolio btn-blanco" style="padding: 10px 20px; font-size: 0.9rem; margin: 0; text-decoration: none;">
                 <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-            <a href="mailto:bernalalejandro1302@gmail.com" class="btn-portafolio btn-blanco" style="padding: 10px 20px; font-size: 0.9rem; margin: 0; opacity: 0.8;">
+            <a href="mailto:<?php echo $t['correo']; ?>" class="btn-portafolio btn-blanco" style="padding: 10px 20px; font-size: 0.9rem; margin: 0; opacity: 0.8; text-decoration: none;">
                 <i class="fas fa-paper-plane"></i> Correo directo
             </a>
         </div>
@@ -234,20 +224,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <footer>
     <div style="display: flex; justify-content: space-around; max-width: 900px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
         <div class="footer-col" style="text-align: left; min-width: 150px;">
-            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['explorar']; ?></h3>
-            <a href="index.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
-                <?php echo $t['inicio']; ?>
-            </a>
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
-                <?php echo $t['sobre']; ?>
-            </a>
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
-                <?php echo $t['proyectos']; ?>
-            </a>
+            <h3 style="margin-bottom: 15px; color: white;">Explorar</h3>
+            <a href="index.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">Inicio</a>
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">Sobre mí</a>
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">Proyectos</a>
         </div>
-
         <div class="footer-col" style="text-align: left; min-width: 150px;">
-            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['redes']; ?></h3>
+            <h3 style="margin-bottom: 15px; color: white;">Redes sociales</h3>
             <div style="display: flex; gap: 15px;">
                 <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
                     <img src="img/linkedin.jpg" alt="LinkedIn" style="width: 30px; height: 30px; border-radius: 5px;">
