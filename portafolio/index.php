@@ -1,8 +1,11 @@
 <?php
-// 1. Lógica de detección de idioma
+// 1. Lógica de detección de idioma de forma segura
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+if (!in_array($lang, ['es', 'en'])) {
+    $lang = 'es';
+}
 
-// 2. Diccionario de textos optimizado con Mensajes de Impacto (Contacto Agregado)
+// 2. Diccionario de textos estructurado con Mensajes de Impacto profesional
 $textos = [
     'es' => [
         'titulo_pestana' => 'Cristopher Bernal | QA Tester en formación',
@@ -11,7 +14,7 @@ $textos = [
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
-        'contacto' => 'Contacto', // <-- Agregado para traducción
+        'contacto' => 'Contacto',
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester en formación',
         'h3' => 'Garantizando la excelencia técnica y optimizando la experiencia del usuario final.',
@@ -29,7 +32,7 @@ $textos = [
         'inicio' => 'Home',
         'sobre' => 'About me',
         'proyectos' => 'Projects',
-        'contacto' => 'Contact', // <-- Agregado para traducción
+        'contacto' => 'Contact',
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester in training',
         'h3' => 'Ensuring technical excellence and optimizing the end-user experience.',
@@ -43,7 +46,12 @@ $textos = [
 ];
 
 $t = $textos[$lang];
+
+// Obtener la página actual de manera dinámica para mantener la navegación limpia
 $pagina_actual = basename($_SERVER['PHP_SELF']);
+if ($pagina_actual == '') {
+    $pagina_actual = 'index.php';
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang; ?>">
@@ -51,12 +59,12 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="<?php echo $t['meta_desc']; ?>">
-    <meta name="keywords" content="<?php echo $t['meta_keywords']; ?>">
+    <meta name="description" content="<?php echo htmlspecialchars($t['meta_desc'], ENT_QUOTES, 'UTF-8'); ?>">
+    <meta name="keywords" content="<?php echo htmlspecialchars($t['meta_keywords'], ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="author" content="Cristopher Bernal">
     <meta name="robots" content="index, follow">
 
-    <title><?php echo $t['titulo_pestana']; ?></title>
+    <title><?php echo htmlspecialchars($t['titulo_pestana'], ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -64,7 +72,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 
 <nav class="navbar">
     <div class="pestañas">
-        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'index.php' || $pagina_actual == '') ? 'active' : ''; ?>">
+        <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'index.php') ? 'active' : ''; ?>">
             <i class="fas fa-home"></i> <?php echo $t['inicio']; ?>
         </a>
         <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
@@ -80,9 +88,9 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 
     <div class="idiomas">
         <i class="fas fa-language"></i>
-        <a href="?lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
+        <a href="<?php echo $pagina_actual; ?>?lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
         <span>|</span>
-        <a href="?lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
+        <a href="<?php echo $pagina_actual; ?>?lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
     </div>
 </nav>
 
@@ -96,11 +104,11 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
     </div>
 
     <div class="info">
-        <h1><?php echo $t['h1']; ?></h1>
-        <h2><?php echo $t['h2']; ?></h2>
-        <h3 style="color: var(--color-texto-suave); margin-bottom: 20px; font-weight: 500; font-size: 1.3rem;"><?php echo $t['h3']; ?></h3>
+        <h1><?php echo htmlspecialchars($t['h1'], ENT_QUOTES, 'UTF-8'); ?></h1>
+        <h2><?php echo htmlspecialchars($t['h2'], ENT_QUOTES, 'UTF-8'); ?></h2>
+        <h3 class="subtitulo-impacto"><?php echo htmlspecialchars($t['h3'], ENT_QUOTES, 'UTF-8'); ?></h3>
 
-        <p class="descripcion" style="line-height: 1.6; color: #4e5154;">
+        <p class="descripcion-perfil">
             <?php echo $t['desc']; ?>
         </p>
 
@@ -108,7 +116,7 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
             <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="btn-portafolio btn-azul">
                 <i class="fas fa-search"></i> <?php echo $t['btn_conocer']; ?>
             </a>
-            <a href="<?php echo $t['cv_path']; ?>" download class="btn-portafolio btn-blanco">
+            <a href="<?php echo htmlspecialchars($t['cv_path'], ENT_QUOTES, 'UTF-8'); ?>" download class="btn-portafolio btn-blanco">
                 <i class="fas fa-file-download"></i> <?php echo $t['btn_cv']; ?>
             </a>
         </div>
@@ -116,34 +124,26 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 </main>
 
 <footer>
-    <div style="display: flex; justify-content: space-around; max-width: 900px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
-        <div class="footer-col" style="text-align: left; min-width: 150px;">
-            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['explorar']; ?></h3>
-            <a href="index.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
-                <?php echo $t['inicio']; ?>
-            </a>
-            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
-                <?php echo $t['sobre']; ?>
-            </a>
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
-                <?php echo $t['proyectos']; ?>
-            </a>
-            <a href="contacto.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
-                <?php echo $t['contacto']; ?>
-            </a>
+    <div class="footer-wrapper">
+        <div class="footer-col-links">
+            <h3><?php echo $t['explorar']; ?></h3>
+            <a href="index.php?lang=<?php echo $lang; ?>"><?php echo $t['inicio']; ?></a>
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><?php echo $t['sobre']; ?></a>
+            <a href="proyectos.php?lang=<?php echo $lang; ?>"><?php echo $t['proyectos']; ?></a>
+            <a href="contacto.php?lang=<?php echo $lang; ?>"><?php echo $t['contacto']; ?></a>
         </div>
 
-        <div class="footer-col" style="text-align: left; min-width: 150px;">
-            <h3 style="margin-bottom: 15px; color: white;"><?php echo $t['redes']; ?></h3>
-            <div style="display: flex; gap: 15px;">
-                <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank">
-                    <img src="img/linkedin.jpg" alt="LinkedIn" style="width: 30px; height: 30px; border-radius: 5px;">
+        <div class="footer-col-socials">
+            <h3><?php echo $t['redes']; ?></h3>
+            <div class="social-icons-container">
+                <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" rel="noopener noreferrer">
+                    <img src="img/linkedin.jpg" alt="LinkedIn" class="img-social">
                 </a>
-                <a href="https://github.com/alejandrobernalchavez" target="_blank">
-                    <img src="img/github.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 5px;">
+                <a href="https://github.com/alejandrobernalchavez" target="_blank" rel="noopener noreferrer">
+                    <img src="img/github.png" alt="GitHub" class="img-social">
                 </a>
                 <a href="mailto:bernalalejandro1302@gmail.com">
-                    <img src="img/email.png" alt="Email" style="width: 30px; height: 30px; border-radius: 5px;">
+                    <img src="img/email.png" alt="Email" class="img-social">
                 </a>
             </div>
         </div>

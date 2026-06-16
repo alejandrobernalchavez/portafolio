@@ -9,6 +9,7 @@ $textos = [
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
+        'logros' => 'Logros',
         'contacto' => 'Contacto',
         'h1' => 'Hablemos de tu próximo proyecto',
         'p1' => 'Estoy abierto a oportunidades laborales, proyectos de automatización/testing manual o simplemente a conectar con entusiastas de la tecnología. Si buscas asegurar que tu software funcione sin fallos, ¡escríbeme!',
@@ -36,6 +37,7 @@ $textos = [
         'inicio' => 'Home',
         'sobre' => 'About me',
         'proyectos' => 'Projects',
+        'logros' => 'Achievements',
         'contacto' => 'Contact',
         'h1' => "Let's talk about your next project",
         'p1' => 'I am open to job opportunities, automation/manual testing projects, or simply connecting with technology enthusiasts. If you want to ensure your software runs bug-free, write to me!',
@@ -398,6 +400,9 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
         <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php' || $pagina_actual == 'detalle-proyecto.php') ? 'active' : ''; ?>">
             <i class="fas fa-code"></i> <?php echo $t['proyectos']; ?>
         </a>
+        <a href="logros.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'logros.php') ? 'active' : ''; ?>">
+            <i class="fas fa-trophy"></i> <?php echo $t['logros']; ?>
+        </a>
         <a href="contacto.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'contacto.php') ? 'active' : ''; ?>">
             <i class="fas fa-envelope"></i> <?php echo $t['contacto']; ?>
         </a>
@@ -523,8 +528,11 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             <a href="sobre-mi.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['sobre']; ?>
             </a>
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo $t['proyectos']; ?>
+            </a>
+            <a href="logros.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
+                <?php echo $t['logros']; ?>
             </a>
         </div>
 
