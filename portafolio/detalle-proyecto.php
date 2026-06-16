@@ -17,6 +17,8 @@ $detalles = [
         'nav_inicio' => 'Inicio',
         'nav_sobre' => 'Sobre mí',
         'nav_proyectos' => 'Proyectos',
+        'nav_logros' => 'Logros',
+        'nav_contacto' => 'Contacto',
         'no_encontrado' => 'Proyecto no encontrado.',
         'volver_proyectos' => 'Volver a Proyectos',
         'etiqueta_tech' => 'Tecnologías',
@@ -57,6 +59,8 @@ $detalles = [
         'nav_inicio' => 'Home',
         'nav_sobre' => 'About me',
         'nav_proyectos' => 'Projects',
+        'nav_logros' => 'Achievements',
+        'nav_contacto' => 'Contact',
         'no_encontrado' => 'Project not found.',
         'volver_proyectos' => 'Back to Projects',
         'etiqueta_tech' => 'Technologies',
@@ -102,6 +106,8 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         <a href="index.php?lang=<?php echo $lang; ?>"><i class="fas fa-home"></i> <?php echo $t['nav_inicio']; ?></a>
         <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><i class="fas fa-user"></i> <?php echo $t['nav_sobre']; ?></a>
         <a href="proyectos.php?lang=<?php echo $lang; ?>" class="active"><i class="fas fa-code"></i> <?php echo $t['nav_proyectos']; ?></a>
+        <a href="logros.php?lang=<?php echo $lang; ?>"><i class="fas fa-trophy"></i> <?php echo $t['nav_logros']; ?></a>
+        <a href="contacto.php?lang=<?php echo $lang; ?>"><i class="fas fa-envelope"></i> <?php echo $t['nav_contacto']; ?></a>
     </div>
 
     <div class="idiomas">
@@ -214,7 +220,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 
     function navegarGaleria() { 
         if (paso < totalImagenes) { 
-            paso++; 
+            pass++; 
             actualizarVisor(); 
         } 
     }
