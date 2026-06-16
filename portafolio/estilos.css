@@ -704,73 +704,95 @@ main {
 }
 
 /* ==========================================================================
-    6. FOOTER
+    6. FOOTER (Optimización de Selectores Avanzada e Infallible)
    ========================================================================== */
 footer {
-    flex-shrink: 0;
-    width: 100%;
-    padding: 60px 20px 30px; 
-    background-color: #202124;
-    color: white;
-    margin-top: auto;
-    box-sizing: border-box;
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    padding: 60px 20px 30px !important; 
+    background-color: #202124 !important;
+    color: white !important;
+    margin-top: auto !important;
+    box-sizing: border-box !important;
+    display: block !important;
 }
 
-/* Asegura que el contenedor interno distribuya las columnas en horizontal */
-footer > div[style*="display: flex"], 
+/* Fuerza al primer contenedor interno del footer a ser una fila horizontal */
+footer div, 
+footer section,
 .footer-wrapper {
     display: flex !important;
+    flex-direction: row !important;
     justify-content: space-around !important;
-    max-width: 900px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    gap: 20px;
+    align-items: flex-start !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
 }
 
-/* Alineación de bloques internos del footer */
-.footer-col, .footer-col-links, .footer-col-socials {
-    text-align: left;
-    min-width: 150px;
-}
-
-/* Enlaces del menú Explorar */
-.footer-col a, .footer-col-links a {
-    color: white;
-    text-decoration: none;
-    opacity: 0.8;
-    display: block;
-    margin-bottom: 8px;
-    transition: opacity 0.3s ease;
-}
-
-.footer-col a:hover, .footer-col-links a:hover {
-    opacity: 1;
-}
-
-/* Contenedor flexible de los iconos */
-.footer-col div, .social-icons-container {
+/* Corrige la alineación de las columnas de texto/enlaces */
+footer div div, 
+.footer-col {
     display: flex !important;
-    gap: 15px;
-    align-items: center;
+    flex-direction: column !important; /* Los textos de una misma columna van hacia abajo */
+    align-items: flex-start !important;
+    text-align: left !important;
+    min-width: 160px !important;
 }
 
-/* CONTROL CRÍTICO: Evita imágenes gigantes de redes sociales */
-.footer-col img, .img-social, footer img {
-    width: 30px !important;
-    height: 30px !important;
-    border-radius: 5px;
-    object-fit: cover;
-    display: inline-block;
+/* Enlaces internos del menú */
+footer a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    opacity: 0.8 !important;
+    margin-bottom: 8px !important;
+    font-size: 14px !important;
+    display: inline-block !important;
 }
 
-.copy {
-    text-align: center;
-    font-size: 13px;
-    opacity: 0.6;
-    padding-top: 25px;
-    border-top: 1px solid #3c4043;
-    width: 80%;
-    margin: 30px auto 0;
+footer a:hover {
+    opacity: 1 !important;
+    text-decoration: underline !important;
+}
+
+/* Contenedor específico donde habitan los iconos de redes sociales */
+footer div div div, 
+.social-icons-container {
+    display: flex !important;
+    flex-direction: row !important; /* Las redes se alinean una al lado de la otra */
+    gap: 15px !important;
+    margin-top: 10px !important;
+}
+
+/* ULTRACRÍTICO: Reducción forzada de CUALQUIER imagen dentro del footer */
+footer img, 
+footer a img,
+.img-social {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    max-width: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    display: inline-block !important;
+    object-fit: contain !important;
+    border-radius: 6px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Caja de Derechos Reservados (ocupa el 100% abajo) */
+footer .copy {
+    display: block !important;
+    width: 80% !important;
+    max-width: 900px !important;
+    margin: 40px auto 0 !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    opacity: 0.6 !important;
+    padding-top: 25px !important;
+    border-top: 1px solid #3c4043 !important;
 }
 
 /* ==========================================================================
