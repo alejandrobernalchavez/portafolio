@@ -100,32 +100,31 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
+        /* Corrección del contenedor principal para usar comportamiento elástico vertical */
         .wrapper-layout-fijo {
-            display: block !important;
-            position: relative !important;
+            display: flex !important;
+            flex-direction: column !important;
             min-height: 100vh !important;
-            padding-bottom: 120px !important; /* Espacio exacto para albergar el footer abajo */
             box-sizing: border-box !important;
         }
 
+        /* Fuerza al contenedor a estirarse dinámicamente y ocupar el espacio disponible */
         .contenedor-sobre-mi {
+            flex: 1 !important;
             margin-bottom: 40px !important;
             display: block !important;
         }
 
-        /* Sobrescribimos por completo el comportamiento heredado del footer original */
+        /* Cambiamos a posicionamiento estático/relativo controlado para que respete el flujo del DOM */
         .footer-detalle-proyecto {
-            position: absolute !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            top: auto !important; /* Anula cualquier fijación superior errónea */
+            position: relative !important;
+            margin-top: auto !important; /* Empuje automático al fondo del wrapper */
             width: 100% !important;
             height: 80px !important;
-            background-color: #1a1a1a !important; /* Color oscuro idéntico al de tu diseño */
+            background-color: #1a1a1a !important; 
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            margin: 0 !important;
             padding: 0 !important;
             z-index: 999 !important;
         }
@@ -140,7 +139,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         }
     </style>
 </head>
-<body>
+<body style="margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column;">
 
 <div class="wrapper-layout-fijo">
 
