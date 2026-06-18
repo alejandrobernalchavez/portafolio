@@ -1,13 +1,56 @@
+<?php
+// 1. Lógica de detección de idioma de forma segura
+$lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+if (!in_array($lang, ['es', 'en'])) {
+    $lang = 'es';
+}
+
+// 2. Diccionario de traducción para la estructura común
+$textos = [
+    'es' => [
+        'titulo_pestana' => 'Logros | Mi Portafolio',
+        'inicio' => 'Inicio',
+        'sobre' => 'Sobre mí',
+        'proyectos' => 'Proyectos',
+        'logros' => 'Logros',
+        'contacto' => 'Contacto',
+        'explorar' => 'Explorar',
+        'redes' => 'Redes sociales',
+        'h2_header' => 'Mis Logros Académicos y Profesionales',
+        'p_header' => 'Validaciones y reconocimientos obtenidos a lo largo de mi trayectoria, que demuestran mi compromiso con la excelencia técnica y el trabajo en equipo.'
+    ],
+    'en' => [
+        'titulo_pestana' => 'Achievements | My Portfolio',
+        'inicio' => 'Home',
+        'sobre' => 'About me',
+        'proyectos' => 'Projects',
+        'logros' => 'Achievements',
+        'contacto' => 'Contact',
+        'explorar' => 'Explore',
+        'redes' => 'Social Media',
+        'h2_header' => 'My Academic and Professional Achievements',
+        'p_header' => 'Validations and recognitions obtained throughout my career, demonstrating my commitment to technical excellence and teamwork.'
+    ]
+];
+
+$t = $textos[$lang];
+
+// Obtener la página actual
+$pagina_actual = basename($_SERVER['PHP_SELF']);
+if ($pagina_actual == '') {
+    $pagina_actual = 'logros.php';
+}
+?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<?php echo $lang; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logros | Mi Portafolio</title>
+    <title><?php echo htmlspecialchars($t['titulo_pestana'], ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="stylesheet" href="estilos.css?v=3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Estilos específicos basados fielmente en la nueva interfaz (image_1944a9.jpg) */
+        /* Estilos específicos basados fielmente en la nueva interfaz */
         .header-logros {
             text-align: center;
             padding: 40px 20px 20px;
@@ -234,29 +277,39 @@
 
     <nav class="navbar">
         <div class="pestañas">
-            <a href="index.php"><i class="fa-solid fa-house"></i> Inicio</a>
-            <a href="sobre-mi.php"><i class="fa-solid fa-user"></i> Sobre mí</a>
-            <a href="proyectos.php"><i class="fa-solid fa-code"></i> Proyectos</a>
-            <a href="logros.php" class="active"><i class="fa-solid fa-trophy"></i> Logros</a>
-            <a href="contacto.php"><i class="fa-solid fa-envelope"></i> Contacto</a>
+            <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'index.php') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-house"></i> <?php echo $t['inicio']; ?>
+            </a>
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-user"></i> <?php echo $t['sobre']; ?>
+            </a>
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-code"></i> <?php echo $t['proyectos']; ?>
+            </a>
+            <a href="logros.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'logros.php') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-trophy"></i> <?php echo $t['logros']; ?>
+            </a>
+            <a href="contacto.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'contacto.php') ? 'active' : ''; ?>">
+                <i class="fa-solid fa-envelope"></i> <?php echo $t['contacto']; ?>
+            </a>
         </div>
         
         <div class="idiomas">
-            <a href="#" class="lang-active">ES</a>
+            <i class="fas fa-language"></i>
+            <a href="<?php echo $pagina_actual; ?>?lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
             <span>|</span>
-            <a href="#">EN</a>
+            <a href="<?php echo $pagina_actual; ?>?lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
         </div>
     </nav>
 
     <main>
         <section class="header-logros">
             <div class="icono-copa"><i class="fa-solid fa-trophy"></i></div>
-            <h2>Mis Logros Académicos y Profesionales</h2>
-            <p>Validaciones y reconocimientos obtenidos a lo largo de mi trayectoria, que demuestran mi compromiso con la excelencia técnica y el trabajo en equipo.</p>
+            <h2><?php echo htmlspecialchars($t['h2_header'], ENT_QUOTES, 'UTF-8'); ?></h2>
+            <p><?php echo htmlspecialchars($t['p_header'], ENT_QUOTES, 'UTF-8'); ?></p>
         </section>
 
         <section class="grid-logros">
-            
             <div class="tarjeta-logro-moderna tarjeta-azul">
                 <div>
                     <div class="tarjeta-header-layout">
@@ -352,7 +405,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
 
         <section class="barra-compromiso-excelencia">
@@ -368,33 +420,31 @@
 
     <footer>
         <div class="footer-wrapper">
-            <div> 
-                <div class="footer-col">
-                    <h4 style="margin-bottom: 15px; color: #2563eb; font-weight: bold;">Explorar</h4>
-                    <a href="index.php">Inicio</a>
-                    <a href="sobre-mi.php">Sobre mí</a>
-                    <a href="proyectos.php">Proyectos</a>
-                    <a href="logros.php">Logros</a>
-                    <a href="contacto.php">Contacto</a>
-                </div>
+            <div class="footer-col">
+                <h3><?php echo $t['explorar']; ?></h3>
+                <a href="index.php?lang=<?php echo $lang; ?>"><?php echo $t['inicio']; ?></a>
+                <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><?php echo $t['sobre']; ?></a>
+                <a href="proyectos.php?lang=<?php echo $lang; ?>"><?php echo $t['proyectos']; ?></a>
+                <a href="logros.php?lang=<?php echo $lang; ?>"><?php echo $t['logros']; ?></a>
+                <a href="contacto.php?lang=<?php echo $lang; ?>"><?php echo $t['contacto']; ?></a>
+            </div>
 
-                <div class="footer-col">
-                    <h4 style="margin-bottom: 15px; color: #2563eb; font-weight: bold;">Redes sociales</h4>
-                    <div class="social-icons-container">
-                        <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" title="LinkedIn">
-                            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="img-social">
-                        </a>
-                        <a href="https://github.com" target="_blank" title="GitHub">
-                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="img-social">
-                        </a>
-                    </div>
+            <div class="footer-col">
+                <h3><?php echo $t['redes']; ?></h3>
+                <div class="social-icons-container">
+                    <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" rel="noopener noreferrer">
+                        <img src="img/linkedin.jpg" alt="LinkedIn" class="img-social">
+                    </a>
+                    <a href="https://github.com/alejandrobernalchavez" target="_blank" rel="noopener noreferrer">
+                        <img src="img/github.png" alt="GitHub" class="img-social">
+                    </a>
+                    <a href="mailto:bernalalejandro1302@gmail.com">
+                        <img src="img/email.png" alt="Email" class="img-social">
+                    </a>
                 </div>
             </div>
         </div>
-
-        <div class="copy">
-            &copy; <?php echo date("Y"); ?> Cristopher Alejandro Bernal Chávez. Todos los derechos reservados.
-        </div>
+        <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
     </footer>
 
 </body>
