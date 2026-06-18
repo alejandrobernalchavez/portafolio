@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logros | Mi Portafolio</title>
-    <link rel="stylesheet" href="estilos.css?v=1">
+    <link rel="stylesheet" href="estilos.css?v=2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -50,7 +50,7 @@
                             </p>
                         </div>
 
-                        <img src="primerlugar.jpeg?v=1" alt="Diploma Primer Lugar Networking Challenge 2026" class="img-proyecto-detalle" style="margin: 15px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.1); max-width: 100%; height: 220px; object-fit: contain; display: block; border-radius: 8px; background: #f8fafc;">
+                        <img src="img/primerlugar.jpeg?v=2" alt="Diploma Primer Lugar Networking Challenge 2026" class="img-proyecto-detalle" style="margin: 15px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.1); max-width: 100%; height: 220px; object-fit: contain; display: block; border-radius: 8px; background: #f8fafc;">
 
                         <div style="padding: 12px 15px; background-color: #f8fafc; border-radius: 12px; border-left: 4px solid #2563eb; margin-top: 15px;">
                             <p style="color: var(--color-texto-principal); font-size: 0.85rem; line-height: 1.5; margin: 0; text-align: left;">
@@ -74,7 +74,7 @@
                             </p>
                         </div>
 
-                        <img src="tercerlugar.jpeg?v=1" alt="Diploma Tercer Lugar Robix FLISOL" class="img-proyecto-detalle" style="margin: 15px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.1); max-width: 100%; height: 220px; object-fit: contain; display: block; border-radius: 8px; background: #f8fafc;">
+                        <img src="img/tercerlugar.jpeg?v=2" alt="Diploma Tercer Lugar Robix FLISOL" class="img-proyecto-detalle" style="margin: 15px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.1); max-width: 100%; height: 220px; object-fit: contain; display: block; border-radius: 8px; background: #f8fafc;">
 
                         <div style="padding: 12px 15px; background-color: #f8fafc; border-radius: 12px; border-left: 4px solid #10b981; margin-top: 15px;">
                             <p style="color: var(--color-texto-principal); font-size: 0.85rem; line-height: 1.5; margin: 0; text-align: left;">
