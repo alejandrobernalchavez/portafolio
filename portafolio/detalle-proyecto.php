@@ -101,16 +101,29 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     
     <style>
         html, body {
-            height: 100%;
-            margin: 0;
+            height: 100% !important;
+            min-height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
         }
+        
         .page-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            display: flex !important;
+            flex-direction: column !important;
+            min-height: 100vh !important;
+            width: 100% !important;
+            flex: 1 !important;
         }
+
         .contenedor-sobre-mi {
-            flex: 1; /* Esto empuja el footer de manera dinámica hacia abajo */
+            flex: 1 !important; /* Estira el contenedor principal ocupando todo el espacio libre */
+        }
+
+        footer {
+            margin-top: auto !important; /* Empuja el footer firmemente al fondo en entornos Flexbox */
+            width: 100% !important;
         }
     </style>
 </head>
