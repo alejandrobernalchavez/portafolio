@@ -2,6 +2,15 @@
 // 1. Lógica de detección de idioma
 $lang = isset($_GET['lang']) ? $_GET['lang'] : 'es';
 
+// Carga de las clases de PHPMailer al inicio del archivo
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Rutas a las librerías de PHPMailer (Asegúrate de que la carpeta PHPMailer esté en tu raíz)
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
 // 2. Diccionario de textos para la sección de Contacto
 $textos = [
     'es' => [
@@ -85,20 +94,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensaje = isset($_POST['mensaje']) ? strip_tags(trim($_POST['mensaje'])) : "";
 
     if (!empty($nombre) && !empty($email) && !empty($mensaje)) {
-        $contenido_email = "Nuevo mensaje desde el Portafolio Web:\n\n";
-        $contenido_email .= "Nombre: $nombre\n";
-        $contenido_email .= "Correo: $email\n";
-        $contenido_email .= "Asunto: " . (!empty($asunto) ? $asunto : 'Sin Asunto') . "\n\n";
-        $contenido_email .= "Mensaje:\n$mensaje\n";
+        
+        $mail = new PHPMailer(true);
 
-        // Cabeceras estándares
-        $headers = "From: Portafolio Contacto <no-reply@tu-dominio.com>\r\n";
-        $headers .= "Reply-To: $email\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        try {
+            // Configuración del Servidor SMTP (Ejemplo con Gmail)
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'tu_correo@gmail.com';             // REEMPLAZA CON TU CORREO EMISOR
+            $mail->Password   = 'tu_contraseña_de_aplicacion';    // REEMPLAZA CON TU CONTRASEÑA DE APLICACIÓN DE GOOGLE
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port       = 587;
+            $mail->CharSet    = 'UTF-8';
 
-        if (mail($mi_correo, "Contacto: " . $asunto, $contenido_email, $headers)) {
+            // Destinatarios
+            $mail->setFrom('tu_correo@gmail.com', 'Contacto Portafolio');
+            $mail->addAddress($mi_correo);                        // Tu dirección donde recibes el correo
+            $mail->addReplyTo($email, $nombre);                   // Permite responderle directo al usuario
+
+            // Cuerpo del correo estructurado de manera limpia
+            $contenido_email = "Nuevo mensaje desde el Portafolio Web:\n\n";
+            $contenido_email .= "Nombre: $nombre\n";
+            $contenido_email .= "Correo: $email\n";
+            $contenido_email .= "Asunto: " . (!empty($asunto) ? $asunto : 'Sin Asunto') . "\n\n";
+            $contenido_email .= "Mensaje:\n$mensaje\n";
+
+            $mail->isHTML(false);
+            $mail->Subject = "Contacto: " . $asunto;
+            $mail->Body    = $contenido_email;
+
+            $mail->send();
             $mensaje_estado = "<div style='color: #16a34a; font-weight: bold; margin-bottom: 20px; font-size: 0.95rem;'><i class='fas fa-check-circle'></i> " . $t['msg_exito'] . "</div>";
-        } else {
+        } catch (Exception $e) {
+            // El layout no se romperá porque el warning de PHP ya no se imprimirá directamente
             $mensaje_estado = "<div style='color: #dc2626; font-weight: bold; margin-bottom: 20px; font-size: 0.95rem;'><i class='fas fa-times-circle'></i> " . $t['msg_error'] . "</div>";
         }
     } else {
