@@ -47,7 +47,7 @@
                     </p>
                 </div>
 
-                <img src="primerlugar.jpg" alt="Diploma Primer Lugar Networking Challenge 2026" class="img-proyecto-detalle" style="margin: 20px auto; box-shadow: 0 10px 25px rgba(0,0,0,0.15); max-width: 100%; height: auto; display: block;">
+                <img src="primerlugar.jpeg" alt="Diploma Primer Lugar Networking Challenge 2026" class="img-proyecto-detalle" style="margin: 20px auto; box-shadow: 0 10px 25px rgba(0,0,0,0.15); max-width: 100%; height: auto; display: block;">
 
                 <div style="padding: 15px 20px; background-color: #f8fafc; border-radius: 12px; border-left: 4px solid #2563eb; margin-top: 25px;">
                     <p style="color: var(--color-texto-principal); font-size: 0.95rem; line-height: 1.6; margin: 0; text-align: left;">
@@ -55,30 +55,30 @@
                     </p>
                 </div>
             </div>
-
         </div>
     </main>
 
     <footer>
         <div class="footer-wrapper">
-            <div class="footer-col">
-                <h4 style="margin-bottom: 15px; color: #2563eb; font-weight: bold;">Explorar</h4>
-                <a href="index.php">Inicio</a>
-                <a href="sobre-mi.php">Sobre mí</a>
-                <a href="proyectos.php">Proyectos</a>
-                <a href="logros.php">Logros</a>
-                <a href="contacto.php">Contacto</a>
-            </div>
+            <div> <div class="footer-col">
+                    <h4 style="margin-bottom: 15px; color: #2563eb; font-weight: bold;">Explorar</h4>
+                    <a href="index.php">Inicio</a>
+                    <a href="sobre-mi.php">Sobre mí</a>
+                    <a href="proyectos.php">Proyectos</a>
+                    <a href="logros.php">Logros</a>
+                    <a href="contacto.php">Contacto</a>
+                </div>
 
-            <div class="footer-col">
-                <h4 style="margin-bottom: 15px; color: #2563eb; font-weight: bold;">Redes sociales</h4>
-                <div class="social-icons-container">
-                    <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" title="LinkedIn">
-                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="img-social">
-                    </a>
-                    <a href="https://github.com" target="_blank" title="GitHub">
-                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="img-social">
-                    </a>
+                <div class="footer-col">
+                    <h4 style="margin-bottom: 15px; color: #2563eb; font-weight: bold;">Redes sociales</h4>
+                    <div class="social-icons-container">
+                        <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" title="LinkedIn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="img-social">
+                        </a>
+                        <a href="https://github.com" target="_blank" title="GitHub">
+                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="img-social">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
