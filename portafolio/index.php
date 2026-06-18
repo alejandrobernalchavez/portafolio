@@ -14,6 +14,7 @@ $textos = [
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
+        'logros' => 'Logros', // <-- Agregado para traducción en español
         'contacto' => 'Contacto',
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester en formación',
@@ -32,6 +33,7 @@ $textos = [
         'inicio' => 'Home',
         'sobre' => 'About me',
         'proyectos' => 'Projects',
+        'logros' => 'Achievements', // <-- Agregado para traducción en inglés
         'contacto' => 'Contact',
         'h1' => 'CRISTOPHER BERNAL',
         'h2' => 'QA Tester in training',
@@ -80,6 +82,9 @@ if ($pagina_actual == '') {
         </a>
         <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php' || $pagina_actual == 'detalle-proyecto.php') ? 'active' : ''; ?>">
             <i class="fas fa-code"></i> <?php echo $t['proyectos']; ?>
+        </a>
+        <a href="logros.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'logros.php') ? 'active' : ''; ?>">
+            <i class="fas fa-trophy"></i> <?php echo $t['logros']; ?>
         </a>
         <a href="contacto.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'contacto.php') ? 'active' : ''; ?>">
             <i class="fas fa-envelope"></i> <?php echo $t['contacto']; ?>
@@ -130,7 +135,7 @@ if ($pagina_actual == '') {
             <a href="index.php?lang=<?php echo $lang; ?>"><?php echo $t['inicio']; ?></a>
             <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><?php echo $t['sobre']; ?></a>
             <a href="proyectos.php?lang=<?php echo $lang; ?>"><?php echo $t['proyectos']; ?></a>
-            <a href="contacto.php?lang=<?php echo $lang; ?>"><?php echo $t['contacto']; ?></a>
+            <a href="logros.php?lang=<?php echo $lang; ?>"><?php echo $t['logros']; ?></a> <a href="contacto.php?lang=<?php echo $lang; ?>"><?php echo $t['contacto']; ?></a>
         </div>
 
         <div class="footer-col">
