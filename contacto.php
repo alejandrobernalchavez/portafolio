@@ -30,7 +30,10 @@ $textos = [
         'lbl_mensaje' => 'MENSAJE',
         'btn_enviar' => 'Enviar mensaje',
         'explorar' => 'Explorar',
-        'redes' => 'Redes sociales'
+        'redes' => 'Redes sociales',
+        'msg_exito' => '¡Mensaje enviado con éxito!',
+        'msg_error' => 'Error al enviar el mensaje. Inténtalo de nuevo.',
+        'msg_alerta' => 'Por favor, completa todos los campos requeridos.'
     ],
     'en' => [
         'titulo_pestana' => 'Contact | Cristopher Bernal',
@@ -58,7 +61,10 @@ $textos = [
         'lbl_mensaje' => 'MESSAGE',
         'btn_enviar' => 'Send message',
         'explorar' => 'Explore',
-        'redes' => 'Social Media'
+        'redes' => 'Social Media',
+        'msg_exito' => 'Message sent successfully!',
+        'msg_error' => 'Error sending message. Please try again.',
+        'msg_alerta' => 'Please fill out all required fields.'
     ]
 ];
 
@@ -69,6 +75,36 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
 $mi_correo = "bernalalejandro1302@gmail.com";
 $mi_telefono = "64277676";
 $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
+
+// PROCESAMIENTO DEL FORMULARIO DE ENVÍO
+$mensaje_estado = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre  = isset($_POST['nombre']) ? strip_tags(trim($_POST['nombre'])) : "";
+    $email   = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL) : "";
+    $asunto  = isset($_POST['asunto']) ? strip_tags(trim($_POST['asunto'])) : "";
+    $mensaje = isset($_POST['mensaje']) ? strip_tags(trim($_POST['mensaje'])) : "";
+
+    if (!empty($nombre) && !empty($email) && !empty($mensaje)) {
+        $contenido_email = "Nuevo mensaje desde el Portafolio Web:\n\n";
+        $contenido_email .= "Nombre: $nombre\n";
+        $contenido_email .= "Correo: $email\n";
+        $contenido_email .= "Asunto: " . (!empty($asunto) ? $asunto : 'Sin Asunto') . "\n\n";
+        $contenido_email .= "Mensaje:\n$mensaje\n";
+
+        // Cabeceras estándares
+        $headers = "From: Portafolio Contacto <no-reply@tu-dominio.com>\r\n";
+        $headers .= "Reply-To: $email\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+        if (mail($mi_correo, "Contacto: " . $asunto, $contenido_email, $headers)) {
+            $mensaje_estado = "<div style='color: #16a34a; font-weight: bold; margin-bottom: 20px; font-size: 0.95rem;'><i class='fas fa-check-circle'></i> " . $t['msg_exito'] . "</div>";
+        } else {
+            $mensaje_estado = "<div style='color: #dc2626; font-weight: bold; margin-bottom: 20px; font-size: 0.95rem;'><i class='fas fa-times-circle'></i> " . $t['msg_error'] . "</div>";
+        }
+    } else {
+        $mensaje_estado = "<div style='color: #ea580c; font-weight: bold; margin-bottom: 20px; font-size: 0.95rem;'><i class='fas fa-exclamation-triangle'></i> " . $t['msg_alerta'] . "</div>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang; ?>">
@@ -88,7 +124,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             overflow-x: hidden;
         }
 
-        /* Ondas estéticas de fondo difuminadas como en la imagen */
         body::before {
             content: '';
             position: absolute;
@@ -111,7 +146,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             box-sizing: border-box !important;
         }
         
-        /* TARJETA IZQUIERDA: INFORMACIÓN */
         .tarjeta-contacto-info {
             flex: 1 !important;
             min-width: 340px !important;
@@ -126,7 +160,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             justify-content: space-between;
         }
 
-        /* Puntos estéticos de fondo (esquina superior derecha e inferior izquierda) */
         .tarjeta-contacto-info::before {
             content: '••••\n••••\n••••';
             position: absolute;
@@ -152,7 +185,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             opacity: 0.5;
         }
         
-        /* TARJETA DERECHA: FORMULARIO */
         .tarjeta-contacto-formulario {
             flex: 1.2 !important;
             min-width: 380px !important;
@@ -174,7 +206,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             letter-spacing: -0.5px;
         }
 
-        /* Línea azul decorativa debajo del título principal */
         .linea-decorativa-titulo {
             width: 45px;
             height: 4px;
@@ -235,7 +266,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             text-decoration: none !important;
         }
         
-        /* BOTÓN LINKEDIN FIEL AL DISEÑO ORIGINAL */
         .boton-contacto-linkedin {
             display: inline-flex !important;
             align-items: center !important;
@@ -280,7 +310,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             font-size: 1.1rem !important;
         }
         
-        /* UBICACIÓN EXACTA DEL LOGO EN LA ESQUINA DEL FORMULARIO */
         .imagen-logo-esquina {
             position: absolute !important;
             top: 40px !important;
@@ -319,7 +348,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             letter-spacing: 0.5px !important;
         }
         
-        /* CONTENEDOR E INPUTS CON ICONOS INCORPORADOS */
         .wrapper-input-icono {
             position: relative !important;
             width: 100% !important;
@@ -342,7 +370,7 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
         
         .campo-formulario-input {
             width: 100% !important;
-            padding: 14px 16px 14px 45px !important; /* Margen izquierdo extra para no pisar el icono */
+            padding: 14px 16px 14px 45px !important;
             border: 1px solid #e2e8f0 !important;
             border-radius: 12px !important;
             font-size: 0.92rem !important;
@@ -362,7 +390,6 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             color: #94a3b8 !important;
         }
         
-        /* BOTÓN ENVIAR MENSAJE CON DEGRADADO EXACTO */
         .boton-enviar-formulario {
             width: 100% !important;
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
@@ -476,20 +503,22 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
             </div>
         </div>
         
-        <form action="#" method="POST">
+        <?php echo $mensaje_estado; ?>
+
+        <form action="contacto.php?lang=<?php echo $lang; ?>" method="POST">
             <div class="fila-formulario-doble">
                 <div class="grupo-formulario-input">
                     <label class="etiqueta-formulario"><?php echo $t['lbl_nombre']; ?></label>
                     <div class="wrapper-input-icono">
                         <i class="fas fa-user"></i>
-                        <input type="text" class="campo-formulario-input" placeholder="<?php echo $t['placeholder_nombre']; ?>" required>
+                        <input type="text" name="nombre" class="campo-formulario-input" placeholder="<?php echo $t['placeholder_nombre']; ?>" required>
                     </div>
                 </div>
                 <div class="grupo-formulario-input">
                     <label class="etiqueta-formulario"><?php echo $t['lbl_correo_form']; ?></label>
                     <div class="wrapper-input-icono">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" class="campo-formulario-input" placeholder="<?php echo $t['placeholder_correo']; ?>" required>
+                        <input type="email" name="email" class="campo-formulario-input" placeholder="<?php echo $t['placeholder_correo']; ?>" required>
                     </div>
                 </div>
             </div>
@@ -498,7 +527,7 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
                 <label class="etiqueta-formulario"><?php echo $t['lbl_asunto']; ?></label>
                 <div class="wrapper-input-icono">
                     <i class="fas fa-tag"></i>
-                    <input type="text" class="campo-formulario-input" placeholder="<?php echo $t['placeholder_asunto']; ?>" required>
+                    <input type="text" name="asunto" class="campo-formulario-input" placeholder="<?php echo $t['placeholder_asunto']; ?>" required>
                 </div>
             </div>
 
@@ -506,7 +535,7 @@ $mi_ubicacion = "Jiquilisco, Usulután, El Salvador";
                 <label class="etiqueta-formulario"><?php echo $t['lbl_mensaje']; ?></label>
                 <div class="wrapper-input-icono textarea-icon">
                     <i class="fas fa-pen"></i>
-                    <textarea class="campo-formulario-input" rows="5" placeholder="<?php echo $t['placeholder_mensaje']; ?>" required style="resize: vertical;"></textarea>
+                    <textarea name="mensaje" class="campo-formulario-input" rows="5" placeholder="<?php echo $t['placeholder_mensaje']; ?>" required style="resize: vertical;"></textarea>
                 </div>
             </div>
 
