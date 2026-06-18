@@ -14,6 +14,7 @@ $textos = [
         'inicio' => 'Inicio',
         'sobre' => 'Sobre mí',
         'proyectos' => 'Proyectos',
+        'logros' => 'Logros', // <-- Agregado
         'contacto' => 'Contacto',
         'h1' => 'Sobre mí',
         'p1' => 'Soy estudiante de 4° año de <strong>Ingeniería en Sistemas Computacionales</strong> y un apasionado <strong>QA Tester en formación</strong> enfocado en la excelencia técnica. Mi objetivo va más allá de encontrar fallos aislados; busco optimizar la experiencia global del usuario garantizando que los productos de software cumplan con los más altos estándares de calidad, robustez y funcionalidad.',
@@ -46,6 +47,7 @@ $textos = [
         'inicio' => 'Home',
         'sobre' => 'About me',
         'proyectos' => 'Projects',
+        'logros' => 'Achievements', // <-- Agregado
         'contacto' => 'Contact',
         'h1' => 'About Me',
         'p1' => 'I am a 4th-year <strong>Computer Systems Engineering</strong> student and a passionate <strong>QA Tester in training</strong> committed to technical excellence. My goal goes beyond finding isolated bugs; I aim to optimize the overall user experience by ensuring software products meet the highest standards of quality, robustness, and functionality.',
@@ -108,6 +110,9 @@ if ($pagina_actual == '') {
         </a>
         <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php' || $pagina_actual == 'detalle-proyecto.php') ? 'active' : ''; ?>">
             <i class="fas fa-code"></i> <?php echo $t['proyectos']; ?>
+        </a>
+        <a href="logros.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'logros.php') ? 'active' : ''; ?>">
+            <i class="fas fa-trophy"></i> <?php echo $t['logros']; ?>
         </a>
         <a href="contacto.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'contacto.php') ? 'active' : ''; ?>">
             <i class="fas fa-envelope"></i> <?php echo $t['contacto']; ?>
@@ -192,6 +197,8 @@ if ($pagina_actual == '') {
             <a href="proyectos.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
                 <?php echo htmlspecialchars($t['proyectos'], ENT_QUOTES, 'UTF-8'); ?>
             </a>
+            <a href="logros.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block; margin-bottom: 8px;">
+                <?php echo htmlspecialchars($t['logros'], ENT_QUOTES, 'UTF-8'); ?> </a>
             <a href="contacto.php?lang=<?php echo $lang; ?>" style="color: white; text-decoration: none; opacity: 0.8; display: block;">
                 <?php echo htmlspecialchars($t['contacto'], ENT_QUOTES, 'UTF-8'); ?>
             </a>

@@ -125,7 +125,7 @@ if ($pagina_actual == '') {
 
 <footer>
     <div class="footer-wrapper">
-        <div class="footer-col-links">
+        <div class="footer-col">
             <h3><?php echo $t['explorar']; ?></h3>
             <a href="index.php?lang=<?php echo $lang; ?>"><?php echo $t['inicio']; ?></a>
             <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><?php echo $t['sobre']; ?></a>
@@ -133,7 +133,7 @@ if ($pagina_actual == '') {
             <a href="contacto.php?lang=<?php echo $lang; ?>"><?php echo $t['contacto']; ?></a>
         </div>
 
-        <div class="footer-col-socials">
+        <div class="footer-col">
             <h3><?php echo $t['redes']; ?></h3>
             <div class="social-icons-container">
                 <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" rel="noopener noreferrer">

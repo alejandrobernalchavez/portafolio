@@ -1,5 +1,5 @@
 /* ==========================================================================
-    1. VARIABLES Y RESET UNIVERSAL (Actualizado con tu paleta real)
+   1. VARIABLES Y RESET UNIVERSAL
    ========================================================================== */
 :root {
     --color-chrome-bg: #e2e8f0;       /* Gris claro de la barra superior */
@@ -34,7 +34,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Ondas estéticas de fondo difuminadas como en tu diseño de referencia */
+/* Ondas estéticas de fondo difuminadas */
 body::before {
     content: '';
     position: absolute;
@@ -47,7 +47,7 @@ body::before {
 }
 
 /* ==========================================================================
-    2. NAVBAR E INDICADOR DE IDIOMA (Efecto Ficha de Archivo / Pestaña Unida)
+   2. NAVBAR E INDICADOR DE IDIOMA (Efecto Ficha de Archivo / Pestaña Unida)
    ========================================================================== */
 .navbar {
     display: flex !important;
@@ -93,13 +93,13 @@ body::before {
     background-color: rgba(255, 255, 255, 0.4) !important;
 }
 
-/* Pestaña Activa: Se estira y borra la línea gris inferior uniéndose al fondo */
+/* Pestaña Activa: Se estira y pisa la línea gris inferior uniéndose al fondo */
 .navbar a.active {
     background-color: var(--color-chrome-active) !important; /* Fondo #f8fafc */
     color: var(--color-acento) !important;
-    height: 54px !important; /* Sobresale rompiendo el level */
+    height: 54px !important; /* Sobresale rompiendo el nivel */
     border: 1px solid #bdc1c6 !important;
-    border-bottom: 1px solid var(--color-chrome-active) !important; /* Pisa el borde de la navbar */
+    border-bottom: 1px solid var(--color-chrome-active) !important; 
     margin-bottom: -1px !important; /* Ajuste milimétrico de traslape */
     padding-bottom: 4px !important; /* Compensa visualmente la altura extra */
     position: relative !important;
@@ -122,7 +122,7 @@ body::before {
 
 .idiomas a {
     padding: 5px 12px !important;
-    height: auto !important; /* Aísla e impide que herede la altura de la navbar */
+    height: auto !important; /* Impide heredar la altura de la navbar */
     color: var(--color-texto-suave) !important;
     text-decoration: none !important;
     border-radius: 15px !important;
@@ -136,7 +136,7 @@ body::before {
 }
 
 /* ==========================================================================
-    3. BOTONES Y ACCIONES GENERALES
+   3. BOTONES Y ACCIONES GENERALES
    ========================================================================== */
 .actions {
     display: flex;
@@ -180,7 +180,7 @@ body::before {
 }
 
 /* ==========================================================================
-    4. ESTRUCTURA DE CONTACTO (Fiel a tus tarjetas modernas)
+   4. ESTRUCTURA DE CONTACTO (Tarjetas Modernas)
    ========================================================================== */
 .seccion-contacto-contenedor {
     display: flex !important;
@@ -209,7 +209,7 @@ body::before {
     justify-content: space-between;
 }
 
-/* Puntos estéticos de fondo decorativos en las esquinas */
+/* Puntos estéticos decorativos */
 .tarjeta-contacto-info::before {
     content: '••••\n••••\n••••';
     position: absolute;
@@ -317,7 +317,6 @@ body::before {
     text-decoration: none !important;
 }
 
-/* Botón LinkedIn Ajustado */
 .boton-contacto-linkedin {
     display: inline-flex !important;
     align-items: center !important;
@@ -363,7 +362,6 @@ body::before {
     font-size: 1.1rem !important;
 }
 
-/* Ubicación del logo en la esquina superior derecha del formulario */
 .imagen-logo-esquina {
     position: absolute !important;
     top: 40px !important;
@@ -402,7 +400,6 @@ body::before {
     letter-spacing: 0.5px !important;
 }
 
-/* Wrappers e inputs con iconos integrados a la izquierda */
 .wrapper-input-icono {
     position: relative !important;
     width: 100% !important;
@@ -425,7 +422,7 @@ body::before {
 
 .campo-formulario-input {
     width: 100% !important;
-    padding: 14px 16px 14px 45px !important; /* Espacio para que el texto no pise el icono */
+    padding: 14px 16px 14px 45px !important; /* Desplazamiento para no pisar el icono */
     border: 1px solid #e2e8f0 !important;
     border-radius: 12px !important;
     font-size: 0.92rem !important;
@@ -445,7 +442,6 @@ body::before {
     color: #94a3b8 !important;
 }
 
-/* Botón con degradado suave fiel a tu imagen */
 .boton-enviar-formulario {
     width: 100% !important;
     background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
@@ -470,7 +466,7 @@ body::before {
 }
 
 /* ==========================================================================
-    5. CONTENEDORES GENERALES DE OTRAS PÁGINAS
+   5. CONTENEDORES GENERALES DE OTRAS PÁGINAS
    ========================================================================== */
 main {
     flex: 1 0 auto;
@@ -495,7 +491,7 @@ main {
     text-align: center;
 }
 
-/* Tarjetas de Proyectos (Vista General) */
+/* Tarjetas de Proyectos */
 .contenedor-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -559,7 +555,7 @@ main {
     margin-bottom: 5px;
 }
 
-/* Tarjeta Técnica */
+/* Tarjeta Técnica Neo-brutalista */
 .tech-card-modern {
     border: 3px solid var(--color-borde-negro);
     padding: 30px;
@@ -637,7 +633,7 @@ main {
     background-color: #444; 
 }
 
-/* Logos e Imágenes de otras secciones */
+/* Multimedia e Imágenes */
 .logo-container {
     position: absolute;
     top: 80px; 
@@ -667,7 +663,7 @@ main {
     display: block;
 }
 
-/* Navegación y Flechas */
+/* Controles de Navegación */
 .navegacion-proyectos {
     display: flex; 
     justify-content: space-between; 
@@ -704,7 +700,7 @@ main {
 }
 
 /* ==========================================================================
-    6. FOOTER (Optimización de Selectores Avanzada e Infallible)
+   6. FOOTER (Estructura Limpia y Específica)
    ========================================================================== */
 footer {
     flex-shrink: 0 !important;
@@ -717,9 +713,6 @@ footer {
     display: block !important;
 }
 
-/* Fuerza al primer contenedor interno del footer a ser una fila horizontal */
-footer div, 
-footer section,
 .footer-wrapper {
     display: flex !important;
     flex-direction: row !important;
@@ -731,17 +724,14 @@ footer section,
     gap: 30px !important;
 }
 
-/* Corrige la alineación de las columnas de texto/enlaces */
-footer div div, 
 .footer-col {
     display: flex !important;
-    flex-direction: column !important; /* Los textos de una misma columna van hacia abajo */
+    flex-direction: column !important; /* Elementos internos en vertical */
     align-items: flex-start !important;
     text-align: left !important;
     min-width: 160px !important;
 }
 
-/* Enlaces internos del menú */
 footer a {
     color: #ffffff !important;
     text-decoration: none !important;
@@ -756,16 +746,14 @@ footer a:hover {
     text-decoration: underline !important;
 }
 
-/* Contenedor específico donde habitan los iconos de redes sociales */
-footer div div div, 
 .social-icons-container {
     display: flex !important;
-    flex-direction: row !important; /* Las redes se alinean una al lado de la otra */
+    flex-direction: row !important; /* Redes en horizontal */
     gap: 15px !important;
     margin-top: 10px !important;
 }
 
-/* ULTRACRÍTICO: Reducción forzada de CUALQUIER imagen dentro del footer */
+/* Control estricto de iconos en el Footer */
 footer img, 
 footer a img,
 .img-social {
@@ -782,8 +770,7 @@ footer a img,
     padding: 0 !important;
 }
 
-/* Caja de Derechos Reservados (ocupa el 100% abajo) */
-footer .copy {
+.copy {
     display: block !important;
     width: 80% !important;
     max-width: 900px !important;
@@ -796,23 +783,45 @@ footer .copy {
 }
 
 /* ==========================================================================
-    7. RESPONSIVIDAD
+   7. RESPONSIVIDAD (Media Queries)
    ========================================================================== */
 @media (max-width: 992px) {
     .seccion-contacto-contenedor {
         flex-direction: column !important;
     }
-    .tarjeta-contacto-info, .tarjeta-contacto-formulario {
+    .tarjeta-contacto-info, 
+    .tarjeta-contacto-formulario {
         min-width: 100% !important;
     }
 }
 
 @media (max-width: 768px) {
-    .contenedor { flex-direction: column; text-align: center; }
-    .tech-lista-columnas { grid-template-columns: 1fr; padding: 0 10px; }
-    .tech-footer-row { flex-direction: column; gap: 20px; }
-    .logo-container { position: static; margin-bottom: 20px; text-align: center; }
-    .navegacion-proyectos { flex-direction: column; gap: 20px; }
-    .navbar { padding: 0 2% !important; }
-    .navbar a { padding: 0 12px !important; font-size: 12px !important; }
+    .contenedor { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .tech-lista-columnas { 
+        grid-template-columns: 1fr; 
+        padding: 0 10px; 
+    }
+    .tech-footer-row { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    .logo-container { 
+        position: static; 
+        margin-bottom: 20px; 
+        text-align: center; 
+    }
+    .navegacion-proyectos { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    .navbar { 
+        padding: 0 2% !important; 
+    }
+    .navbar a { 
+        padding: 0 12px !important; 
+        font-size: 12px !important; 
+    }
 }
