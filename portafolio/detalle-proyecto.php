@@ -119,7 +119,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 </nav>
 
 <div class="logo-container">
-    <img src="/img/logoportafolio.png" alt="Logo" class="logo-inicio">
+    <img src="img/logoportafolio.png" alt="Logo" class="logo-inicio">
 </div>
 
 <main class="contenedor-sobre-mi">
@@ -220,7 +220,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 
     function navegarGaleria() { 
         if (paso < totalImagenes) { 
-            paso++; // El error estaba aquí (decía pass++)
+            paso++; 
             actualizarVisor(); 
         } 
     }
@@ -243,8 +243,8 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         } else {
             texto.style.display = 'none';
             imagen.style.display = 'block';
-            // Se usa la ruta absoluta /img/ para prevenir pérdidas de nivel de URL
-            imagen.src = `/img/${prefijo}${paso}.jpeg`;
+            // Corregido para leer directo desde la carpeta relativa 'img/'
+            imagen.src = `img/${prefijo}${paso}.jpeg`;
             btnVolver.style.display = 'inline-block';
         }
         
