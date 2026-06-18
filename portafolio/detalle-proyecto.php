@@ -23,6 +23,8 @@ $detalles = [
         'volver_proyectos' => 'Volver a Proyectos',
         'etiqueta_tech' => 'Tecnologías',
         'etiqueta_rol' => 'Rol:',
+        'footer_explorar' => 'Explorar',
+        'footer_redes' => 'Redes sociales',
         'goodburger' => [
             'titulo' => 'GoodBurger',
             'desc' => 'GoodBurger es una página web orientada al sector de comida rápida, diseñada para presentar de forma atractiva e intuitiva la oferta de un restaurante. La plataforma permite a los usuarios explorar el menú, conocer los productos disponibles y acceder a información relevante como promociones y datos de contacto.',
@@ -34,7 +36,7 @@ $detalles = [
         ],
         'donamiga' => [
             'titulo' => 'DonAmiga',
-            'desc' => 'DonAmiga es una plataforma digital de donaciones diseñada para conectar a personas con causas sociales de forma transparente, segura y accesible. A través del uso de tecnología blockchain, garantiza la trazabilidad de cada aporte realizado.',
+            'desc' => 'DonAmiga es una plataforma digital de donaciones diseñada para conectar a personas con causas sociales de forma transparente, segura and accesible. A través del uso de tecnología blockchain, garantiza la trazabilidad de cada aporte realizado.',
             'repo' => 'https://github.com/GersonDanielGuerrero/Donamiga',
             'tech' => [
                 'Mi Rol' => 'QA Tester',
@@ -65,6 +67,8 @@ $detalles = [
         'volver_proyectos' => 'Back to Projects',
         'etiqueta_tech' => 'Technologies',
         'etiqueta_rol' => 'Role:',
+        'footer_explorar' => 'Explore',
+        'footer_redes' => 'Social Networks',
         'goodburger' => [
             'titulo' => 'GoodBurger',
             'desc' => 'A fast-food web platform designed to present a restaurant\'s menu in an attractive and intuitive way. I served as a QA Tester for this project.',
@@ -100,7 +104,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* Corrección del contenedor principal para usar comportamiento elástico vertical */
+        /* Contenedor elástico global */
         .wrapper-layout-fijo {
             display: flex !important;
             flex-direction: column !important;
@@ -108,32 +112,93 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
             box-sizing: border-box !important;
         }
 
-        /* Fuerza al contenedor a estirarse dinámicamente y ocupar el espacio disponible */
+        /* El contenedor principal crece para empujar al footer al fondo */
         .contenedor-sobre-mi {
             flex: 1 !important;
             margin-bottom: 40px !important;
             display: block !important;
         }
 
-        /* Cambiamos a posicionamiento estático/relativo controlado para que respete el flujo del DOM */
+        /* Corrección y estilización del footer real replicando el diseño de inicio */
         .footer-detalle-proyecto {
             position: relative !important;
-            margin-top: auto !important; /* Empuje automático al fondo del wrapper */
+            bottom: auto !important;
+            left: auto !important;
+            top: auto !important;
             width: 100% !important;
-            height: 80px !important;
+            height: auto !important;
             background-color: #1a1a1a !important; 
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            padding: 0 !important;
+            margin-top: auto !important;
+            padding: 40px 0 20px 0 !important;
+            box-sizing: border-box !important;
             z-index: 999 !important;
+            font-family: sans-serif !important;
+        }
+
+        .footer-content-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 120px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-columna {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-columna h4 {
+            color: #ffffff !important;
+            font-size: 1.1rem !important;
+            margin: 0 0 12px 0 !important;
+            font-weight: bold !important;
+        }
+
+        .footer-columna a {
+            color: #b3b3b3 !important;
+            text-decoration: none !important;
+            font-size: 0.95rem !important;
+            margin-bottom: 8px !important;
+            transition: color 0.2s ease;
+        }
+
+        .footer-columna a:hover {
+            color: #ffffff !important;
+        }
+
+        .footer-redes-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .footer-redes-icons a {
+            color: #ffffff !important;
+            font-size: 1.5rem !important;
+            transition: transform 0.2s ease;
+        }
+
+        .footer-redes-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-linea-divisor {
+            max-width: 1200px;
+            margin: 0 auto 20px auto;
+            border: 0;
+            border-top: 1px solid #2d2d2d !important;
+            width: 90%;
         }
 
         .footer-detalle-proyecto p.copy {
             margin: 0 !important;
             padding: 0 !important;
-            color: #ffffff !important;
-            font-size: 0.9rem !important;
+            color: #888888 !important;
+            font-size: 0.85rem !important;
             text-align: center !important;
             width: 100% !important;
         }
@@ -236,6 +301,25 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     </main>
 
     <footer class="footer-detalle-proyecto">
+        <div class="footer-content-grid">
+            <div class="footer-columna">
+                <h4><?php echo $t['footer_explorar']; ?></h4>
+                <a href="index.php?lang=<?php echo $lang; ?>"><?php echo $t['nav_inicio']; ?></a>
+                <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><?php echo $t['nav_sobre']; ?></a>
+                <a href="proyectos.php?lang=<?php echo $lang; ?>"><?php echo $t['nav_proyectos']; ?></a>
+                <a href="logros.php?lang=<?php echo $lang; ?>"><?php echo $t['nav_logros']; ?></a>
+                <a href="contacto.php?lang=<?php echo $lang; ?>"><?php echo $t['nav_contacto']; ?></a>
+            </div>
+            <div class="footer-columna">
+                <h4><?php echo $t['footer_redes']; ?></h4>
+                <div class="footer-redes-icons">
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:tu-correo@ejemplo.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="footer-linea-divisor">
         <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
     </footer>
 
