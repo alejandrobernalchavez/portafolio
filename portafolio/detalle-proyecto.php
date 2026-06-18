@@ -98,117 +98,132 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     <title><?php echo $p ? $p['titulo'] : 'Proyecto'; ?> | Portafolio</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .contenedor-sobre-mi {
+            flex: 1; /* Esto empuja el footer de manera dinámica hacia abajo */
+        }
+    </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="pestañas">
-        <a href="index.php?lang=<?php echo $lang; ?>"><i class="fas fa-home"></i> <?php echo $t['nav_inicio']; ?></a>
-        <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><i class="fas fa-user"></i> <?php echo $t['nav_sobre']; ?></a>
-        <a href="proyectos.php?lang=<?php echo $lang; ?>" class="active"><i class="fas fa-code"></i> <?php echo $t['nav_proyectos']; ?></a>
-        <a href="logros.php?lang=<?php echo $lang; ?>"><i class="fas fa-trophy"></i> <?php echo $t['nav_logros']; ?></a>
-        <a href="contacto.php?lang=<?php echo $lang; ?>"><i class="fas fa-envelope"></i> <?php echo $t['nav_contacto']; ?></a>
+<div class="page-wrapper">
+
+    <nav class="navbar">
+        <div class="pestañas">
+            <a href="index.php?lang=<?php echo $lang; ?>"><i class="fas fa-home"></i> <?php echo $t['nav_inicio']; ?></a>
+            <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><i class="fas fa-user"></i> <?php echo $t['nav_sobre']; ?></a>
+            <a href="proyectos.php?lang=<?php echo $lang; ?>" class="active"><i class="fas fa-code"></i> <?php echo $t['nav_proyectos']; ?></a>
+            <a href="logros.php?lang=<?php echo $lang; ?>"><i class="fas fa-trophy"></i> <?php echo $t['nav_logros']; ?></a>
+            <a href="contacto.php?lang=<?php echo $lang; ?>"><i class="fas fa-envelope"></i> <?php echo $t['nav_contacto']; ?></a>
+        </div>
+
+        <div class="idiomas">
+            <i class="fas fa-language"></i>
+            <a href="?proyecto=<?php echo urlencode($_GET['proyecto']); ?>&lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
+            <span>|</span>
+            <a href="?proyecto=<?php echo urlencode($_GET['proyecto']); ?>&lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
+        </div>
+    </nav>
+
+    <div class="logo-container">
+        <img src="img/logoportafolio.png" alt="Logo" class="logo-inicio">
     </div>
 
-    <div class="idiomas">
-        <i class="fas fa-language"></i>
-        <a href="?proyecto=<?php echo urlencode($_GET['proyecto']); ?>&lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
-        <span>|</span>
-        <a href="?proyecto=<?php echo urlencode($_GET['proyecto']); ?>&lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
-    </div>
-</nav>
-
-<div class="logo-container">
-    <img src="img/logoportafolio.png" alt="Logo" class="logo-inicio">
-</div>
-
-<main class="contenedor-sobre-mi">
-    
-    <?php if ($p): ?>
-        <h1 id="titulo-dinamico" style="text-decoration: underline; margin-bottom: 30px; font-weight: bold; font-size: 2.5rem;"><?php echo $p['titulo']; ?></h1>
+    <main class="contenedor-sobre-mi">
         
-        <div id="visor-contenido">
-            <div id="texto-descripcion">
-                <p class="descripcion-larga" style="font-size: 1.2rem; color: #5f6368; line-height: 1.6; max-width: 800px; margin: 0 auto 40px;">
-                    <?php echo $p['desc']; ?>
-                </p>
+        <?php if ($p): ?>
+            <h1 id="titulo-dinamico" style="text-decoration: underline; margin-bottom: 30px; font-weight: bold; font-size: 2.5rem;"><?php echo $p['titulo']; ?></h1>
+            
+            <div id="visor-contenido">
+                <div id="texto-descripcion">
+                    <p class="descripcion-larga" style="font-size: 1.2rem; color: #5f6368; line-height: 1.6; max-width: 800px; margin: 0 auto 40px;">
+                        <?php echo $p['desc']; ?>
+                    </p>
 
-                <div class="tech-card-modern">
-                    <h3 class="tech-titulo-central"><?php echo $t['etiqueta_tech']; ?></h3>
-                    
-                    <div class="tech-lista-columnas">
-                        <?php 
-                        $tech_key = ($lang == 'es') ? 'Tecnologías' : 'Technologies';
-                        $tech_string = $p['tech'][$tech_key];
-                        $lista_tech = explode(', ', $tech_string); 
-                        foreach ($lista_tech as $item): 
-                        ?>
-                            <div class="tech-bullet-item">
-                                <span class="bullet">•</span> <?php echo $item; ?>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-
-                    <div class="tech-footer-row">
-                        <div class="rol-destacado">
-                            <span style="color: #333; font-weight: bold;"><?php echo $t['etiqueta_rol']; ?></span> 
-                            <?php 
-                                $rol_key = ($lang == 'es') ? 'Mi Rol' : 'My Role';
-                                echo $p['tech'][$rol_key]; 
-                            ?>
-                        </div>
+                    <div class="tech-card-modern">
+                        <h3 class="tech-titulo-central"><?php echo $t['etiqueta_tech']; ?></h3>
                         
-                        <?php if (isset($p['repo'])): ?>
-                            <a href="<?php echo $p['repo']; ?>" target="_blank" class="btn-github-modern">
-                                <i class="fab fa-github"></i> <?php echo $t['ver_repo']; ?>
-                            </a>
-                        <?php endif; ?>
+                        <div class="tech-lista-columnas">
+                            <?php 
+                            $tech_key = ($lang == 'es') ? 'Tecnologías' : 'Technologies';
+                            $tech_string = $p['tech'][$tech_key];
+                            $lista_tech = explode(', ', $tech_string); 
+                            foreach ($lista_tech as $item): 
+                            ?>
+                                <div class="tech-bullet-item">
+                                    <span class="bullet">•</span> <?php echo $item; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <div class="tech-footer-row">
+                            <div class="rol-destacado">
+                                <span style="color: #333; font-weight: bold;"><?php echo $t['etiqueta_rol']; ?></span> 
+                                <?php 
+                                    $rol_key = ($lang == 'es') ? 'Mi Rol' : 'My Role';
+                                    echo $p['tech'][$rol_key]; 
+                                ?>
+                            </div>
+                            
+                            <?php if (isset($p['repo'])): ?>
+                                <a href="<?php echo $p['repo']; ?>" target="_blank" class="btn-github-modern">
+                                    <i class="fab fa-github"></i> <?php echo $t['ver_repo']; ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
+
+                <img id="imagen-galeria" src="" alt="Captura de pantalla del proyecto" class="img-proyecto-detalle" style="display: none;">
             </div>
 
-            <img id="imagen-galeria" src="" alt="Captura de pantalla del proyecto" class="img-proyecto-detalle" style="display: none;">
-        </div>
+            <div class="navegacion-proyectos">
+                <button onclick="retrocederGaleria()" id="btn-atras" class="btn-navegacion-flecha atras-flecha">
+                     <?php echo $t['atras']; ?>
+                </button>
 
-        <div class="navegacion-proyectos">
-            <button onclick="retrocederGaleria()" id="btn-atras" class="btn-navegacion-flecha atras-flecha">
-                 <?php echo $t['atras']; ?>
-            </button>
+                <a href="proyectos.php?lang=<?php echo $lang; ?>" id="btn-volver-inicio" class="btn-inicio-central" style="display: none;">
+                    <?php echo $t['inicio_btn']; ?>
+                </a>
+                
+                <button onclick="navegarGaleria()" id="btn-siguiente" class="btn-navegacion-flecha siguiente-flecha">
+                    <?php echo $t['siguiente']; ?>
+                </button>
+            </div>
 
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" id="btn-volver-inicio" class="btn-inicio-central" style="display: none;">
-                <?php echo $t['inicio_btn']; ?>
-            </a>
-            
-            <button onclick="navegarGaleria()" id="btn-siguiente" class="btn-navegacion-flecha siguiente-flecha">
-                <?php echo $t['siguiente']; ?>
-            </button>
-        </div>
+        <?php else: ?>
+            <div class="error-container" style="text-align: center; padding: 100px 0;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #f4b400; margin-bottom: 20px;"></i>
+                <p style="font-size: 1.5rem; color: #5f6368;"><?php echo $t['no_encontrado']; ?></p>
+                <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-portafolio btn-azul" style="margin-top: 30px;"><?php echo $t['volver_proyectos']; ?></a>
+            </div>
+        <?php endif; ?>
+    </main>
 
-    <?php else: ?>
-        <div class="error-container" style="text-align: center; padding: 100px 0;">
-            <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: #f4b400; margin-bottom: 20px;"></i>
-            <p style="font-size: 1.5rem; color: #5f6368;"><?php echo $t['no_encontrado']; ?></p>
-            <a href="proyectos.php?lang=<?php echo $lang; ?>" class="btn-portafolio btn-azul" style="margin-top: 30px;"><?php echo $t['volver_proyectos']; ?></a>
-        </div>
-    <?php endif; ?>
-</main>
+    <footer>
+        <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
+    </footer>
 
-<footer>
-    <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
-</footer>
-
-<script>
+</div> <script>
     const urlParams = new URLSearchParams(window.location.search);
     let proyectoActual = urlParams.get('proyecto');
 
-    // Mantenemos la normalización del ID para el script
     if (proyectoActual === 'periodico') { proyectoActual = 'comunicado'; }
 
     let paso = 0; 
     let totalImagenes = 0;
     let prefijo = '';
 
-    // Configuración de la galería según el proyecto
     if (proyectoActual === 'donamiga') { totalImagenes = 3; prefijo = 'd'; } 
     else if (proyectoActual === 'goodburger') { totalImagenes = 14; prefijo = 'g'; } 
     else if (proyectoActual === 'comunicado') { totalImagenes = 4; prefijo = 'c'; }
@@ -243,12 +258,10 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         } else {
             texto.style.display = 'none';
             imagen.style.display = 'block';
-            // Corregido para leer directo desde la carpeta relativa 'img/'
             imagen.src = `img/${prefijo}${paso}.jpeg`;
             btnVolver.style.display = 'inline-block';
         }
         
-        // Ocultar botón "Siguiente" si llegamos al final de la galería
         btnSiguiente.style.visibility = (paso === totalImagenes) ? 'hidden' : 'visible';
     }
 </script>
