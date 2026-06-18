@@ -100,36 +100,35 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        html, body {
-            height: 100% !important;
-            min-height: 100% !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            display: flex !important;
-            flex-direction: column !important;
-        }
-        
-        .page-wrapper {
-            display: flex !important;
-            flex-direction: column !important;
+        .custom-layout-wrapper {
+            position: relative !important;
             min-height: 100vh !important;
-            width: 100% !important;
-            flex: 1 !important;
+            padding-bottom: 80px !important; /* Espacio de seguridad para que el contenido no tape el footer */
+            box-sizing: border-box !important;
         }
 
         .contenedor-sobre-mi {
-            flex: 1 !important; /* Estira el contenedor principal ocupando todo el espacio libre */
+            padding-bottom: 40px !important;
         }
 
-        footer {
-            margin-top: auto !important; /* Empuja el footer firmemente al fondo en entornos Flexbox */
+        .footer-fijo-proyecto {
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
             width: 100% !important;
+            height: 60px !important; /* Control estricto de la altura */
+            background-color: #111 !important; /* Asegura tu color oscuro de fondo */
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 !important;
+            z-index: 1000 !important;
         }
     </style>
 </head>
 <body>
 
-<div class="page-wrapper">
+<div class="custom-layout-wrapper">
 
     <nav class="navbar">
         <div class="pestañas">
@@ -223,11 +222,13 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         <?php endif; ?>
     </main>
 
-    <footer>
-        <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
+    <footer class="footer-fijo-proyecto">
+        <p class="copy" style="margin: 0; color: #fff;">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
     </footer>
 
-</div> <script>
+</div>
+
+<script>
     const urlParams = new URLSearchParams(window.location.search);
     let proyectoActual = urlParams.get('proyecto');
 
