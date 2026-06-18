@@ -100,35 +100,49 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        .custom-layout-wrapper {
+        .wrapper-layout-fijo {
+            display: block !important;
             position: relative !important;
             min-height: 100vh !important;
-            padding-bottom: 80px !important; /* Espacio de seguridad para que el contenido no tape el footer */
+            padding-bottom: 120px !important; /* Espacio exacto para albergar el footer abajo */
             box-sizing: border-box !important;
         }
 
         .contenedor-sobre-mi {
-            padding-bottom: 40px !important;
+            margin-bottom: 40px !important;
+            display: block !important;
         }
 
-        .footer-fijo-proyecto {
+        /* Sobrescribimos por completo el comportamiento heredado del footer original */
+        .footer-detalle-proyecto {
             position: absolute !important;
             bottom: 0 !important;
             left: 0 !important;
+            top: auto !important; /* Anula cualquier fijación superior errónea */
             width: 100% !important;
-            height: 60px !important; /* Control estricto de la altura */
-            background-color: #111 !important; /* Asegura tu color oscuro de fondo */
+            height: 80px !important;
+            background-color: #1a1a1a !important; /* Color oscuro idéntico al de tu diseño */
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             margin: 0 !important;
-            z-index: 1000 !important;
+            padding: 0 !important;
+            z-index: 999 !important;
+        }
+
+        .footer-detalle-proyecto p.copy {
+            margin: 0 !important;
+            padding: 0 !important;
+            color: #ffffff !important;
+            font-size: 0.9rem !important;
+            text-align: center !important;
+            width: 100% !important;
         }
     </style>
 </head>
 <body>
 
-<div class="custom-layout-wrapper">
+<div class="wrapper-layout-fijo">
 
     <nav class="navbar">
         <div class="pestañas">
@@ -154,11 +168,11 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
     <main class="contenedor-sobre-mi">
         
         <?php if ($p): ?>
-            <h1 id="titulo-dinamico" style="text-decoration: underline; margin-bottom: 30px; font-weight: bold; font-size: 2.5rem;"><?php echo $p['titulo']; ?></h1>
+            <h1 id="titulo-dinamico" style="text-decoration: underline; margin-bottom: 30px; font-weight: bold; font-size: 2.5rem; text-align: center;"><?php echo $p['titulo']; ?></h1>
             
             <div id="visor-contenido">
                 <div id="texto-descripcion">
-                    <p class="descripcion-larga" style="font-size: 1.2rem; color: #5f6368; line-height: 1.6; max-width: 800px; margin: 0 auto 40px;">
+                    <p class="descripcion-larga" style="font-size: 1.2rem; color: #5f6368; line-height: 1.6; max-width: 800px; margin: 0 auto 40px; text-align: center;">
                         <?php echo $p['desc']; ?>
                     </p>
 
@@ -196,10 +210,10 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
                     </div>
                 </div>
 
-                <img id="imagen-galeria" src="" alt="Captura de pantalla del proyecto" class="img-proyecto-detalle" style="display: none;">
+                <img id="imagen-galeria" src="" alt="Captura de pantalla del proyecto" class="img-proyecto-detalle" style="display: none; margin: 0 auto;">
             </div>
 
-            <div class="navegacion-proyectos">
+            <div class="navegacion-proyectos" style="margin-top: 30px; margin-bottom: 20px;">
                 <button onclick="retrocederGaleria()" id="btn-atras" class="btn-navegacion-flecha atras-flecha">
                      <?php echo $t['atras']; ?>
                 </button>
@@ -222,8 +236,8 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         <?php endif; ?>
     </main>
 
-    <footer class="footer-fijo-proyecto">
-        <p class="copy" style="margin: 0; color: #fff;">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
+    <footer class="footer-detalle-proyecto">
+        <p class="copy">© 2026 Cristopher Bernal. Todos los derechos reservados.</p>
     </footer>
 
 </div>
