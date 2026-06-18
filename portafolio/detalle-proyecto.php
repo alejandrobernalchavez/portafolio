@@ -112,14 +112,14 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 
     <div class="idiomas">
         <i class="fas fa-language"></i>
-        <a href="?proyecto=<?php echo $_GET['proyecto']; ?>&lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
+        <a href="?proyecto=<?php echo urlencode($_GET['proyecto']); ?>&lang=es" class="<?php echo ($lang == 'es') ? 'lang-active' : ''; ?>">ES</a>
         <span>|</span>
-        <a href="?proyecto=<?php echo $_GET['proyecto']; ?>&lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
+        <a href="?proyecto=<?php echo urlencode($_GET['proyecto']); ?>&lang=en" class="<?php echo ($lang == 'en') ? 'lang-active' : ''; ?>">EN</a>
     </div>
 </nav>
 
 <div class="logo-container">
-    <img src="img/logoportafolio.png" alt="Logo" class="logo-inicio">
+    <img src="/img/logoportafolio.png" alt="Logo" class="logo-inicio">
 </div>
 
 <main class="contenedor-sobre-mi">
@@ -220,7 +220,7 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
 
     function navegarGaleria() { 
         if (paso < totalImagenes) { 
-            pass++; 
+            paso++; // El error estaba aquí (decía pass++)
             actualizarVisor(); 
         } 
     }
@@ -243,7 +243,8 @@ $p = isset($t[$proyecto_id]) ? $t[$proyecto_id] : null;
         } else {
             texto.style.display = 'none';
             imagen.style.display = 'block';
-            imagen.src = `img/${prefijo}${paso}.jpeg`;
+            // Se usa la ruta absoluta /img/ para prevenir pérdidas de nivel de URL
+            imagen.src = `/img/${prefijo}${paso}.jpeg`;
             btnVolver.style.display = 'inline-block';
         }
         
