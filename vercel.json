@@ -4,6 +4,18 @@
     {
       "src": "**/*.php",
       "use": "vercel-php"
+    },
+    {
+      "src": "estilos.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "img/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "cv/**",
+      "use": "@vercel/static"
     }
   ]
 }
