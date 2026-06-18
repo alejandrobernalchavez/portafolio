@@ -5,7 +5,7 @@ if (!in_array($lang, ['es', 'en'])) {
     $lang = 'es';
 }
 
-// 2. Diccionario de traducción para la estructura común
+// 2. Diccionario de traducción extendido para toda la página
 $textos = [
     'es' => [
         'titulo_pestana' => 'Logros | Mi Portafolio',
@@ -17,7 +17,26 @@ $textos = [
         'explorar' => 'Explorar',
         'redes' => 'Redes sociales',
         'h2_header' => 'Mis Logros Académicos y Profesionales',
-        'p_header' => 'Validaciones y reconocimientos obtenidos a lo largo de mi trayectoria, que demuestran mi compromiso con la excelencia técnica y el trabajo en equipo.'
+        'p_header' => 'Validaciones y reconocimientos obtenidos a lo largo de mi trayectoria, que demuestran mi compromiso con la excelencia técnica y el trabajo en equipo.',
+        
+        // Tarjeta 1 - Networking Challenge
+        'primer_lugar' => 'Primer Lugar',
+        'net_desc1' => 'Diseño e implementación de infraestructura de redes',
+        'net_desc2' => 'Diagnóstico y solución de problemas de conectividad',
+        'net_desc3' => 'Configuración y enrutamiento avanzado',
+        'net_fecha' => 'Mayo de 2026',
+        
+        // Tarjeta 2 - Robix FLISOL
+        'tercer_lugar' => 'Tercer Lugar',
+        'robix_titulo' => 'CARROS SEGUIDORES EN LÍNEA',
+        'robix_desc1' => 'Diseño y construcción del prototipo robótico ROBIX',
+        'robix_desc2' => 'Programación y lógica de seguimiento autónomo',
+        'robix_desc3' => 'Evaluación de hardware y software para control',
+        'robix_fecha' => 'Abril de 2026',
+        
+        // Barra de compromiso inferior
+        'comp_titulo' => 'Compromiso con la excelencia',
+        'comp_desc' => 'Cada logro representa horas de dedicación, aprendizaje continuo y trabajo en equipo para alcanzar soluciones innovadoras a problemas reales.'
     ],
     'en' => [
         'titulo_pestana' => 'Achievements | My Portfolio',
@@ -29,7 +48,26 @@ $textos = [
         'explorar' => 'Explore',
         'redes' => 'Social Media',
         'h2_header' => 'My Academic and Professional Achievements',
-        'p_header' => 'Validations and recognitions obtained throughout my career, demonstrating my commitment to technical excellence and teamwork.'
+        'p_header' => 'Validations and recognitions obtained throughout my career, demonstrating my commitment to technical excellence and teamwork.',
+        
+        // Tarjeta 1 - Networking Challenge
+        'primer_lugar' => 'First Place',
+        'net_desc1' => 'Network infrastructure design and implementation',
+        'net_desc2' => 'Connectivity troubleshooting and resolution',
+        'net_desc3' => 'Advanced routing and configuration',
+        'net_fecha' => 'May 2026',
+        
+        // Tarjeta 2 - Robix FLISOL
+        'tercer_lugar' => 'Third Place',
+        'robix_titulo' => 'LINE FOLLOWER CARS',
+        'robix_desc1' => 'Design and construction of the ROBIX robotic prototype',
+        'robix_desc2' => 'Autonomous tracking logic and programming',
+        'robix_desc3' => 'Hardware and software evaluation for control systems',
+        'robix_fecha' => 'April 2026',
+        
+        // Barra de compromiso inferior
+        'comp_titulo' => 'Commitment to excellence',
+        'comp_desc' => 'Each achievement represents hours of dedication, continuous learning, and teamwork to achieve innovative solutions to real-world problems.'
     ]
 ];
 
@@ -278,19 +316,19 @@ if ($pagina_actual == '') {
     <nav class="navbar">
         <div class="pestañas">
             <a href="index.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'index.php') ? 'active' : ''; ?>">
-                <i class="fa-solid fa-house"></i> <?php echo $t['inicio']; ?>
+                <i class="fa-solid fa-house"></i> <?php echo htmlspecialchars($t['inicio'], ENT_QUOTES, 'UTF-8'); ?>
             </a>
             <a href="sobre-mi.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'sobre-mi.php') ? 'active' : ''; ?>">
-                <i class="fa-solid fa-user"></i> <?php echo $t['sobre']; ?>
+                <i class="fa-solid fa-user"></i> <?php echo htmlspecialchars($t['sobre'], ENT_QUOTES, 'UTF-8'); ?>
             </a>
             <a href="proyectos.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'proyectos.php') ? 'active' : ''; ?>">
-                <i class="fa-solid fa-code"></i> <?php echo $t['proyectos']; ?>
+                <i class="fa-solid fa-code"></i> <?php echo htmlspecialchars($t['proyectos'], ENT_QUOTES, 'UTF-8'); ?>
             </a>
             <a href="logros.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'logros.php') ? 'active' : ''; ?>">
-                <i class="fa-solid fa-trophy"></i> <?php echo $t['logros']; ?>
+                <i class="fa-solid fa-trophy"></i> <?php echo htmlspecialchars($t['logros'], ENT_QUOTES, 'UTF-8'); ?>
             </a>
             <a href="contacto.php?lang=<?php echo $lang; ?>" class="<?php echo ($pagina_actual == 'contacto.php') ? 'active' : ''; ?>">
-                <i class="fa-solid fa-envelope"></i> <?php echo $t['contacto']; ?>
+                <i class="fa-solid fa-envelope"></i> <?php echo htmlspecialchars($t['contacto'], ENT_QUOTES, 'UTF-8'); ?>
             </a>
         </div>
         
@@ -317,7 +355,7 @@ if ($pagina_actual == '') {
                             <i class="fa-solid fa-award"></i>
                         </div>
                         <div class="info-titulo-evento">
-                            <span class="badge-lugar badge-azul">Primer Lugar</span>
+                            <span class="badge-lugar badge-azul"><?php echo htmlspecialchars($t['primer_lugar'], ENT_QUOTES, 'UTF-8'); ?></span>
                             <h3>NETWORKING CHALLENGE 2026</h3>
                             <p>Facultad de Ciencia y Tecnología — Universidad Gerardo Barrios</p>
                         </div>
@@ -327,15 +365,15 @@ if ($pagina_actual == '') {
                         <div class="lista-items-tecnicos">
                             <div class="item-tecnico">
                                 <i class="fa-solid fa-diagram-project" style="color: #2563eb;"></i>
-                                <div><p>Diseño e implementación de infraestructura de redes</p></div>
+                                <div><p><?php echo htmlspecialchars($t['net_desc1'], ENT_QUOTES, 'UTF-8'); ?></p></div>
                             </div>
                             <div class="item-tecnico">
                                 <i class="fa-solid fa-magnifying-glass-chart" style="color: #2563eb;"></i>
-                                <div><p>Diagnóstico y solución de problemas de conectividad</p></div>
+                                <div><p><?php echo htmlspecialchars($t['net_desc2'], ENT_QUOTES, 'UTF-8'); ?></p></div>
                             </div>
                             <div class="item-tecnico">
                                 <i class="fa-solid fa-sliders" style="color: #2563eb;"></i>
-                                <div><p>Configuración y enrutamiento avanzado</p></div>
+                                <div><p><?php echo htmlspecialchars($t['net_desc3'], ENT_QUOTES, 'UTF-8'); ?></p></div>
                             </div>
                         </div>
 
@@ -347,7 +385,7 @@ if ($pagina_actual == '') {
 
                 <div class="tarjeta-footer-layout">
                     <div class="fecha-logro">
-                        <i class="fa-regular fa-calendar"></i> Mayo de 2026
+                        <i class="fa-regular fa-calendar"></i> <?php echo htmlspecialchars($t['net_fecha'], ENT_QUOTES, 'UTF-8'); ?>
                     </div>
                     <div class="contenedor-badges-tecnologicos">
                         <span class="badge-tecnico">Cisco</span>
@@ -365,8 +403,8 @@ if ($pagina_actual == '') {
                             <i class="fa-solid fa-robot"></i>
                         </div>
                         <div class="info-titulo-evento">
-                            <span class="badge-lugar badge-verde">Tercer Lugar</span>
-                            <h3>CARROS SEGUIDORES EN LÍNEA</h3>
+                            <span class="badge-lugar badge-verde"><?php echo htmlspecialchars($t['tercer_lugar'], ENT_QUOTES, 'UTF-8'); ?></span>
+                            <h3><?php echo htmlspecialchars($t['robix_titulo'], ENT_QUOTES, 'UTF-8'); ?></h3>
                             <p>22° Festival Latinoamericano de Instalación de Software Libre (FLISOL)</p>
                         </div>
                     </div>
@@ -375,15 +413,15 @@ if ($pagina_actual == '') {
                         <div class="lista-items-tecnicos">
                             <div class="item-tecnico">
                                 <i class="fa-solid fa-microchip" style="color: #16a34a;"></i>
-                                <div><p>Diseño y construcción del prototipo robótico ROBIX</p></div>
+                                <div><p><?php echo htmlspecialchars($t['robix_desc1'], ENT_QUOTES, 'UTF-8'); ?></p></div>
                             </div>
                             <div class="item-tecnico">
                                 <i class="fa-solid fa-code" style="color: #16a34a;"></i>
-                                <div><p>Programación y lógica de seguimiento autónomo</p></div>
+                                <div><p><?php echo htmlspecialchars($t['robix_desc2'], ENT_QUOTES, 'UTF-8'); ?></p></div>
                             </div>
                             <div class="item-tecnico">
                                 <i class="fa-solid fa-bullseye" style="color: #16a34a;"></i>
-                                <div><p>Evaluación de hardware y software para control</p></div>
+                                <div><p><?php echo htmlspecialchars($t['robix_desc3'], ENT_QUOTES, 'UTF-8'); ?></p></div>
                             </div>
                         </div>
 
@@ -395,7 +433,7 @@ if ($pagina_actual == '') {
 
                 <div class="tarjeta-footer-layout">
                     <div class="fecha-logro">
-                        <i class="fa-regular fa-calendar"></i> Abril de 2026
+                        <i class="fa-regular fa-calendar"></i> <?php echo htmlspecialchars($t['robix_fecha'], ENT_QUOTES, 'UTF-8'); ?>
                     </div>
                     <div class="contenedor-badges-tecnologicos">
                         <span class="badge-tecnico">Robótica</span>
@@ -412,8 +450,8 @@ if ($pagina_actual == '') {
                 <i class="fa-regular fa-star"></i>
             </div>
             <div class="texto-compromiso">
-                <span class="titulo-comp">Compromiso con la excelencia</span>
-                <p class="desc-comp">Cada logro representa horas de dedicación, aprendizaje continuo y trabajo en equipo para alcanzar soluciones innovadoras a problemas reales.</p>
+                <span class="titulo-comp"><?php echo htmlspecialchars($t['comp_titulo'], ENT_QUOTES, 'UTF-8'); ?></span>
+                <p class="desc-comp"><?php echo htmlspecialchars($t['comp_desc'], ENT_QUOTES, 'UTF-8'); ?></p>
             </div>
         </section>
     </main>
@@ -421,16 +459,16 @@ if ($pagina_actual == '') {
     <footer>
         <div class="footer-wrapper">
             <div class="footer-col">
-                <h3><?php echo $t['explorar']; ?></h3>
-                <a href="index.php?lang=<?php echo $lang; ?>"><?php echo $t['inicio']; ?></a>
-                <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><?php echo $t['sobre']; ?></a>
-                <a href="proyectos.php?lang=<?php echo $lang; ?>"><?php echo $t['proyectos']; ?></a>
-                <a href="logros.php?lang=<?php echo $lang; ?>"><?php echo $t['logros']; ?></a>
-                <a href="contacto.php?lang=<?php echo $lang; ?>"><?php echo $t['contacto']; ?></a>
+                <h3><?php echo htmlspecialchars($t['explorar'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                <a href="index.php?lang=<?php echo $lang; ?>"><?php echo htmlspecialchars($t['inicio'], ENT_QUOTES, 'UTF-8'); ?></a>
+                <a href="sobre-mi.php?lang=<?php echo $lang; ?>"><?php echo htmlspecialchars($t['sobre'], ENT_QUOTES, 'UTF-8'); ?></a>
+                <a href="proyectos.php?lang=<?php echo $lang; ?>"><?php echo htmlspecialchars($t['proyectos'], ENT_QUOTES, 'UTF-8'); ?></a>
+                <a href="logros.php?lang=<?php echo $lang; ?>"><?php echo htmlspecialchars($t['logros'], ENT_QUOTES, 'UTF-8'); ?></a>
+                <a href="contacto.php?lang=<?php echo $lang; ?>"><?php echo htmlspecialchars($t['contacto'], ENT_QUOTES, 'UTF-8'); ?></a>
             </div>
 
             <div class="footer-col">
-                <h3><?php echo $t['redes']; ?></h3>
+                <h3><?php echo htmlspecialchars($t['redes'], ENT_QUOTES, 'UTF-8'); ?></h3>
                 <div class="social-icons-container">
                     <a href="https://www.linkedin.com/in/cristopher-alejandro-bernal-chávez-245189381" target="_blank" rel="noopener noreferrer">
                         <img src="img/linkedin.jpg" alt="LinkedIn" class="img-social">
