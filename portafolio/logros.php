@@ -40,7 +40,7 @@
                     <div>
                         <div style="text-align: center; margin-bottom: 20px;">
                             <span class="rol-destacado" style="font-size: 1.4rem; color: #2563eb; display: block; margin-bottom: 5px;">
-                                <i class="fa-solid fa-award"></i> ¡1er Lugar Destacado!
+                                <i class="fa-solid fa-award"></i> ¡Primer Lugar Destacado!
                             </span>
                             <h3 style="margin-top: 10px; font-size: 1.2rem; color: var(--color-texto-principal); font-weight: bold;">
                                 NETWORKING CHALLENGE 2026
@@ -64,7 +64,7 @@
                     <div>
                         <div style="text-align: center; margin-bottom: 20px;">
                             <span class="rol-destacado" style="font-size: 1.4rem; color: #10b981; display: block; margin-bottom: 5px;">
-                                <i class="fa-solid fa-robot"></i> ¡3er Lugar Destacado!
+                                <i class="fa-solid fa-robot"></i> ¡Tercer Lugar Destacado!
                             </span>
                             <h3 style="margin-top: 10px; font-size: 1.2rem; color: var(--color-texto-principal); font-weight: bold;">
                                 CARROS SEGUIDORES EN LÍNEA
